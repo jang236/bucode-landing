@@ -430,6 +430,38 @@
   .done h3 { font-size: 21px; font-weight: 900; margin-bottom: 10px; }
   .done p { font-size: 15px; color: var(--sub); }
 
+
+  /* video embed */
+  .video {
+    margin: 38px auto 0;
+    max-width: 460px;
+    aspect-ratio: 16/9;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(26,31,39,.16);
+    background: #000;
+  }
+  .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+  /* waiting count (BPT style) */
+  .wait-count {
+    display: none;
+    max-width: 420px;
+    margin: 34px auto -14px;
+    background: var(--dark);
+    color: #fff;
+    border-radius: 100px;
+    padding: 13px 22px;
+    font-size: 16.5px; font-weight: 700;
+  }
+  .wait-count b { color: var(--kakao); font-weight: 900; }
+
+  /* CTA trust note */
+  .cta-note {
+    font-size: 13.5px; color: var(--sub);
+    margin-top: 12px;
+  }
+
   .faq { max-width: 480px; margin: 30px auto 0; text-align: left; }
   details { border-bottom: 1px solid var(--line); }
   summary {
@@ -488,7 +520,8 @@
     <div class="gap"></div>
     <p><em class="mark">두 시간 걸리던 종목 분석이 10초로 끝나면,</em><br>확신은 만들어집니다.<br><span class="sub">그 과정을 이 페이지에서 전부 보여드릴게요.</span></p>
     <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
-    <p class="sub" style="font-size:14.5px;margin-top:16px">★ 월부(월급쟁이부자들) 공식 강의 평점 <b style="color:var(--yellow)">4.78</b> / 5.0 · 후기 58개</p>
+    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
+    <p class="sub" style="font-size:14.5px;margin-top:10px">★ 월부(월급쟁이부자들) 공식 강의 평점 <b style="color:var(--yellow)">4.78</b> / 5.0 · 후기 58개</p>
   </div>
 </section>
 
@@ -569,10 +602,12 @@
     <h2>그래서 아예<br><span class="y">자동화해버렸습니다.</span></h2>
     <p class="sub">코딩도 개발도 몰랐지만<br>세 달 밤새우면서 <b style="color:var(--text)">500번 실패</b>했어요.</p>
     <p class="sub">주변에서 차트만 보고 투자하다<br>돈 날리는 분들을 너무 많이 봐서,<br>포기가 안 되더라고요.</p>
+    <p>그렇게 만든 시스템으로 지금은<br><em class="mark">월급쟁이부자들(월부) 공식 강사</em>로<br>이 방법을 강의하고 있습니다.</p>
     <div class="gap"></div>
     <p class="big-line">그렇게 <span class="y">네이버 증권 데이터</span>를<br>AI에 통째로 연결했습니다.</p>
 
-    <div class="media"><div class="play">▶</div><div class="cap">재무분석기 실행 화면<small>영상 준비 중</small></div></div>
+    <p class="sub" style="font-size:16.5px;margin-bottom:6px">말로 하면 안 믿기시죠. 직접 보세요.</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/xk75pbskZzg" title="챗GPT로 종목분석 10초 완성" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
     <div class="beat">
       <h2>두 시간짜리 분석이,<br><span class="y">10초로 끝납니다.</span></h2>
@@ -704,6 +739,8 @@
       </div>
     </div>
 
+    <div class="wait-count" id="waitCount">현재 <b id="waitNum">-</b>명이 사전대기 중입니다</div>
+
     <div class="selfcheck">
       <div class="t">하나라도 해당되시나요?</div>
       <label class="sc-item"><input type="checkbox" class="scbox"><span>종목 분석에 2시간은 너무 길다</span></label>
@@ -730,7 +767,7 @@
         </div>
         <div class="err" id="agreeErr">개인정보 수집 동의에 체크해주세요</div>
         <button class="submit" id="submitBtn">사전대기 신청 + 뉴스봇 받기</button>
-        <p class="form-note">신청 후, 카톡으로 뉴스봇 안내를 보내드립니다</p>
+        <p class="form-note">신청 후, 카톡으로 뉴스봇 안내를 보내드립니다<br>*사전대기는 무료이며, 결제 의무가 없습니다</p>
       </div>
       <div class="done" id="formMsg">
         <div class="em">🎉</div>
@@ -775,6 +812,7 @@
     <p class="big-line">연락처를 남기면 —<br>내일 아침엔 <span class="y">뉴스봇이 먼저 와 있습니다.</span></p>
     <p class="sub">연락처 하나 남기는 데 10초면 됩니다.</p>
     <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
+    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </section>
 
@@ -843,6 +881,17 @@
       window.__submitted = true;
     }
   });
+
+  // waiting count (set COUNT_URL to Apps Script web app URL to activate)
+  var COUNT_URL = "";
+  if (COUNT_URL) {
+    fetch(COUNT_URL).then(function (r) { return r.json(); }).then(function (d) {
+      if (d && d.count && d.count > 0) {
+        document.getElementById("waitNum").textContent = d.count.toLocaleString();
+        document.getElementById("waitCount").style.display = "inline-block";
+      }
+    }).catch(function () {});
+  }
 
   // self-check commitment ladder
   var scBoxes = document.querySelectorAll(".scbox");
