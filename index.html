@@ -301,6 +301,72 @@
     font-size: 17.5px; font-weight: 700; line-height: 1.65;
   }
 
+  /* ── value anchor (DIY vs 신청) ── */
+  .anchor {
+    max-width: 440px; margin: 30px auto 0;
+    display: flex; flex-direction: column; gap: 10px;
+    text-align: left;
+  }
+  .anchor .row {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 18px;
+    font-size: 15.5px; color: var(--sub);
+  }
+  .anchor .row.win {
+    background: rgba(255,212,58,.08);
+    border-color: rgba(255,212,58,.5);
+    color: var(--text); font-weight: 700;
+  }
+  .anchor .tag { flex-shrink: 0; font-size: 13px; font-weight: 800; }
+  .anchor .row .tag { color: #6d7a92; }
+  .anchor .row.win .tag { color: var(--yellow); }
+
+  /* ── after-signup steps ── */
+  .steps { max-width: 440px; margin: 34px auto 0; text-align: left; }
+  .step-row { display: flex; gap: 16px; }
+  .step-rail { display: flex; flex-direction: column; align-items: center; }
+  .step-dot {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--card); border: 1.5px solid var(--yellow);
+    color: var(--yellow); font-size: 14px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-line { width: 1.5px; flex: 1; background: var(--line); margin: 4px 0; }
+  .step-body { padding: 5px 0 26px; }
+  .step-row:last-child .step-body { padding-bottom: 0; }
+  .step-row:last-child .step-line { display: none; }
+  .step-body b { display: block; font-size: 17px; }
+  .step-body .w { font-size: 13.5px; color: var(--yellow); font-weight: 800; letter-spacing: .06em; margin-bottom: 3px; }
+  .step-body span { font-size: 14.5px; color: var(--sub); }
+
+  /* ── self-check (commitment ladder) ── */
+  .selfcheck {
+    max-width: 420px; margin: 40px auto 0;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 18px; padding: 24px 22px;
+    text-align: left;
+  }
+  .selfcheck .t { font-size: 17px; font-weight: 800; margin-bottom: 16px; text-align: center; }
+  .sc-item {
+    display: flex; align-items: flex-start; gap: 11px;
+    padding: 11px 0;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer;
+    color: var(--sub);
+    transition: color .15s;
+  }
+  .sc-item input { width: 20px; height: 20px; accent-color: var(--yellow); cursor: pointer; margin-top: 2px; flex-shrink: 0; }
+  .sc-item.on { color: var(--text); }
+  .selfcheck .bottom {
+    margin-top: 14px; padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px; font-weight: 700; text-align: center;
+    color: var(--sub);
+  }
+  .selfcheck .bottom.hot { color: var(--yellow); }
+
   /* ── form ── */
   .form-card {
     max-width: 420px;
@@ -565,6 +631,7 @@
         <div class="bubble"><span class="tt">주식분석, 더 이상 오래 걸리지 않아요</span>주린이 중의 주린이였습니다. AI로 복잡한 재무제표나 뉴스를 혼자 분석하지 않아도 된다는 걸 알고 크게 놀랐습니다.<span class="bubble-stars">★★★★☆</span></div>
       </div>
     </div>
+    <p style="font-size:16.5px;margin-top:18px">특별한 사람들이 아닙니다.<br><em class="mark">30대부터 50대까지, 평범한 직장인·주부</em>들이<br>남긴 후기입니다.</p>
     <p class="sub" style="font-size:14px;margin-top:8px">※ 월부 플랫폼에 등록된 실제 수강 후기 중 발췌</p>
   </div>
 </section>
@@ -597,7 +664,8 @@
     <div class="beat">
       <div class="gift-tag">신청자 전원 무료 제공</div>
       <h2 style="font-size:clamp(23px,6vw,32px)">AI 카톡 뉴스봇을<br>드립니다</h2>
-      <p class="sub">"아침에 누가 주식 뉴스 핵심만 정리해서<br>카톡으로 보내주면 좋겠다"<br>— 그걸 만들어뒀습니다.</p>
+      <p class="sub">"아침에 누가 주식 뉴스 핵심만 정리해서<br>카톡으로 보내주면 좋겠다"</p>
+      <p>그걸 만들어뒀습니다.<br><em class="mark">당신 몫의 뉴스봇은 이미 준비되어 있습니다.</em><br>연락처를 남기는 순간, 연결만 하면 됩니다.</p>
 
       <div class="feat">
         <div class="feat-row"><div class="cmd">네이버 랭킹</div><div class="d"><b>오늘 아침 경제뉴스 도착</b><span>핵심만 정리해서 카톡으로</span></div></div>
@@ -609,7 +677,37 @@
       <div class="media tall"><div class="cap">뉴스봇 카톡 화면<small>이미지 준비 중</small></div></div>
 
       <p class="sub" style="font-size:16px;margin-top:20px">설치할 것도 없고, 컴퓨터 켜둘 필요도 없습니다.<br>카톡에서 바로 씁니다.</p>
-      <div class="scarcity">유튜브에서는 <span class="y">추첨으로만</span> 드렸던 봇입니다.<br>사전대기 신청자분들께는 <span class="y">전원</span> 드려요.</div>
+
+      <div class="anchor">
+        <div class="row"><span>클로드 유료 결제 + 확장 프로그램 설치<br>+ 컴퓨터 24시간 켜두기</span><span class="tag">직접 만들면</span></div>
+        <div class="row win"><span>카톡에서 바로, 설치 없이 무료</span><span class="tag">대기 신청하면</span></div>
+      </div>
+
+      <div class="scarcity">유튜브에서는 <span class="y">추첨으로만</span> 드렸던 봇입니다.<br>7월 기수 사전대기 신청자분들께는 <span class="y">전원</span> 드리고,<br>모집이 종료되면 <span class="y">신규 제공은 중단</span>될 수 있습니다.</div>
+
+      <div class="steps">
+        <p class="sub" style="font-size:15px;font-weight:800;letter-spacing:.08em;text-align:center;margin-bottom:22px">신청 후, 이렇게 진행됩니다</p>
+        <div class="step-row">
+          <div class="step-rail"><div class="step-dot">1</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="w">신청 즉시</div><b>카톡으로 뉴스봇 연결 안내</b><span>내일 아침부터 "네이버 랭킹" 한 마디로 시작</span></div>
+        </div>
+        <div class="step-row">
+          <div class="step-rail"><div class="step-dot">2</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="w">기다리는 동안</div><b>매일 아침, 뉴스봇으로 시장 감 잡기</b><span>모집 전까지 아침 뉴스 습관이 먼저 만들어집니다</span></div>
+        </div>
+        <div class="step-row">
+          <div class="step-rail"><div class="step-dot">3</div><div class="step-line"></div></div>
+          <div class="step-body"><div class="w">모집 오픈</div><b>등록 순서대로 가장 먼저 안내</b><span>모집 인원은 제한되며, 대기 순서가 빠를수록 유리합니다</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="selfcheck">
+      <div class="t">하나라도 해당되시나요?</div>
+      <label class="sc-item"><input type="checkbox" class="scbox"><span>종목 분석에 2시간은 너무 길다</span></label>
+      <label class="sc-item"><input type="checkbox" class="scbox"><span>감이 아니라 데이터로 투자하고 싶다</span></label>
+      <label class="sc-item"><input type="checkbox" class="scbox"><span>아침 뉴스 정리, 누가 대신 해줬으면 좋겠다</span></label>
+      <div class="bottom" id="scMsg">해당된다면, 아래에 연락처만 남겨주세요.</div>
     </div>
 
     <div class="form-card">
@@ -634,8 +732,8 @@
       </div>
       <div class="done" id="formMsg">
         <div class="em">🎉</div>
-        <h3>신청이 완료됐습니다!</h3>
-        <p>곧 카톡으로 뉴스봇 안내를 보내드릴게요.<br>7월 기수 모집이 열리면 가장 먼저 연락드립니다.</p>
+        <h3>사전대기 명단에 등록됐습니다!</h3>
+        <p>곧 카톡으로 뉴스봇 연결 안내를 보내드릴게요.<br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
       </div>
     </div>
   </div>
@@ -669,7 +767,10 @@
 <!-- ═══ 마지막 CTA ═══ -->
 <section>
   <div class="inner">
-    <h2>예전의 저처럼,<br>감으로 사고 기도로 버티는<br>투자를 계속하실 필요는<br>없습니다.</h2>
+    <h2>내일 아침은<br>둘 중 하나입니다.</h2>
+    <p class="pain">이 페이지를 그냥 닫으면 —<br>내일도 유튜브와 카톡방을 뒤지며<br><strong>남의 확신을 빌리는 아침</strong>이 반복됩니다.</p>
+    <div class="gap"></div>
+    <p class="big-line">연락처를 남기면 —<br>내일 아침엔 <span class="y">뉴스봇이 먼저 와 있습니다.</span></p>
     <p class="sub">연락처 하나 남기는 데 10초면 됩니다.</p>
     <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
   </div>
@@ -739,6 +840,26 @@
       document.getElementById("stickyBar").classList.remove("show");
       window.__submitted = true;
     }
+  });
+
+  // self-check commitment ladder
+  var scBoxes = document.querySelectorAll(".scbox");
+  var scMsg = document.getElementById("scMsg");
+  scBoxes.forEach(function (box) {
+    box.addEventListener("change", function () {
+      box.closest(".sc-item").classList.toggle("on", box.checked);
+      var n = document.querySelectorAll(".scbox:checked").length;
+      if (n >= 2) {
+        scMsg.textContent = n + "개나 해당되시네요. 아래에 연락처만 남겨주세요.";
+        scMsg.classList.add("hot");
+      } else if (n === 1) {
+        scMsg.textContent = "해당되시는군요. 아래에 연락처만 남겨주세요.";
+        scMsg.classList.add("hot");
+      } else {
+        scMsg.textContent = "해당된다면, 아래에 연락처만 남겨주세요.";
+        scMsg.classList.remove("hot");
+      }
+    });
   });
 
   var applySec = document.getElementById("apply");
