@@ -462,6 +462,45 @@
     margin-top: 12px;
   }
 
+  /* inner-voice quote cards */
+  .voice {
+    max-width: 420px; margin: 30px auto 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .voice .v {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px 18px;
+    font-size: 17px; font-weight: 700;
+    color: #3B4656;
+    box-shadow: 0 3px 12px rgba(26,31,39,.06);
+    position: relative;
+  }
+  .voice .v::before { content: "C"; color: var(--red); font-weight: 900; margin-right: 4px; }
+  .voice .v:nth-child(2) { margin-left: 24px; }
+  .voice .v:nth-child(3) { margin-right: 24px; }
+
+  /* benefit preview chips */
+  .benefit {
+    max-width: 440px; margin: 34px auto 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 6px 22px rgba(26,31,39,.07);
+  }
+  .benefit .bt { font-size: 15px; font-weight: 800; letter-spacing: .08em; color: var(--sub); margin-bottom: 14px; }
+  .benefit .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .benefit .chip {
+    background: #FFF0F0; border: 1px solid #FFD9D9;
+    color: #C13B3B;
+    border-radius: 100px;
+    padding: 8px 14px;
+    font-size: 14.5px; font-weight: 700;
+  }
+  .benefit .note { font-size: 13.5px; color: var(--sub); margin-top: 14px; }
+
   .faq { max-width: 480px; margin: 30px auto 0; text-align: left; }
   details { border-bottom: 1px solid var(--line); }
   summary {
@@ -537,7 +576,14 @@
     <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.08em">냉정하게 계산해 보겠습니다</p>
     <p class="big-line">한 종목 2시간 × 관심종목 10개<br>= <span class="y">20시간</span></p>
     <p>퇴근 후 하루 1시간씩 내면 <em class="mark">꼬박 한 달.</em><br>그 사이 주가는 이미 움직였습니다.</p>
-    <p class="sub">하루 이틀 하고 포기하게 돼요.<br>솔직히, 이 과정이 쉽지가 않더라고요.</p>
+    <div class="voice">
+      <div class="v">이 종목 괜찮나? 틀리면 또 손해인데..</div>
+      <div class="v">다들 수익이라는데.. 나만 왜 매번 손실일까?</div>
+      <div class="v">나는 주식하면 안되나봐..</div>
+    </div>
+    <div class="gap"></div>
+    <p>그래서 결국, 남의 말에 기대게 됩니다.<br><span class="sub">"내일 상한가 종목 공개" · "비공개 내부 정보" · "지인 추천 대박"</span></p>
+    <p class="pain">남의 말에만 의존한 결과는<br><strong>처참하기만 하죠.</strong></p>
   </div>
 </section>
 
@@ -621,9 +667,19 @@
         <div class="cell after"><div class="lb">이제부터</div><div class="vv">10초</div><div class="dd">종목 이름만 치면<br>분석이 도착</div></div>
       </div>
       <div class="gap"></div>
-      <div class="crow"><span class="ic">✓</span><span>실시간 주가 + 최신 뉴스 이슈 정리</span></div>
-      <div class="crow"><span class="ic">✓</span><span>수익성·안정성·성장성·가치·리스크 10점 평가</span></div>
+      <div class="crow"><span class="ic">✓</span><span>10초 만에 <b>33개 재무지표</b> + 최신 뉴스 종합 분석</span></div>
+      <div class="crow"><span class="ic">✓</span><span><b>매수근거 5가지</b> 제시 — 수익성·안정성·성장성·가치·리스크 10점 평가</span></div>
       <div class="crow"><span class="ic">✓</span><span>상장종목 <b>2,800개</b> 전부 — 중소형주까지</span></div>
+      <div class="ba" style="margin-top:22px">
+        <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">"이 종목 사도 될까?"</div><div class="dd">감으로, 불안하게</div></div>
+        <div class="ba-arrow">→</div>
+        <div class="cell after"><div class="lb">이제부터</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px)">매수근거 5가지</div><div class="dd">데이터로, 확신 있게</div></div>
+      </div>
+      <div class="ba" style="margin-top:10px">
+        <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">유튜버 말만 듣고 투자</div><div class="dd">남의 확신 빌리기</div></div>
+        <div class="ba-arrow">→</div>
+        <div class="cell after"><div class="lb">이제부터</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px)">스스로 판단</div><div class="dd">내 확신으로 매수</div></div>
+      </div>
       <div class="gap"></div>
       <p class="big-line">그리고 이 한 줄은<br>아무나 말할 수 없습니다.</p>
       <p style="font-size:clamp(19px,5vw,24px);font-weight:900;color:var(--yellow)">"재무제표 숫자가<br>네이버 증권과 100% 일치합니다."</p>
@@ -679,11 +735,13 @@
 <section style="background:var(--bg2)">
   <div class="inner">
     <h2>이 시스템 전부를,<br>처음부터 끝까지<br>알려드립니다</h2>
+    <p class="sub">스스로 판단하는 투자에는 3가지가 필요합니다.<br><b style="color:var(--text)">[재무]</b> 기업 가치 평가 · <b style="color:var(--text)">[이론]</b> 투자 원리와 심리 · <b style="color:var(--text)">[뉴스]</b> 시장 이슈 판단</p>
+    <p>이 3가지를 전부, <em class="mark">AI가 대신하도록</em> 만들었습니다.</p>
     <div class="pkg">
-      <div class="pk"><div><b>AI 재무분석기</b><span>네이버 증권 연동 — 종목 분석 10초</span></div></div>
-      <div class="pk"><div><b>급등주 종목 선별기</b><span>장 마감 후, 돈이 몰린 종목 자동 선별</span></div></div>
-      <div class="pk"><div><b>유튜브 경제뉴스 자동 요약</b><span>2시간 영상을 3분으로</span></div></div>
-      <div class="pk"><div><b>GPT · 제미나이 · 클로드 투자 프롬프트</b><span>AI별 강점에 맞춘 활용법 전부</span></div></div>
+      <div class="pk"><div><b>AI 재무분석기 — "환각 ZERO 실시간 데이터"</b><span>[재무] 네이버 증권 연동 · 10초 만에 33개 재무지표 + 뉴스 종합</span></div></div>
+      <div class="pk"><div><b>급등주 종목 선별기</b><span>[이론] 검증된 거래량 원리로, 장 마감 후 돈이 몰린 종목 자동 선별</span></div></div>
+      <div class="pk"><div><b>뉴스 요약 시스템 — "2시간 영상이 3분 요약"</b><span>[뉴스] 경제 유튜브 새 영상 자동 감지 → 출근길에 핵심만</span></div></div>
+      <div class="pk"><div><b>AI툴 공략 가이드</b><span>GPT·제미나이·클로드 강화 프롬프트 — 같은 질문도 10배 정확한 답변</span></div></div>
       <div class="pk"><div><b>1:1 피드백</b><span>배우고 끝이 아니라, 내 투자에 적용될 때까지</span></div></div>
     </div>
     <div class="gap"></div>
@@ -740,6 +798,17 @@
           <div class="step-body"><div class="w">모집 오픈</div><b>등록 순서대로 가장 먼저 안내</b><span>모집 인원은 제한되며, 대기 순서가 빠를수록 유리합니다</span></div>
         </div>
       </div>
+    </div>
+
+    <div class="benefit">
+      <div class="bt">모집 오픈 시, 대기 순서대로 안내되는 조건</div>
+      <div class="chips">
+        <span class="chip">선착순 소수 인원 한정</span>
+        <span class="chip">7일 무조건 환불 보장</span>
+        <span class="chip">재무분석 GPTs 영구 사용권</span>
+        <span class="chip">수강생 전용 카톡방</span>
+      </div>
+      <div class="note">지난 기수는 선착순 30명 한정으로 모집됐습니다.<br>대기 순서가 빠를수록 자리를 잡을 확률이 높아집니다.</div>
     </div>
 
     <div class="wait-count" id="waitCount">현재 <b id="waitNum">-</b>명이 사전대기 중입니다</div>
