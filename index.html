@@ -462,6 +462,100 @@
     margin-top: 12px;
   }
 
+  /* dark drama section (brand look: black + blue highlight bar) */
+  .dark-sec { background: linear-gradient(180deg, #15161B 0%, #060709 100%); color: #EFF1F6; }
+  .dark-sec h2, .dark-sec p { color: #fff; }
+  .dark-sec .sub { color: #9AA3B4; }
+  .dark-sec .pain { color: #9AA3B4; }
+  .dark-sec .pain strong { color: #fff; }
+  .dark-sec em.mark { background: none; color: #fff; }
+  .hlb {
+    display: inline;
+    background: #2440F0;
+    color: #fff;
+    padding: 3px 12px;
+    font-weight: 900;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    line-height: 1.7;
+  }
+  .dark-sec .voice .v {
+    background: rgba(255,255,255,.04);
+    border: 1.5px solid rgba(255,255,255,.35);
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: none;
+  }
+  .dark-sec .voice .v::before { color: #5B74FF; }
+
+  /* product UI mockups (CSS-built) */
+  .mock-note { font-size: 12.5px; color: var(--sub); margin-top: 10px; }
+  .dark-sec .mock-note { color: #9AA3B4; }
+  .kmock {
+    max-width: 340px; margin: 34px auto 0;
+    background: var(--kchat);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(26,31,39,.18);
+    text-align: left;
+  }
+  .kmock .khead {
+    background: #A6BDD3;
+    padding: 12px 16px;
+    font-size: 14.5px; font-weight: 800; color: #26303B;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .kmock .khead .dot { width: 26px; height: 26px; border-radius: 9px; background: var(--dark); color: var(--kakao); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+  .kmock .kbody { padding: 16px 12px 18px; }
+  .kmock .krow { display: flex; margin-bottom: 10px; }
+  .kmock .krow.me { justify-content: flex-end; }
+  .kmock .kb {
+    max-width: 82%;
+    padding: 10px 13px;
+    font-size: 14px; line-height: 1.55; font-weight: 500;
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  }
+  .kmock .me .kb { background: var(--kakao); color: #23180a; border-radius: 14px 4px 14px 14px; font-weight: 700; }
+  .kmock .bot .kb { background: #fff; color: #222; border-radius: 4px 14px 14px 14px; }
+  .kmock .kb .bn { display: block; font-weight: 800; font-size: 13px; margin-bottom: 5px; color: #111; }
+  .kmock .kb .ln { display: block; padding: 3px 0; border-bottom: 1px solid #F0F1F4; }
+  .kmock .kb .ln:last-child { border-bottom: none; }
+  .kmock .kb .ln b { color: #C13B3B; font-weight: 800; margin-right: 4px; }
+  .kmock .ktime { font-size: 10.5px; color: #5D7186; align-self: flex-end; margin: 0 6px; }
+  .amock {
+    max-width: 360px; margin: 34px auto 0;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(26,31,39,.14);
+    text-align: left;
+  }
+  .amock .ahead {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 18px;
+    background: #1A1F27; color: #fff;
+  }
+  .amock .ahead .nm { font-size: 16px; font-weight: 800; }
+  .amock .ahead .nm small { display: block; font-size: 11px; font-weight: 500; color: #A9B2C4; }
+  .amock .ahead .pr { text-align: right; font-size: 15px; font-weight: 800; }
+  .amock .ahead .pr small { display: block; font-size: 11px; color: #FF8A7A; font-weight: 700; }
+  .amock .abody { padding: 16px 18px 8px; }
+  .amock .arow { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+  .amock .arow .lb { flex: 0 0 62px; font-size: 13px; font-weight: 700; color: #4A5568; }
+  .amock .arow .bar { flex: 1; height: 8px; background: #EFF1F5; border-radius: 99px; overflow: hidden; }
+  .amock .arow .bar i { display: block; height: 100%; background: linear-gradient(90deg, #FF8A7A, var(--red)); border-radius: 99px; }
+  .amock .arow .sc { flex: 0 0 30px; text-align: right; font-size: 13px; font-weight: 800; color: var(--red); }
+  .amock .atotal {
+    display: flex; justify-content: space-between; align-items: center;
+    margin: 6px 18px 0; padding: 13px 0 15px;
+    border-top: 1px solid var(--line);
+  }
+  .amock .atotal .t { font-size: 14px; font-weight: 800; }
+  .amock .atotal .v { font-size: 22px; font-weight: 900; color: var(--red); }
+  .amock .afoot { background: #F7F8FA; padding: 9px 18px; font-size: 11.5px; color: var(--sub); }
+
   /* inner-voice quote cards */
   .voice {
     max-width: 420px; margin: 30px auto 0;
@@ -565,11 +659,11 @@
 </section>
 
 <!-- ═══ ① 문제 ═══ -->
-<section style="background:var(--bg2)">
+<section class="dark-sec">
   <div class="inner">
     <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.1em;margin-bottom:24px">그래서 공부를 시작하면</p>
     <h2>다들 이러죠.<br>"재무제표 봐라."</h2>
-    <p class="pain">근데 막상 펼치면 숫자만 잔뜩,<br><strong>머릿속이 하얘집니다.</strong></p>
+    <p class="pain" style="line-height:2.1"><span class="hlb">재무제표는 어렵기만 하고,</span><br><span class="hlb">어떤 종목을 사야 할지 모르겠다</span></p>
     <div class="gap"></div>
     <p>겨우겨우 한 종목 들여다보는 데 <em class="mark">두 시간.</em></p>
     <div class="gap"></div>
@@ -670,6 +764,22 @@
       <div class="crow"><span class="ic">✓</span><span>10초 만에 <b>33개 재무지표</b> + 최신 뉴스 종합 분석</span></div>
       <div class="crow"><span class="ic">✓</span><span><b>매수근거 5가지</b> 제시 — 수익성·안정성·성장성·가치·리스크 10점 평가</span></div>
       <div class="crow"><span class="ic">✓</span><span>상장종목 <b>2,800개</b> 전부 — 중소형주까지</span></div>
+      <div class="amock">
+        <div class="ahead">
+          <div class="nm">삼성전자 <small>005930 · KOSPI</small></div>
+          <div class="pr">72,400원 <small>▲ +1.83%</small></div>
+        </div>
+        <div class="abody">
+          <div class="arow"><span class="lb">수익성</span><span class="bar"><i style="width:82%"></i></span><span class="sc">8.2</span></div>
+          <div class="arow"><span class="lb">안정성</span><span class="bar"><i style="width:88%"></i></span><span class="sc">8.8</span></div>
+          <div class="arow"><span class="lb">성장성</span><span class="bar"><i style="width:74%"></i></span><span class="sc">7.4</span></div>
+          <div class="arow"><span class="lb">기업가치</span><span class="bar"><i style="width:79%"></i></span><span class="sc">7.9</span></div>
+          <div class="arow"><span class="lb">리스크</span><span class="bar"><i style="width:68%"></i></span><span class="sc">6.8</span></div>
+        </div>
+        <div class="atotal"><span class="t">종합 평가</span><span class="v">7.8 / 10</span></div>
+        <div class="afoot">네이버 증권 실시간 데이터 기준 · 33개 재무지표 종합</div>
+      </div>
+      <p class="mock-note">※ 분석 결과 화면 예시 (실제 UI와 다를 수 있습니다)</p>
       <div class="ba" style="margin-top:22px">
         <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">"이 종목 사도 될까?"</div><div class="dd">감으로, 불안하게</div></div>
         <div class="ba-arrow">→</div>
@@ -772,6 +882,19 @@
         <div class="feat-row"><div class="cmd">기사 링크</div><div class="d"><b>③ 기사 핵심 요약기</b><span>긴 기사도 링크만 보내면 요약 완료</span></div></div>
         <div class="feat-row"><div class="cmd">유튜브 링크</div><div class="d"><b>④ 유튜브 영상 요약기</b><span>2시간짜리 영상을 3분으로</span></div></div>
       </div>
+
+      <div class="kmock">
+        <div class="khead"><span class="dot">B</span>부코드 뉴스봇</div>
+        <div class="kbody">
+          <div class="krow me"><span class="ktime">오전 7:42</span><div class="kb">네이버 랭킹</div></div>
+          <div class="krow bot"><div class="kb"><span class="bn">📈 오늘 아침 경제뉴스 TOP 3</span>
+            <span class="ln"><b>1.</b> 반도체 수출 두 달 연속 최대치 경신</span>
+            <span class="ln"><b>2.</b> 한은, 기준금리 동결…"하반기 인하 여지"</span>
+            <span class="ln"><b>3.</b> AI 전력 수요 급증에 전력주 강세</span>
+          </div><span class="ktime">오전 7:42</span></div>
+        </div>
+      </div>
+      <p class="mock-note">※ 뉴스봇 대화 화면 예시 (뉴스 내용은 연출입니다)</p>
 
 
       <p class="sub" style="font-size:16px;margin-top:20px">설치할 것도 없고, 컴퓨터 켜둘 필요도 없습니다.<br>카톡에서 바로 씁니다.</p>
@@ -876,12 +999,12 @@
 </section>
 
 <!-- ═══ 마지막 CTA ═══ -->
-<section>
+<section class="dark-sec">
   <div class="inner">
     <h2>내일 아침은<br>둘 중 하나입니다.</h2>
     <p class="pain">이 페이지를 그냥 닫으면 —<br>내일도 유튜브와 카톡방을 뒤지며<br><strong>남의 확신을 빌리는 아침</strong>이 반복됩니다.</p>
     <div class="gap"></div>
-    <p class="big-line">연락처를 남기면 —<br>내일 아침엔 <span class="y">뉴스봇이 먼저 와 있습니다.</span></p>
+    <p class="big-line" style="line-height:2">연락처를 남기면 —<br><span class="hlb">내일 아침엔 뉴스봇이 먼저 와 있습니다.</span></p>
     <p class="sub">연락처 하나 남기는 데 10초면 됩니다.</p>
     <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
     <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
