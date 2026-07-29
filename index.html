@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>부코드 AI 주식투자 강의 — 7월 기수 사전대기</title>
-<meta name="description" content="두 시간 걸리던 종목 분석이 10초로. 네이버 증권 데이터를 그대로 읽는 AI 시스템 — 7월 기수 사전대기 신청자 전원, AI 카톡 뉴스봇 무료 제공.">
+<title>부코드 AI 주식투자 강의 — 사전대기</title>
+<meta name="description" content="두 시간 걸리던 종목 분석이 10초로. 네이버 증권 데이터를 그대로 읽는 AI 시스템 — 사전대기 신청자에게 가장 먼저 안내드립니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="내가 사면 떨어지고, 내가 팔면 오릅니다 — 부코드 AI 주식투자 강의">
-<meta property="og:description" content="두 시간 걸리던 종목 분석이 10초로. 사전대기 신청자 전원, AI 카톡 뉴스봇 무료 제공 · 월부 공식 평점 4.78">
+<meta property="og:description" content="두 시간 걸리던 종목 분석이 10초로. 월부 공식 평점 4.78 — 사전대기 신청자에게 가장 먼저 안내드립니다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://jang236.github.io/bucode-landing/img/og_1200x630.jpg">
 <meta property="og:image:width" content="1200">
@@ -23,7 +23,6 @@
     --line: #EAEDF1;
     --text: #1A1F27;
     --sub: #66707F;
-    --yellow: #EF5555;      /* accent (BPT coral red) -- legacy var name */
     --red: #EF5555;
     --red-deep: #E23F3F;
     --green: #1FA35C;
@@ -70,15 +69,14 @@
   p { font-size: 19.5px; margin-bottom: 18px; color: var(--text); }
   .sub { color: var(--sub); }
   .y { color: var(--red); }
-  .r { color: var(--red); }
   em.mark {
     font-style: normal; font-weight: 700;
     background: linear-gradient(transparent 55%, rgba(255,224,70,.6) 55%);
     padding: 0 2px;
   }
   .gap { height: 26px; }
-
   .beat { padding-top: 70px; margin-top: 70px; border-top: 1px solid var(--line); }
+  .kicker { font-size: 16.5px; font-weight: 800; letter-spacing: .1em; color: var(--sub); margin-bottom: 24px; }
 
   .btn {
     display: block;
@@ -97,13 +95,13 @@
   .btn:hover { background: var(--red-deep); }
   .btn:active { transform: scale(.97); }
   .btn .small { display: block; font-size: 14.5px; font-weight: 600; opacity: .9; margin-top: 2px; }
+  .cta-note { font-size: 13.5px; color: var(--sub); margin-top: 12px; }
 
   .big-line {
     font-size: clamp(23px, 6.2vw, 30px);
     font-weight: 800; line-height: 1.55;
     letter-spacing: -0.02em;
   }
-
   .pain {
     font-size: clamp(21px, 5.8vw, 27px);
     font-weight: 800; line-height: 1.6;
@@ -111,96 +109,145 @@
   }
   .pain strong { color: var(--text); }
 
-  .xrow, .crow {
-    display: flex; align-items: flex-start; gap: 14px;
-    text-align: left;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin: 0 auto 12px;
-    max-width: 460px;
-    font-size: 18.5px; font-weight: 600;
-    box-shadow: 0 3px 14px rgba(26,31,39,.05);
+  /* dark drama section */
+  .dark-sec { background: linear-gradient(180deg, #15161B 0%, #060709 100%); color: #EFF1F6; }
+  .dark-sec h2, .dark-sec p { color: #fff; }
+  .dark-sec .sub, .dark-sec .kicker { color: #9AA3B4; }
+  .dark-sec .pain { color: #9AA3B4; }
+  .dark-sec .pain strong { color: #fff; }
+  .dark-sec em.mark { background: none; color: #fff; }
+  .dark-sec .beat { border-top-color: rgba(255,255,255,.12); }
+  .hlb {
+    display: inline;
+    background: #2440F0;
+    color: #fff;
+    padding: 3px 12px;
+    font-weight: 900;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    line-height: 1.7;
   }
-  .xrow { background: #FFF5F5; border-color: #FFDCDC; }
-  .crow { background: #F2FBF6; border-color: #CFEEDD; }
-  .xrow .ic { color: var(--red); font-weight: 900; font-size: 17px; margin-top: 1px; }
-  .crow .ic { color: var(--green); font-weight: 900; font-size: 17px; margin-top: 1px; }
 
-  .method {
+  /* numbered problem blocks */
+  .prob { max-width: 460px; margin: 0 auto 46px; }
+  .prob .no {
+    font-size: 15px; font-weight: 900; letter-spacing: .18em;
+    color: #5B74FF; margin-bottom: 12px;
+  }
+  .prob .tt {
+    font-size: clamp(22px, 6vw, 27px);
+    font-weight: 900; line-height: 1.45; letter-spacing: -0.02em;
+    color: #fff; margin-bottom: 14px;
+  }
+  .prob .bd { font-size: 17.5px; color: #B7BFCD; line-height: 1.7; }
+  .prob .ev { font-size: 13.5px; color: #6E7A90; margin-top: 12px; }
+
+  /* inner-voice quote cards */
+  .voice {
+    max-width: 420px; margin: 30px auto 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .voice .v {
+    background: rgba(255,255,255,.04);
+    border: 1.5px solid rgba(255,255,255,.35);
+    border-radius: 4px;
+    padding: 15px 18px;
+    font-size: 17px; font-weight: 700;
+    color: #fff;
+    position: relative;
+  }
+  .voice .v::before { content: "\201C"; color: #5B74FF; font-weight: 900; margin-right: 4px; }
+  .voice .v:nth-child(2) { margin-left: 24px; }
+  .voice .v:nth-child(3) { margin-right: 24px; }
+
+  /* case cards (② 사례) */
+  .case {
+    max-width: 460px; margin: 0 auto 18px;
+    background: #FFF5F5;
+    border: 1px solid #FFDCDC;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: left;
+  }
+  .case .cn { font-size: 13.5px; font-weight: 900; letter-spacing: .14em; color: var(--red); margin-bottom: 8px; }
+  .case .ct { font-size: 18.5px; font-weight: 800; margin-bottom: 8px; line-height: 1.5; }
+  .case .cb { font-size: 15.5px; color: #7A5252; line-height: 1.7; }
+
+  /* solution cards (③ 해결) */
+  .sol {
     text-align: left;
     background: var(--card);
     border: 1.5px solid var(--red);
     border-radius: 20px;
-    padding: 8px 24px;
-    margin: 34px auto 0;
+    padding: 24px;
+    margin: 0 auto 20px;
     max-width: 480px;
     box-shadow: 0 10px 34px rgba(239,85,85,.1);
   }
-  .m-step { padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .m-step:last-child { border-bottom: none; }
-  .m-step .n {
-    font-size: 14px; font-weight: 800; letter-spacing: .12em;
-    color: var(--red); margin-bottom: 8px;
-  }
-  .m-step .b { font-size: 18.5px; font-weight: 600; line-height: 1.65; }
-  .m-step .note { font-size: 15.5px; color: var(--sub); font-weight: 500; margin-top: 6px; }
+  .sol .sn { font-size: 13.5px; font-weight: 900; letter-spacing: .14em; color: var(--red); margin-bottom: 8px; }
+  .sol .st { font-size: 19.5px; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .sol .sb { font-size: 16.5px; line-height: 1.75; color: #37414F; }
+  .sol .sb b { color: var(--text); }
   .prompt {
-    margin-top: 12px;
+    margin-top: 14px;
     background: #F7F8FA;
     border: 1px solid var(--line);
     border-left: 3px solid var(--red);
     border-radius: 10px;
     padding: 15px 16px;
-    font-size: 17px; font-weight: 600; line-height: 1.7;
+    font-size: 16px; font-weight: 600; line-height: 1.7;
     color: #34404F;
   }
 
+  /* limit cards (④ 한계) */
+  .lim {
+    max-width: 460px; margin: 0 auto 18px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 16px;
+    padding: 22px;
+    text-align: left;
+  }
+  .lim .ln { font-size: 13.5px; font-weight: 900; letter-spacing: .14em; color: #FF8A7A; margin-bottom: 8px; }
+  .lim .lt { font-size: 18.5px; font-weight: 800; color: #fff; margin-bottom: 8px; line-height: 1.5; }
+  .lim .lb { font-size: 15.5px; color: #A6AFBE; line-height: 1.7; }
   .story-q {
     font-size: clamp(23px, 6vw, 30px);
     font-weight: 900; line-height: 1.5;
     letter-spacing: -0.02em;
-    margin: 30px 0;
+    margin: 34px 0 0;
+    color: #fff;
   }
   .story-q .q { color: var(--red); font-size: 1.4em; line-height: 0; vertical-align: -0.1em; }
 
-  .media {
+  /* photo & video */
+  .photo {
+    display: block;
+    width: 100%; max-width: 440px;
+    margin: 34px auto 0;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.3);
+  }
+  .photo.sq { max-width: 380px; }
+  .video {
     margin: 38px auto 0;
     max-width: 460px;
-    aspect-ratio: 16/10;
-    background: #F3F5F8;
-    border: 1px solid var(--line);
+    aspect-ratio: 16/9;
     border-radius: 18px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(26,31,39,.16);
+    background: #000;
   }
-  .media.tall { aspect-ratio: 4/5; max-width: 320px; }
-  .media .play {
-    width: 54px; height: 54px; border-radius: 50%;
-    background: #fff;
-    border: 1.5px solid #FFC2C2;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--red);
-    box-shadow: 0 4px 14px rgba(239,85,85,.18);
-  }
-  .media .cap { font-size: 15px; color: var(--sub); font-weight: 600; }
-  .media .cap small { display: block; font-weight: 400; opacity: .8; margin-top: 2px; }
+  .video iframe { width: 100%; height: 100%; border: 0; display: block; }
 
+  /* before/after */
   .ba {
     display: flex; align-items: stretch; gap: 10px;
     max-width: 460px; margin: 34px auto 0;
   }
   .ba .cell { flex: 1; border-radius: 16px; padding: 22px 12px; }
-  .ba .before {
-    background: #F4F6F9;
-    border: 1px solid var(--line);
-    color: var(--sub);
-  }
-  .ba .after {
-    background: #FFF0F0;
-    border: 1.5px solid var(--red);
-  }
+  .ba .before { background: #F4F6F9; border: 1px solid var(--line); color: var(--sub); }
+  .ba .after { background: #FFF0F0; border: 1.5px solid var(--red); }
   .ba .lb { font-size: 14px; font-weight: 800; letter-spacing: .1em; margin-bottom: 6px; }
   .ba .before .lb { color: #98A2B0; }
   .ba .after .lb { color: var(--red); }
@@ -220,6 +267,42 @@
   .stat .v { font-size: clamp(20px, 5.4vw, 26px); font-weight: 900; color: var(--red); letter-spacing: -0.02em; }
   .stat .k { font-size: 14px; color: var(--sub); font-weight: 600; margin-top: 3px; }
 
+  /* analysis mockup */
+  .mock-note { font-size: 12.5px; color: var(--sub); margin-top: 10px; }
+  .amock {
+    max-width: 360px; margin: 34px auto 0;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(26,31,39,.14);
+    text-align: left;
+  }
+  .amock .ahead {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 18px;
+    background: #1A1F27; color: #fff;
+  }
+  .amock .ahead .nm { font-size: 16px; font-weight: 800; }
+  .amock .ahead .nm small { display: block; font-size: 11px; font-weight: 500; color: #A9B2C4; }
+  .amock .ahead .pr { text-align: right; font-size: 15px; font-weight: 800; }
+  .amock .ahead .pr small { display: block; font-size: 11px; color: #FF8A7A; font-weight: 700; }
+  .amock .abody { padding: 16px 18px 8px; }
+  .amock .arow { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+  .amock .arow .lb { flex: 0 0 62px; font-size: 13px; font-weight: 700; color: #4A5568; }
+  .amock .arow .bar { flex: 1; height: 8px; background: #EFF1F5; border-radius: 99px; overflow: hidden; }
+  .amock .arow .bar i { display: block; height: 100%; background: linear-gradient(90deg, #FF8A7A, var(--red)); border-radius: 99px; }
+  .amock .arow .sc { flex: 0 0 30px; text-align: right; font-size: 13px; font-weight: 800; color: var(--red); }
+  .amock .atotal {
+    display: flex; justify-content: space-between; align-items: center;
+    margin: 6px 18px 0; padding: 13px 0 15px;
+    border-top: 1px solid var(--line);
+  }
+  .amock .atotal .t { font-size: 14px; font-weight: 800; }
+  .amock .atotal .v { font-size: 22px; font-weight: 900; color: var(--red); }
+  .amock .afoot { background: #F7F8FA; padding: 9px 18px; font-size: 11.5px; color: var(--sub); }
+
+  /* reviews */
   .score {
     margin: 0 auto 8px;
     font-size: clamp(40px, 11vw, 56px); font-weight: 900;
@@ -229,8 +312,6 @@
   .stars { color: #FFB300; font-size: 20px; letter-spacing: 4px; margin-bottom: 6px; }
   .score-meta { font-size: 15.5px; color: var(--sub); margin-bottom: 34px; }
   .score-meta b { color: var(--text); }
-
-  /* kakao-style chat */
   .chat {
     max-width: 440px; margin: 0 auto;
     background: var(--kchat);
@@ -253,6 +334,7 @@
   .bubble .tt { display: block; font-weight: 800; margin-bottom: 4px; }
   .bubble-stars { display: block; font-size: 14px; color: #B7791F; letter-spacing: 2px; margin-top: 6px; font-weight: 700; }
 
+  /* curriculum */
   .pkg { max-width: 460px; margin: 34px auto 0; text-align: left; counter-reset: pk; }
   .pk {
     display: flex; gap: 16px; align-items: flex-start;
@@ -269,62 +351,27 @@
   .pk b { display: block; font-size: 19.5px; font-weight: 800; letter-spacing: -0.01em; }
   .pk span { font-size: 16.5px; color: var(--sub); }
 
-  .gift-tag {
-    display: inline-block;
-    background: var(--kakao); color: #191600;
-    font-size: 15px; font-weight: 900; letter-spacing: .06em;
-    padding: 7px 16px; border-radius: 100px;
-    margin-bottom: 22px;
+  /* benefit preview */
+  .benefit {
+    max-width: 440px; margin: 34px auto 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 6px 22px rgba(26,31,39,.07);
   }
-  .feat { max-width: 440px; margin: 30px auto 0; text-align: left; }
-  .feat-row {
-    display: flex; gap: 14px; align-items: flex-start;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--line);
+  .benefit .bt { font-size: 15px; font-weight: 800; letter-spacing: .08em; color: var(--sub); margin-bottom: 14px; }
+  .benefit .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .benefit .chip {
+    background: #FFF0F0; border: 1px solid #FFD9D9;
+    color: #C13B3B;
+    border-radius: 100px;
+    padding: 8px 14px;
+    font-size: 14.5px; font-weight: 700;
   }
-  .feat-row:last-child { border-bottom: none; }
-  .feat-row .cmd {
-    flex-shrink: 0;
-    background: var(--dark); border: 1px solid var(--dark);
-    color: var(--kakao);
-    font-size: 14.5px; font-weight: 800;
-    border-radius: 8px; padding: 6px 10px;
-    margin-top: 2px; white-space: nowrap;
-  }
-  .feat-row .d b { font-size: 18px; display: block; }
-  .feat-row .d span { font-size: 15.5px; color: var(--sub); }
-  .scarcity {
-    max-width: 440px;
-    margin: 34px auto 0;
-    background: #FFF6E8;
-    border: 1.5px dashed #F2B33D;
-    border-radius: 14px;
-    padding: 18px 20px;
-    font-size: 17.5px; font-weight: 700; line-height: 1.65;
-    color: #6B4C00;
-  }
-  .scarcity .y { color: var(--red); }
+  .benefit .note { font-size: 13.5px; color: var(--sub); margin-top: 14px; }
 
-  .anchor {
-    max-width: 440px; margin: 30px auto 0;
-    display: flex; flex-direction: column; gap: 10px;
-    text-align: left;
-  }
-  .anchor .row {
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    background: #F4F6F9; border: 1px solid var(--line);
-    border-radius: 12px; padding: 14px 18px;
-    font-size: 15.5px; color: var(--sub);
-  }
-  .anchor .row.win {
-    background: #FFF0F0;
-    border-color: var(--red);
-    color: var(--text); font-weight: 700;
-  }
-  .anchor .tag { flex-shrink: 0; font-size: 13px; font-weight: 800; }
-  .anchor .row .tag { color: #98A2B0; }
-  .anchor .row.win .tag { color: var(--red); }
-
+  /* steps */
   .steps { max-width: 440px; margin: 34px auto 0; text-align: left; }
   .step-row { display: flex; gap: 16px; }
   .step-rail { display: flex; flex-direction: column; align-items: center; }
@@ -343,6 +390,20 @@
   .step-body .w { font-size: 13.5px; color: var(--red); font-weight: 800; letter-spacing: .06em; margin-bottom: 3px; }
   .step-body span { font-size: 14.5px; color: var(--sub); }
 
+  /* waiting count */
+  .wait-count {
+    display: none;
+    max-width: 420px;
+    margin: 34px auto -14px;
+    background: var(--dark);
+    color: #fff;
+    border-radius: 100px;
+    padding: 13px 22px;
+    font-size: 16.5px; font-weight: 700;
+  }
+  .wait-count b { color: var(--kakao); font-weight: 900; }
+
+  /* self-check */
   .selfcheck {
     max-width: 420px; margin: 40px auto 0;
     background: var(--card); border: 1px solid var(--line);
@@ -369,6 +430,7 @@
   }
   .selfcheck .bottom.hot { color: var(--red); }
 
+  /* form */
   .form-card {
     max-width: 420px;
     margin: 40px auto 0;
@@ -433,180 +495,7 @@
   .done h3 { font-size: 21px; font-weight: 900; margin-bottom: 10px; }
   .done p { font-size: 15px; color: var(--sub); }
 
-
-  /* video embed */
-  .video {
-    margin: 38px auto 0;
-    max-width: 460px;
-    aspect-ratio: 16/9;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 12px 36px rgba(26,31,39,.16);
-    background: #000;
-  }
-  .video iframe { width: 100%; height: 100%; border: 0; display: block; }
-
-  /* waiting count (BPT style) */
-  .wait-count {
-    display: none;
-    max-width: 420px;
-    margin: 34px auto -14px;
-    background: var(--dark);
-    color: #fff;
-    border-radius: 100px;
-    padding: 13px 22px;
-    font-size: 16.5px; font-weight: 700;
-  }
-  .wait-count b { color: var(--kakao); font-weight: 900; }
-
-  /* CTA trust note */
-  .cta-note {
-    font-size: 13.5px; color: var(--sub);
-    margin-top: 12px;
-  }
-
-  .photo {
-    display: block;
-    width: 100%; max-width: 440px;
-    margin: 34px auto 0;
-    border-radius: 18px;
-    box-shadow: 0 14px 40px rgba(0,0,0,.3);
-  }
-  .photo.sq { max-width: 380px; }
-
-  /* dark drama section (brand look: black + blue highlight bar) */
-  .dark-sec { background: linear-gradient(180deg, #15161B 0%, #060709 100%); color: #EFF1F6; }
-  .dark-sec h2, .dark-sec p { color: #fff; }
-  .dark-sec .sub { color: #9AA3B4; }
-  .dark-sec .pain { color: #9AA3B4; }
-  .dark-sec .pain strong { color: #fff; }
-  .dark-sec em.mark { background: none; color: #fff; }
-  .hlb {
-    display: inline;
-    background: #2440F0;
-    color: #fff;
-    padding: 3px 12px;
-    font-weight: 900;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    line-height: 1.7;
-  }
-  .dark-sec .voice .v {
-    background: rgba(255,255,255,.04);
-    border: 1.5px solid rgba(255,255,255,.35);
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: none;
-  }
-  .dark-sec .voice .v::before { color: #5B74FF; }
-
-  /* product UI mockups (CSS-built) */
-  .mock-note { font-size: 12.5px; color: var(--sub); margin-top: 10px; }
-  .dark-sec .mock-note { color: #9AA3B4; }
-  .kmock {
-    max-width: 340px; margin: 34px auto 0;
-    background: var(--kchat);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 14px 40px rgba(26,31,39,.18);
-    text-align: left;
-  }
-  .kmock .khead {
-    background: #A6BDD3;
-    padding: 12px 16px;
-    font-size: 14.5px; font-weight: 800; color: #26303B;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .kmock .khead .dot { width: 26px; height: 26px; border-radius: 9px; background: var(--dark); color: var(--kakao); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
-  .kmock .kbody { padding: 16px 12px 18px; }
-  .kmock .krow { display: flex; margin-bottom: 10px; }
-  .kmock .krow.me { justify-content: flex-end; }
-  .kmock .kb {
-    max-width: 82%;
-    padding: 10px 13px;
-    font-size: 14px; line-height: 1.55; font-weight: 500;
-    border-radius: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.1);
-  }
-  .kmock .me .kb { background: var(--kakao); color: #23180a; border-radius: 14px 4px 14px 14px; font-weight: 700; }
-  .kmock .bot .kb { background: #fff; color: #222; border-radius: 4px 14px 14px 14px; }
-  .kmock .kb .bn { display: block; font-weight: 800; font-size: 13px; margin-bottom: 5px; color: #111; }
-  .kmock .kb .ln { display: block; padding: 3px 0; border-bottom: 1px solid #F0F1F4; }
-  .kmock .kb .ln:last-child { border-bottom: none; }
-  .kmock .kb .ln b { color: #C13B3B; font-weight: 800; margin-right: 4px; }
-  .kmock .ktime { font-size: 10.5px; color: #5D7186; align-self: flex-end; margin: 0 6px; }
-  .amock {
-    max-width: 360px; margin: 34px auto 0;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 14px 40px rgba(26,31,39,.14);
-    text-align: left;
-  }
-  .amock .ahead {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 18px;
-    background: #1A1F27; color: #fff;
-  }
-  .amock .ahead .nm { font-size: 16px; font-weight: 800; }
-  .amock .ahead .nm small { display: block; font-size: 11px; font-weight: 500; color: #A9B2C4; }
-  .amock .ahead .pr { text-align: right; font-size: 15px; font-weight: 800; }
-  .amock .ahead .pr small { display: block; font-size: 11px; color: #FF8A7A; font-weight: 700; }
-  .amock .abody { padding: 16px 18px 8px; }
-  .amock .arow { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
-  .amock .arow .lb { flex: 0 0 62px; font-size: 13px; font-weight: 700; color: #4A5568; }
-  .amock .arow .bar { flex: 1; height: 8px; background: #EFF1F5; border-radius: 99px; overflow: hidden; }
-  .amock .arow .bar i { display: block; height: 100%; background: linear-gradient(90deg, #FF8A7A, var(--red)); border-radius: 99px; }
-  .amock .arow .sc { flex: 0 0 30px; text-align: right; font-size: 13px; font-weight: 800; color: var(--red); }
-  .amock .atotal {
-    display: flex; justify-content: space-between; align-items: center;
-    margin: 6px 18px 0; padding: 13px 0 15px;
-    border-top: 1px solid var(--line);
-  }
-  .amock .atotal .t { font-size: 14px; font-weight: 800; }
-  .amock .atotal .v { font-size: 22px; font-weight: 900; color: var(--red); }
-  .amock .afoot { background: #F7F8FA; padding: 9px 18px; font-size: 11.5px; color: var(--sub); }
-
-  /* inner-voice quote cards */
-  .voice {
-    max-width: 420px; margin: 30px auto 0;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .voice .v {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 15px 18px;
-    font-size: 17px; font-weight: 700;
-    color: #3B4656;
-    box-shadow: 0 3px 12px rgba(26,31,39,.06);
-    position: relative;
-  }
-  .voice .v::before { content: "C"; color: var(--red); font-weight: 900; margin-right: 4px; }
-  .voice .v:nth-child(2) { margin-left: 24px; }
-  .voice .v:nth-child(3) { margin-right: 24px; }
-
-  /* benefit preview chips */
-  .benefit {
-    max-width: 440px; margin: 34px auto 0;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 22px 20px;
-    box-shadow: 0 6px 22px rgba(26,31,39,.07);
-  }
-  .benefit .bt { font-size: 15px; font-weight: 800; letter-spacing: .08em; color: var(--sub); margin-bottom: 14px; }
-  .benefit .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .benefit .chip {
-    background: #FFF0F0; border: 1px solid #FFD9D9;
-    color: #C13B3B;
-    border-radius: 100px;
-    padding: 8px 14px;
-    font-size: 14.5px; font-weight: 700;
-  }
-  .benefit .note { font-size: 13.5px; color: var(--sub); margin-top: 14px; }
-
+  /* FAQ */
   .faq { max-width: 480px; margin: 30px auto 0; text-align: left; }
   details { border-bottom: 1px solid var(--line); }
   summary {
@@ -621,7 +510,7 @@
   details[open] summary::after { content: "\2212"; }
   .a { padding: 0 4px 22px; font-size: 17px; color: var(--sub); line-height: 1.7; }
 
-  /* BPT-style sticky: dark bar + red button */
+  /* sticky */
   .sticky {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
@@ -646,138 +535,175 @@
     border-top: 1px solid var(--line);
     background: #FAFBFC;
   }
-
-  @media (min-width: 700px) {
-    .hero h1 { font-size: 42px; }
-  }
 </style>
 </head>
 <body>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══ HERO : 문제 ① 진입 (키콘텐츠와 결 일치) ═══ -->
 <section style="padding-top:76px">
   <div class="inner">
-    <div class="eyebrow">부코드 AI 주식투자 강의 · 7월 기수</div>
+    <div class="eyebrow">부코드 AI 주식투자 강의 · 사전대기</div>
     <h1>내가 사면 떨어지고,<br>내가 팔면 오릅니다.</h1>
     <p class="sub">저도 완전 똑같았습니다.<br>이익 나면 급하게 팔고,<br>손해 보면 "언젠가 오르겠지" 버티고.</p>
     <div class="gap"></div>
-    <p class="big-line">왜 반복될까요?<br>어떤 종목을 사야 할지,<br><span class="y">확신이 없기 때문입니다.</span></p>
-    <div class="gap"></div>
-    <p><em class="mark">두 시간 걸리던 종목 분석이 10초로 끝나면,</em><br>확신은 만들어집니다.<br><span class="sub">그 과정을 이 페이지에서 전부 보여드릴게요.</span></p>
-    <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
+    <p class="big-line">이 페이지에서<br>그 악순환이 <span class="y">왜 반복되는지,</span><br>그리고 <span class="y">어떻게 끊는지</span>까지<br>전부 보여드리겠습니다.</p>
+    <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
     <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
-    <p class="sub" style="font-size:14.5px;margin-top:10px">★ 월부(월급쟁이부자들) 공식 강의 평점 <b style="color:var(--yellow)">4.78</b> / 5.0 · 후기 58개</p>
+    <p class="sub" style="font-size:14.5px;margin-top:10px">★ 월부(월급쟁이부자들) 공식 강의 평점 <b style="color:var(--red)">4.78</b> / 5.0 · 후기 58개</p>
   </div>
 </section>
 
-<!-- ═══ ① 문제 ═══ -->
+<!-- ═══ ① 문제 제시 : 3개 (다크) ═══ -->
 <section class="dark-sec">
   <div class="inner">
-    <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.1em;margin-bottom:24px">그래서 공부를 시작하면</p>
-    <h2>다들 이러죠.<br>"재무제표 봐라."</h2>
-    <p class="pain" style="line-height:2.1"><span class="hlb">재무제표는 어렵기만 하고,</span><br><span class="hlb">어떤 종목을 사야 할지 모르겠다</span></p>
-    <div class="gap"></div>
-    <p>겨우겨우 한 종목 들여다보는 데 <em class="mark">두 시간.</em></p>
-    <div class="gap"></div>
-    <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.08em">냉정하게 계산해 보겠습니다</p>
-    <p class="big-line">한 종목 2시간 × 관심종목 10개<br>= <span class="y">20시간</span></p>
-    <p>퇴근 후 하루 1시간씩 내면 <em class="mark">꼬박 한 달.</em><br>그 사이 주가는 이미 움직였습니다.</p>
+    <p class="kicker">보통, 이런 문제가 있습니다</p>
+
+    <div class="prob">
+      <div class="no">문제 01</div>
+      <div class="tt">확신 없이 사고,<br>기도하며 버틴다</div>
+      <div class="bd">어깨인 줄 알고 팔면 쭉쭉 오르고,<br>바닥인 줄 알고 사면 지하실을 구경합니다.<br>근거가 없으니, 매수 버튼 앞에서 늘 떨립니다.</div>
+    </div>
+
+    <div class="prob">
+      <div class="no">문제 02</div>
+      <div class="tt">내 주식이 오늘 왜 떨어졌는지,<br>이유조차 모른다</div>
+      <div class="bd">뉴스를 뒤져봐도 내 종목 얘기는 없습니다.<br>이유를 모르니 팔아야 할지 버텨야 할지도 모릅니다.</div>
+      <div class="ev">※ "내 주식이 움직인 이유 요약" 콘텐츠에 수백만 명이 몰립니다 — 모두가 같은 답답함을 겪고 있다는 뜻입니다.</div>
+    </div>
+
+    <div class="prob">
+      <div class="no">문제 03</div>
+      <div class="tt">그리고 우리에겐,<br>만회할 시간이 없다</div>
+      <div class="bd">20대는 잃어도 다시 벌면 됩니다.<br>하지만 우리 나이의 손실은 <em class="mark">노후에서 빼는 돈</em>입니다.<br>공부할 시간도, 실패를 만회할 시간도 부족합니다.</div>
+    </div>
+
     <img class="photo" src="img/hero-night.jpg" alt="밤늦게 하락한 주식 차트를 보며 고민하는 투자자" loading="lazy">
+
     <div class="voice">
       <div class="v">이 종목 괜찮나? 틀리면 또 손해인데..</div>
       <div class="v">다들 수익이라는데.. 나만 왜 매번 손실일까?</div>
       <div class="v">나는 주식하면 안되나봐..</div>
     </div>
+
     <div class="gap"></div>
-    <p>그래서 결국, 남의 말에 기대게 됩니다.<br><span class="sub">"내일 상한가 종목 공개" · "비공개 내부 정보" · "지인 추천 대박"</span></p>
-    <p class="pain">남의 말에만 의존한 결과는<br><strong>처참하기만 하죠.</strong></p>
+    <p class="pain" style="line-height:2.1;margin-top:26px"><span class="hlb">문제는 알겠는데,</span><br><span class="hlb">해결이 쉽지 않다는 겁니다.</span></p>
   </div>
 </section>
 
-<!-- ═══ ② 실패 사례 ═══ -->
+<!-- ═══ ② 사례 : 잘못 해결하면 (3개) ═══ -->
 <section>
   <div class="inner">
-    <h2>"챗GPT한테 물어보면<br>되지 않을까?"</h2>
-    <p class="sub">저도 그렇게 시작했는데요,<br>써보니 문제가 두 가지였습니다.</p>
-    <div class="gap"></div>
-    <div class="xrow"><span class="ic">✕</span><span>몇 년 전 데이터를 <b>지금 것처럼</b> 말합니다</span></div>
-    <div class="xrow"><span class="ic">✕</span><span>같은 질문인데 <b>물을 때마다 답이 다릅니다</b></span></div>
-    <div class="gap"></div>
-    <p>특히 자료가 적은 <em class="mark">중소형주일수록</em> 심해요.<br>괜히 "GPT한테 주식 물어보지 마라"는<br>말이 나온 게 아닙니다.</p>
+    <p class="kicker">이 문제를 잘못 해결하면, 이렇게 됩니다</p>
+    <h2>많은 분들이<br>이 길로 갔다가 당합니다</h2>
 
-    <div class="chat beat">
-      <div class="bubble-wrap">
-        <div class="bubble-name">책과 유튜브로 독학하다 포기했던 50대 · 나시문님</div>
-        <div class="bubble">AI 활용 주식 책을 사보고 유튜브를 봤지만 그때뿐이지 활용할 수가 없었어요. 부코드님 강의를 듣고 정말 AI의 신세계를 맛봤습니다.<span class="bubble-stars">★★★★★</span></div>
-      </div>
+    <div class="case">
+      <div class="cn">잘못된 해결 01 — 남의 말에 기대기</div>
+      <div class="ct">"내일 상한가 종목 공개" · "비공개 내부 정보" · "지인 추천 대박"</div>
+      <div class="cb">유튜버·리딩방·지인의 확신을 빌려서 삽니다. 오르면 남의 덕, 떨어지면 내 손실 — 판단력은 영영 늘지 않고, 결과는 처참하기만 하죠.</div>
+    </div>
+
+    <div class="case">
+      <div class="cn">잘못된 해결 02 — 그냥 챗GPT에 물어보기</div>
+      <div class="ct">몇 년 전 데이터를 지금 것처럼 말하고, 물을 때마다 답이 다릅니다</div>
+      <div class="cb">특히 자료가 적은 중소형주일수록 환각이 심합니다. 틀린 숫자를 근거로 매수 버튼을 누르게 되는 거죠. "GPT한테 주식 물어보지 마라"는 말이 괜히 나온 게 아닙니다.</div>
+    </div>
+
+    <div class="case">
+      <div class="cn">잘못된 해결 03 — 감으로 버티기</div>
+      <div class="ct">"코로나 불장 때 벌었으니, 이번에도 되겠지"</div>
+      <div class="cb">실제 수강생 후기입니다 — "코로나 때 운 좋게 큰 수익을 봤고, 공부 안 한 대가로 2년 만에 전부 토해냈습니다." 한 번의 행운은 실력이 아니었던 겁니다.</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ ③ 공짜 해결책 ═══ -->
+<!-- ═══ ③ 해결 방법 : 3개 (돈X, 이득X) ═══ -->
 <section style="background:var(--bg2)">
   <div class="inner">
-    <h2>그래도 방법은 있습니다.<br><span class="y">지금 알려드릴게요.</span></h2>
-    <p>문제는 AI가 아니라<br><em class="mark">AI한테 주는 데이터</em>거든요.</p>
-    <p class="sub">강의 안 들으셔도 됩니다.<br>이대로만 해보세요.</p>
+    <p class="kicker">그래서, 이렇게 해결하세요</p>
+    <h2>지금부터 알려드리는 방법은<br><span class="y">전부 무료</span>입니다</h2>
+    <p class="sub">강의 안 들으셔도 됩니다. 돈 드는 것도 없고,<br>저한테 이득되는 것도 없습니다. 이대로만 해보세요.</p>
 
-    <div class="method">
-      <div class="m-step">
-        <div class="n">STEP 1</div>
-        <div class="b">네이버 증권에서 재무 지표를 <b>직접 복사</b>해서 GPT에 붙여넣기</div>
-        <div class="note">캡처는 숫자를 잘못 읽는 경우가 많습니다. 복사가 정확해요.</div>
-      </div>
-      <div class="m-step">
-        <div class="n">STEP 2</div>
-        <div class="b">데이터를 <b>JSON 형식으로</b> 바꿔달라고 하기</div>
-        <div class="note">AI의 이해도와 정확성이 눈에 띄게 올라갑니다.</div>
-      </div>
-      <div class="m-step">
-        <div class="n">STEP 3</div>
-        <div class="b">그리고 이렇게 묻기</div>
+    <div class="gap"></div>
+
+    <div class="sol">
+      <div class="sn">해결 01 — 재무 분석은 이렇게</div>
+      <div class="st">네이버 증권 복사 → JSON 변환 → 5항목 평가</div>
+      <div class="sb">
+        ① 네이버 증권에서 재무 지표를 <b>직접 복사</b>해 GPT에 붙여넣으세요 (캡처는 숫자를 잘못 읽습니다).<br>
+        ② <b>JSON 형식으로 바꿔달라</b>고 하면 정확도가 크게 올라갑니다.<br>
+        ③ 그리고 이렇게 물으세요:
         <div class="prompt">"수익성 · 재무 안정성 · 성장성 · 기업가치 · 리스크 — 5개 항목으로 요약하고, 10점 만점으로 총점을 평가해 줘."</div>
       </div>
     </div>
-    <div class="gap"></div>
-    <p>이것만 해도 기업의 강점·약점이 한눈에 보입니다.<br>그냥 물어볼 때와는 <em class="mark">차원이 다른 답</em>이 나와요.</p>
+
+    <div class="sol">
+      <div class="sn">해결 02 — 종목 발굴은 이렇게</div>
+      <div class="st">매일 장 마감 후, 돈이 몰린 종목을 기록하세요</div>
+      <div class="sb">증권사 앱에서 그날 <b>거래대금이 크게 터지며 오른 종목</b>을 관심종목에 넣고, 왜 올랐는지 메모하세요. 큰 상승 전엔 반드시 거래량이 먼저 움직입니다 — "거래량이 실체이고, 주가는 그 그림자다." 며칠만 쌓여도 시장이 어디에 돈을 몰아주는지 보이기 시작합니다.</div>
+    </div>
+
+    <div class="sol">
+      <div class="sn">해결 03 — 시장 감각은 이렇게</div>
+      <div class="st">아침 10분, 경제뉴스 헤드라인 루틴</div>
+      <div class="sb">매일 아침 네이버 경제 뉴스 랭킹의 헤드라인만 훑으세요. 실적·금리·정책 뉴스가 <b>내 종목이 움직이는 이유</b>입니다. 이것만 꾸준히 해도 "오늘 왜 떨어졌지?"의 절반은 스스로 답할 수 있게 됩니다.</div>
+    </div>
+
+    <p style="margin-top:30px">이 세 가지만 해도, 감으로 투자하던 때와는<br><em class="mark">차원이 다른 판단</em>이 가능해집니다.</p>
   </div>
 </section>
 
-<!-- ═══ ④ 한계 ═══ -->
-<section>
+<!-- ═══ ④ 한계 : 2개 (다크) ═══ -->
+<section class="dark-sec">
   <div class="inner">
-    <h2>근데 솔직히,<br>저도 이렇게 하다가<br>포기했습니다.</h2>
-    <p class="sub">종목 하나 볼 때마다<br>네이버 들어가서, 복사하고, 변환하고, 붙여넣고.</p>
-    <p class="sub">몇 번 반복하다 보면<br>시간도 걸리고 실수도 나요.</p>
+    <p class="kicker">그러나, 명백한 한계가 있습니다</p>
+    <h2>저도 이 방법으로 하다가<br>포기했습니다</h2>
+
+    <div class="lim">
+      <div class="ln">한계 01 — 시간</div>
+      <div class="lt">전부 수작업입니다</div>
+      <div class="lb">종목 하나 볼 때마다 복사하고, 변환하고, 붙여넣고. 급등주 기록에 또 30분, 뉴스 훑기에 또 10분. 한 종목 제대로 보는 데 2시간 — 관심종목 10개면 20시간입니다. 퇴근 후 하루 1시간씩 내면 꼬박 한 달, 그 사이 주가는 이미 움직였습니다.</div>
+    </div>
+
+    <div class="lim">
+      <div class="ln">한계 02 — 지속</div>
+      <div class="lt">하루 이틀은 되는데, 매일은 안 됩니다</div>
+      <div class="lb">이 방법들은 전부 "매일" 해야 힘이 생깁니다. 그런데 본업이 있잖아요. 야근 한 번, 약속 한 번이면 밀리고, 밀리면 다시 안 하게 됩니다. 의지의 문제가 아니라 구조의 문제입니다.</div>
+    </div>
+
     <img class="photo sq" src="img/burden.jpg" alt="돈, 시간, 지식의 무게를 지고 걷는 직장인" loading="lazy">
+
     <p class="story-q"><span class="q">"</span> 내가 이걸 왜<br>수작업으로 하고 있지? <span class="q">"</span></p>
   </div>
 </section>
 
-<!-- ═══ ⑤ 정답 ═══ -->
-<section style="background:var(--bg2)">
+<!-- ═══ ⑤ 대안 : 한계를 극복한 정답 ═══ -->
+<section>
   <div class="inner">
-    <h2>그래서 아예<br><span class="y">자동화해버렸습니다.</span></h2>
-    <p class="sub">코딩도 개발도 몰랐지만<br>세 달 밤새우면서 <b style="color:var(--text)">500번 실패</b>했어요.</p>
-    <p class="sub">주변에서 차트만 보고 투자하다<br>돈 날리는 분들을 너무 많이 봐서,<br>포기가 안 되더라고요.</p>
+    <p class="kicker">한계를 극복한 정답</p>
+    <h2>그 수작업 전부를,<br><span class="y">자동화해버렸습니다</span></h2>
+    <p class="sub">코딩도 개발도 몰랐지만 세 달 밤새우며 <b style="color:var(--text)">500번 실패</b>했습니다.<br>주변에서 차트만 보고 투자하다 돈 날리는 분들을<br>너무 많이 봐서, 포기가 안 되더라고요.</p>
     <p>그렇게 만든 시스템으로 지금은<br><em class="mark">월급쟁이부자들(월부) 공식 강사</em>로<br>이 방법을 강의하고 있습니다.</p>
-    <div class="gap"></div>
-    <p class="big-line">그렇게 <span class="y">네이버 증권 데이터</span>를<br>AI에 통째로 연결했습니다.</p>
 
-    <p class="sub" style="font-size:16.5px;margin-bottom:6px">말로 하면 안 믿기시죠. 직접 보세요.</p>
+    <p class="sub" style="font-size:16.5px;margin-top:30px;margin-bottom:6px">말로 하면 안 믿기시죠. 직접 보세요.</p>
     <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/xk75pbskZzg" title="챗GPT로 종목분석 10초 완성" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
     <div class="beat">
-      <h2>두 시간짜리 분석이,<br><span class="y">10초로 끝납니다.</span></h2>
+      <h2>두 시간짜리 분석이,<br><span class="y">10초로 끝납니다</span></h2>
       <div class="ba">
         <div class="cell before"><div class="lb">어제까지</div><div class="vv">2시간</div><div class="dd">재무 찾고, 뉴스 뒤지고,<br>정리하다 지쳐서 포기</div></div>
         <div class="ba-arrow">→</div>
         <div class="cell after"><div class="lb">이제부터</div><div class="vv">10초</div><div class="dd">종목 이름만 치면<br>분석이 도착</div></div>
       </div>
-      <div class="gap"></div>
-      <div class="crow"><span class="ic">✓</span><span>10초 만에 <b>33개 재무지표</b> + 최신 뉴스 종합 분석</span></div>
-      <div class="crow"><span class="ic">✓</span><span><b>매수근거 5가지</b> 제시 — 수익성·안정성·성장성·가치·리스크 10점 평가</span></div>
-      <div class="crow"><span class="ic">✓</span><span>상장종목 <b>2,800개</b> 전부 — 중소형주까지</span></div>
+      <div class="ba" style="margin-top:10px">
+        <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">"이 종목 사도 될까?"</div><div class="dd">감으로, 불안하게</div></div>
+        <div class="ba-arrow">→</div>
+        <div class="cell after"><div class="lb">이제부터</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px)">매수근거 5가지</div><div class="dd">데이터로, 확신 있게</div></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">10초</div><div class="k">종목 분석</div></div>
+        <div class="stat"><div class="v">33개</div><div class="k">재무지표 종합</div></div>
+        <div class="stat"><div class="v">2,800개</div><div class="k">상장종목 연동</div></div>
+      </div>
       <div class="amock">
         <div class="ahead">
           <div class="nm">삼성전자 <small>005930 · KOSPI</small></div>
@@ -794,44 +720,35 @@
         <div class="afoot">네이버 증권 실시간 데이터 기준 · 33개 재무지표 종합</div>
       </div>
       <p class="mock-note">※ 분석 결과 화면 예시 (실제 UI와 다를 수 있습니다)</p>
-      <div class="ba" style="margin-top:22px">
-        <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">"이 종목 사도 될까?"</div><div class="dd">감으로, 불안하게</div></div>
-        <div class="ba-arrow">→</div>
-        <div class="cell after"><div class="lb">이제부터</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px)">매수근거 5가지</div><div class="dd">데이터로, 확신 있게</div></div>
-      </div>
-      <div class="ba" style="margin-top:10px">
-        <div class="cell before"><div class="lb">어제까지</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px);text-decoration:none">유튜버 말만 듣고 투자</div><div class="dd">남의 확신 빌리기</div></div>
-        <div class="ba-arrow">→</div>
-        <div class="cell after"><div class="lb">이제부터</div><div class="vv" style="font-size:clamp(17px,4.6vw,21px)">스스로 판단</div><div class="dd">내 확신으로 매수</div></div>
-      </div>
-      <div class="gap"></div>
+    </div>
+
+    <div class="beat">
       <p class="big-line">그리고 이 한 줄은<br>아무나 말할 수 없습니다.</p>
-      <p style="font-size:clamp(19px,5vw,24px);font-weight:900;color:var(--yellow)">"재무제표 숫자가<br>네이버 증권과 100% 일치합니다."</p>
-      <p class="sub" style="font-size:17px">인터넷을 뒤져서 추측하는 AI가 아니라,<br>네이버 증권 데이터를 그대로 읽는 AI라서 가능한 말입니다.</p>
+      <p style="font-size:clamp(22px,5.8vw,27px);font-weight:900;color:var(--red)">"재무제표 숫자가<br>네이버 증권과 100% 일치합니다."</p>
+      <p class="sub" style="font-size:17px">인터넷을 뒤져서 추측하는 AI가 아니라,<br>네이버 증권 데이터를 그대로 읽는 AI라서 가능한 말입니다.<br>환각 ZERO — 중소형주도 예외 없이.</p>
     </div>
 
     <div class="beat">
-      <p class="big-line">여기에 하나 더.<br><span class="y">"그래서 뭘 사야 하는데?"</span></p>
-      <div class="gap"></div>
-      <p>장 마감 후, <em class="mark">돈이 가장 크게 몰린 종목</em>을<br>자동으로 찾아서 왜 올랐는지<br>뉴스까지 정리해주는 선별기도 만들었습니다.</p>
-      <p class="sub" style="font-size:17px">"거래량이 실체이고, 주가는 그 그림자다."<br>큰 상승 전엔 반드시 거래량이 먼저 움직입니다.<br>그 검증된 원리를 시스템으로 만든 겁니다.</p>
-    </div>
-
-    <div class="beat">
-      <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.1em">이 페이지의 첫 문장, 기억하시나요?</p>
-      <p class="big-line" style="margin-top:14px">"내가 사면 떨어지고,<br>내가 팔면 오릅니다."</p>
-      <div class="gap"></div>
-      <p>그건 실력이 없어서가 아니라<br><em class="mark">근거 없이 사고팔았기 때문</em>이었습니다.</p>
-      <p class="big-line">숫자가 근거를 말해주는 순간,<br>매수 버튼 앞에서 <span class="y">더 이상 떨리지 않습니다.</span></p>
-      <p class="sub">확신은 타고나는 게 아니라, 이렇게 만들어집니다.</p>
+      <img class="photo sq" src="img/handshake.jpg" alt="사람과 AI의 협력" loading="lazy" style="margin-top:0;margin-bottom:26px">
+      <p class="sub">스스로 판단하는 투자에 필요한 3가지 —<br><b style="color:var(--text)">[재무]</b> 기업 가치 평가 · <b style="color:var(--text)">[이론]</b> 투자 원리 · <b style="color:var(--text)">[뉴스]</b> 시장 판단</p>
+      <p>아까 알려드린 세 가지 수작업이 바로 이겁니다.<br>이 3가지를 전부, <em class="mark">AI가 대신하도록</em> 만들었고<br>그 전체를 알려드리는 강의를 준비했습니다.</p>
+      <div class="pkg">
+        <div class="pk"><div><b>AI 재무분석기 — "환각 ZERO"</b><span>[재무] 네이버 증권 연동 · 10초 만에 33개 재무지표 + 뉴스 종합</span></div></div>
+        <div class="pk"><div><b>급등주 종목 선별기</b><span>[이론] 검증된 거래량 원리로, 장 마감 후 돈이 몰린 종목 자동 선별</span></div></div>
+        <div class="pk"><div><b>뉴스 요약 시스템</b><span>[뉴스] 2시간 영상이 3분 요약 — 출근길에 핵심만</span></div></div>
+        <div class="pk"><div><b>AI툴 공략 가이드</b><span>GPT·제미나이·클로드 강화 프롬프트 — 같은 질문도 10배 정확한 답변</span></div></div>
+        <div class="pk"><div><b>1:1 피드백</b><span>배우고 끝이 아니라, 내 투자에 적용될 때까지</span></div></div>
+      </div>
+      <p class="pain" style="margin-top:36px">"저 같은 왕초보도<br>가능한가요?"</p>
+      <p class="big-line"><span class="y">네, 가능합니다.</span><br>저도 코딩을 하나도 몰랐으니까요.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ 증거: 월부 후기 ═══ -->
-<section>
+<!-- ═══ 증거 : 월부 후기 ═══ -->
+<section style="background:var(--bg2)">
   <div class="inner">
-    <p class="sub" style="font-size:16.5px;font-weight:700;letter-spacing:.1em;margin-bottom:20px">월급쟁이부자들(월부) 공식 강의 평점</p>
+    <p class="kicker">월급쟁이부자들(월부) 공식 강의 평점</p>
     <div class="stars">★★★★★</div>
     <div class="score">4.78<span> / 5.0</span></div>
     <div class="score-meta">후기 <b>58개</b> · 1~3점 <b>0개</b></div>
@@ -846,97 +763,24 @@
         <div class="bubble"><span class="tt">주식투자의 신세계를 열어주었습니다</span>코로나 불장 때 큰 수익 보고 '주식은 쉽구나' 했다가, 공부 안 한 대가로 2년 만에 다 토해냈습니다. 직장 다니면서 혼자 뉴스 찾고 종목 검색하기 힘들었는데, 이제 빠른 시간에 모든 게 정리되니 발 빠르게 대응이 됩니다.<span class="bubble-stars">★★★★★</span></div>
       </div>
       <div class="bubble-wrap">
+        <div class="bubble-name">책과 유튜브로 독학하다 포기했던 50대 · 나시문님</div>
+        <div class="bubble">AI 활용 주식 책을 사보고 유튜브를 봤지만 그때뿐이지 활용할 수가 없었어요. 부코드님 강의를 듣고 정말 AI의 신세계를 맛봤습니다.<span class="bubble-stars">★★★★★</span></div>
+      </div>
+      <div class="bubble-wrap">
         <div class="bubble-name">언제 사야 하는지도 몰랐던 왕초보 · 방울토마토마토님</div>
         <div class="bubble"><span class="tt">주식분석, 더 이상 오래 걸리지 않아요</span>주린이 중의 주린이였습니다. AI로 복잡한 재무제표나 뉴스를 혼자 분석하지 않아도 된다는 걸 알고 크게 놀랐습니다.<span class="bubble-stars">★★★★☆</span></div>
       </div>
     </div>
-    <p style="font-size:16.5px;margin-top:18px">특별한 사람들이 아닙니다.<br><em class="mark">30대부터 50대까지, 평범한 직장인·주부</em>들이<br>남긴 후기입니다.</p>
+    <p style="font-size:17.5px;margin-top:18px">특별한 사람들이 아닙니다.<br><em class="mark">30대부터 50대까지, 평범한 직장인·주부</em>들이<br>남긴 후기입니다.</p>
     <p class="sub" style="font-size:14px;margin-top:8px">※ 월부 플랫폼에 등록된 실제 수강 후기 중 발췌</p>
   </div>
 </section>
 
-<!-- ═══ 강의 구성 ═══ -->
-<section style="background:var(--bg2)">
-  <div class="inner">
-    <h2>이 시스템 전부를,<br>처음부터 끝까지<br>알려드립니다</h2>
-    <img class="photo sq" src="img/handshake.jpg" alt="사람과 AI의 협력" loading="lazy" style="margin-top:6px;margin-bottom:22px">
-    <p class="sub">스스로 판단하는 투자에는 3가지가 필요합니다.<br><b style="color:var(--text)">[재무]</b> 기업 가치 평가 · <b style="color:var(--text)">[이론]</b> 투자 원리와 심리 · <b style="color:var(--text)">[뉴스]</b> 시장 이슈 판단</p>
-    <p>이 3가지를 전부, <em class="mark">AI가 대신하도록</em> 만들었습니다.</p>
-    <div class="pkg">
-      <div class="pk"><div><b>AI 재무분석기 — "환각 ZERO 실시간 데이터"</b><span>[재무] 네이버 증권 연동 · 10초 만에 33개 재무지표 + 뉴스 종합</span></div></div>
-      <div class="pk"><div><b>급등주 종목 선별기</b><span>[이론] 검증된 거래량 원리로, 장 마감 후 돈이 몰린 종목 자동 선별</span></div></div>
-      <div class="pk"><div><b>뉴스 요약 시스템 — "2시간 영상이 3분 요약"</b><span>[뉴스] 경제 유튜브 새 영상 자동 감지 → 출근길에 핵심만</span></div></div>
-      <div class="pk"><div><b>AI툴 공략 가이드</b><span>GPT·제미나이·클로드 강화 프롬프트 — 같은 질문도 10배 정확한 답변</span></div></div>
-      <div class="pk"><div><b>1:1 피드백</b><span>배우고 끝이 아니라, 내 투자에 적용될 때까지</span></div></div>
-    </div>
-    <div class="gap"></div>
-    <p class="pain">"저 같은 왕초보도<br>가능한가요?"</p>
-    <p class="big-line"><span class="y">네, 가능합니다.</span><br>저도 코딩을 하나도 몰랐으니까요.</p>
-    <p class="sub">투자는 하고 싶은데 공부할 시간이 없는 분들일수록,<br>가장 크게 달라지실 겁니다.</p>
-  </div>
-</section>
-
-<!-- ═══ 클로징: 뉴스봇 + 폼 ═══ -->
+<!-- ═══ ⑥ 연락처 받기 ═══ -->
 <section id="apply">
   <div class="inner">
     <h2>지금 결제하라는 게<br>아닙니다.</h2>
-    <p>연락처만 남겨주세요.<br>7월 기수 모집이 열리면 <em class="mark">가장 먼저</em> 알려드립니다.</p>
-    <div class="gap"></div>
-    <p class="big-line">그리고 기다리시는 동안,<br>"AI가 나 대신 일하는 느낌"을<br><span class="y">오늘부터 체험하게 해드릴게요.</span></p>
-
-    <div class="beat">
-      <div class="gift-tag">신청자 전원 무료 제공</div>
-      <h2 style="font-size:clamp(23px,6vw,32px)">AI 카톡 뉴스봇을<br>드립니다</h2>
-      <p class="sub">"아침에 누가 주식 뉴스 핵심만 정리해서<br>카톡으로 보내주면 좋겠다"</p>
-      <p>그걸 만들어뒀습니다.<br><em class="mark">당신 몫의 뉴스봇은 이미 준비되어 있습니다.</em><br>연락처를 남기는 순간, 연결만 하면 됩니다.</p>
-
-      <p style="font-size:17.5px;font-weight:800;margin-top:26px">하나가 아니라, <span class="y">네 가지</span>를 준비해뒀습니다.</p>
-      <div class="feat">
-        <div class="feat-row"><div class="cmd">네이버 랭킹</div><div class="d"><b>① 아침 경제뉴스 브리핑</b><span>오늘의 핵심 뉴스가 카톡으로 도착</span></div></div>
-        <div class="feat-row"><div class="cmd">검색 삼성전자</div><div class="d"><b>② 키워드 뉴스 검색기</b><span>궁금한 종목·산업만 콕 집어서 선별</span></div></div>
-        <div class="feat-row"><div class="cmd">기사 링크</div><div class="d"><b>③ 기사 핵심 요약기</b><span>긴 기사도 링크만 보내면 요약 완료</span></div></div>
-        <div class="feat-row"><div class="cmd">유튜브 링크</div><div class="d"><b>④ 유튜브 영상 요약기</b><span>2시간짜리 영상을 3분으로</span></div></div>
-      </div>
-
-      <div class="kmock">
-        <div class="khead"><span class="dot">B</span>부코드 뉴스봇</div>
-        <div class="kbody">
-          <div class="krow me"><span class="ktime">오전 7:42</span><div class="kb">네이버 랭킹</div></div>
-          <div class="krow bot"><div class="kb"><span class="bn">📈 오늘 아침 경제뉴스 TOP 3</span>
-            <span class="ln"><b>1.</b> 반도체 수출 두 달 연속 최대치 경신</span>
-            <span class="ln"><b>2.</b> 한은, 기준금리 동결…"하반기 인하 여지"</span>
-            <span class="ln"><b>3.</b> AI 전력 수요 급증에 전력주 강세</span>
-          </div><span class="ktime">오전 7:42</span></div>
-        </div>
-      </div>
-      <p class="mock-note">※ 뉴스봇 대화 화면 예시 (뉴스 내용은 연출입니다)</p>
-
-
-      <p class="sub" style="font-size:16px;margin-top:20px">설치할 것도 없고, 컴퓨터 켜둘 필요도 없습니다.<br>카톡에서 바로 씁니다.</p>
-
-      <div class="anchor">
-        <div class="row"><span>클로드 유료 결제 + 확장 프로그램 설치<br>+ 컴퓨터 24시간 켜두기</span><span class="tag">직접 만들면</span></div>
-        <div class="row win"><span>카톡에서 바로, 설치 없이 무료</span><span class="tag">대기 신청하면</span></div>
-      </div>
-
-      <div class="scarcity">유튜브에서는 <span class="y">추첨으로만</span> 드렸던 봇입니다.<br>7월 기수 사전대기 신청자분들께는 <span class="y">전원</span> 드리고,<br>모집이 종료되면 <span class="y">신규 제공은 중단</span>될 수 있습니다.</div>
-
-      <div class="steps">
-        <p class="sub" style="font-size:15px;font-weight:800;letter-spacing:.08em;text-align:center;margin-bottom:22px">신청 후, 이렇게 진행됩니다</p>
-        <div class="step-row">
-          <div class="step-rail"><div class="step-dot">1</div><div class="step-line"></div></div>
-          <div class="step-body"><div class="w">신청 즉시</div><b>카톡으로 뉴스봇 연결 안내</b><span>내일 아침부터 "네이버 랭킹" 한 마디로 시작</span></div>
-        </div>
-        <div class="step-row">
-          <div class="step-rail"><div class="step-dot">2</div><div class="step-line"></div></div>
-          <div class="step-body"><div class="w">기다리는 동안</div><b>매일 아침, 뉴스봇으로 시장 감 잡기</b><span>모집 전까지 아침 뉴스 습관이 먼저 만들어집니다</span></div>
-        </div>
-        <div class="step-row">
-          <div class="step-rail"><div class="step-dot">3</div><div class="step-line"></div></div>
-          <div class="step-body"><div class="w">모집 오픈</div><b>등록 순서대로 가장 먼저 안내</b><span>모집 인원은 제한되며, 대기 순서가 빠를수록 유리합니다</span></div>
-        </div>
-      </div>
-    </div>
+    <p>연락처만 남겨주세요.<br>모집이 열리면 <em class="mark">등록 순서대로 가장 먼저</em> 안내드립니다.</p>
 
     <div class="benefit">
       <div class="bt">모집 오픈 시, 대기 순서대로 안내되는 조건</div>
@@ -949,13 +793,29 @@
       <div class="note">지난 기수는 선착순 30명 한정으로 모집됐습니다.<br>대기 순서가 빠를수록 자리를 잡을 확률이 높아집니다.</div>
     </div>
 
+    <div class="steps">
+      <p class="kicker" style="text-align:center;margin-bottom:22px">신청 후, 이렇게 진행됩니다</p>
+      <div class="step-row">
+        <div class="step-rail"><div class="step-dot">1</div><div class="step-line"></div></div>
+        <div class="step-body"><div class="w">신청 즉시</div><b>카톡으로 대기 순번 확정 안내</b><span>내 순번이 바로 확정됩니다</span></div>
+      </div>
+      <div class="step-row">
+        <div class="step-rail"><div class="step-dot">2</div><div class="step-line"></div></div>
+        <div class="step-body"><div class="w">대기 기간</div><b>사전대기자 한정 소식·혜택 안내</b><span>모집 전, 대기자에게만 먼저 공개되는 소식이 있습니다</span></div>
+      </div>
+      <div class="step-row">
+        <div class="step-rail"><div class="step-dot">3</div><div class="step-line"></div></div>
+        <div class="step-body"><div class="w">모집 오픈</div><b>등록 순서대로 가장 먼저 안내</b><span>모집 인원은 제한되며, 대기 순서가 빠를수록 유리합니다</span></div>
+      </div>
+    </div>
+
     <div class="wait-count" id="waitCount">현재 <b id="waitNum">-</b>명이 사전대기 중입니다</div>
 
     <div class="selfcheck">
       <div class="t">하나라도 해당되시나요?</div>
       <label class="sc-item"><input type="checkbox" class="scbox"><span>종목 분석에 2시간은 너무 길다</span></label>
       <label class="sc-item"><input type="checkbox" class="scbox"><span>감이 아니라 데이터로 투자하고 싶다</span></label>
-      <label class="sc-item"><input type="checkbox" class="scbox"><span>아침 뉴스 정리, 누가 대신 해줬으면 좋겠다</span></label>
+      <label class="sc-item"><input type="checkbox" class="scbox"><span>이 나이에 더 잃을 여유는 없다</span></label>
       <div class="bottom" id="scMsg">해당된다면, 아래에 연락처만 남겨주세요.</div>
     </div>
 
@@ -970,19 +830,19 @@
         </label>
         <button type="button" class="agree-more" id="agreeMore">자세히 보기</button>
         <div class="agree-detail" id="agreeDetail">
-          1. 수집 목적: 강의 모집 안내 및 뉴스봇 링크 전송<br>
+          1. 수집 목적: 강의 모집 안내<br>
           2. 수집 항목: 휴대폰 번호<br>
           3. 보유 기간: 수집·이용 목적 달성 시까지, 또는 동의 철회 시. 단, 관련 법령에 따라 보유가 필요한 경우 해당 기간까지.<br>
           4. 동의를 거부할 권리가 있으며, 비동의 시 신청이 접수되지 않습니다.
         </div>
         <div class="err" id="agreeErr">개인정보 수집 동의에 체크해주세요</div>
-        <button class="submit" id="submitBtn">사전대기 신청 + 뉴스봇 받기</button>
-        <p class="form-note">신청 후, 카톡으로 뉴스봇 안내를 보내드립니다<br>*사전대기는 무료이며, 결제 의무가 없습니다</p>
+        <button class="submit" id="submitBtn">사전대기 신청하기</button>
+        <p class="form-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
       </div>
       <div class="done" id="formMsg">
         <div class="em">🎉</div>
         <h3>사전대기 명단에 등록됐습니다!</h3>
-        <p>곧 카톡으로 뉴스봇 연결 안내를 보내드릴게요.<br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
+        <p>곧 카톡으로 대기 순번을 안내드릴게요.<br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
       </div>
     </div>
   </div>
@@ -1003,7 +863,7 @@
       </details>
       <details>
         <summary>사전대기 신청하면 뭘 해야 하나요?</summary>
-        <div class="a">아무것도 안 하셔도 됩니다. 연락처만 남겨두시면 뉴스봇 안내를 먼저 보내드리고, 7월 기수 모집이 열릴 때 가장 먼저 알려드립니다. 결제 의무가 전혀 없습니다.</div>
+        <div class="a">아무것도 안 하셔도 됩니다. 연락처만 남겨두시면 대기 순번을 확정해드리고, 모집이 열릴 때 등록 순서대로 가장 먼저 알려드립니다. 결제 의무가 전혀 없습니다.</div>
       </details>
       <details>
         <summary>강의 비용은 얼마인가요?</summary>
@@ -1013,16 +873,16 @@
   </div>
 </section>
 
-<!-- ═══ 마지막 CTA ═══ -->
+<!-- ═══ 마지막 CTA (다크) ═══ -->
 <section class="dark-sec">
   <div class="inner">
-    <h2>내일 아침은<br>둘 중 하나입니다.</h2>
-    <p class="pain">이 페이지를 그냥 닫으면 —<br>내일도 유튜브와 카톡방을 뒤지며<br><strong>남의 확신을 빌리는 아침</strong>이 반복됩니다.</p>
+    <h2>선택지는<br>둘 중 하나입니다.</h2>
+    <p class="pain">이 페이지를 그냥 닫으면 —<br>내일도 확신 없이 사고,<br><strong>기도하며 버티는 매매</strong>가 반복됩니다.</p>
     <div class="gap"></div>
-    <p class="big-line" style="line-height:2">연락처를 남기면 —<br><span class="hlb">내일 아침엔 뉴스봇이 먼저 와 있습니다.</span></p>
-    <p class="sub">연락처 하나 남기는 데 10초면 됩니다.</p>
-    <a class="btn" href="#apply">7월 기수 사전대기 신청<span class="small">신청자 전원, AI 카톡 뉴스봇 무료 제공</span></a>
-    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
+    <p class="big-line" style="line-height:2">연락처를 남기면 —<br><span class="hlb">모집 소식과 혜택을 가장 먼저 받습니다.</span></p>
+    <p class="sub">지금 결정은 "살까 말까"가 아닙니다.<br>"소식을 받을까 말까"입니다. 10초면 됩니다.</p>
+    <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
+    <p class="cta-note" style="color:#9AA3B4">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </section>
 
@@ -1032,7 +892,7 @@
 </footer>
 
 <div class="sticky" id="stickyBar">
-  <a href="#apply">무료 뉴스봇 받고, 모집 1순위로 안내받기</a>
+  <a href="#apply">사전대기 신청 — 모집 1순위로 안내받기</a>
 </div>
 
 <script>
