@@ -72,13 +72,16 @@
   .topnav .in::-webkit-scrollbar { display: none; }
   .topnav a {
     flex: 1 0 auto; text-align: center;
-    padding: 15px 10px;
-    font-size: 15.5px; font-weight: 700;
-    color: var(--sub); text-decoration: none;
-    border-bottom: 2px solid transparent;
+    padding: 16px 12px;
+    font-size: 16.5px; font-weight: 800;
+    color: #454F5E; text-decoration: none;
+    border-bottom: 3px solid transparent;
     white-space: nowrap;
+    letter-spacing: -0.01em;
   }
-  .topnav a:hover, .topnav a.on { color: var(--red-text); border-bottom-color: var(--red-text); }
+  /* 활성 표시는 .on 하나만 — hover는 색만 살짝 */
+  .topnav a:hover { color: var(--red-text); }
+  .topnav a.on { color: var(--red-text); border-bottom-color: var(--red-text); }
 
   /* ── 히어로 ── */
   .hero {
@@ -90,12 +93,13 @@
   .hero .bg {
     position: absolute; inset: 0;
     background: url("img/hero-night.jpg") center/cover no-repeat;
-    opacity: .38;
+    opacity: .72;
   }
   .hero .veil {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(11,13,17,.55) 0%, rgba(11,13,17,.82) 62%, #0B0D11 100%);
+    background: linear-gradient(180deg, rgba(11,13,17,.28) 0%, rgba(11,13,17,.6) 62%, #0B0D11 100%);
   }
+  .hero h1, .hero .lead, .hero .turn { text-shadow: 0 2px 18px rgba(0,0,0,.55); }
   .hero .in {
     position: relative; z-index: 2;
     max-width: 900px; margin: 0 auto;
@@ -239,12 +243,19 @@
   .alts { max-width: 720px; margin: 34px auto 0; display: grid; gap: 14px; }
   .alt {
     background: var(--card);
-    border: 1px solid var(--line);
+    border: 1.5px solid #DCE1E8;
+    border-left: 5px solid var(--red-fill);
     border-radius: 14px;
     padding: 26px 24px;
     text-align: left;
+    box-shadow: 0 4px 16px rgba(2,8,23,.05);
   }
-  .alt .an { font-size: 15px; font-weight: 800; letter-spacing: .1em; color: var(--red-text); margin-bottom: 10px; }
+  .alt .an {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 16px; font-weight: 800; letter-spacing: .06em;
+    color: var(--red-text); margin-bottom: 12px;
+  }
+  .alt .an .ic { font-size: 22px; }
   .alt .at { font-size: 19.5px; font-weight: 800; line-height: 1.5; margin-bottom: 10px; letter-spacing: -0.015em; }
   .alt .ab { font-size: 18.5px; line-height: 1.85; color: var(--sub); }
   .alt .ab b { color: var(--text); }
@@ -341,13 +352,27 @@
   .pricebox {
     max-width: 520px; margin: 0 auto;
     background: var(--dark); color: #fff;
+    border: 2px solid var(--red-fill);
     border-radius: 20px;
-    padding: 42px 28px;
+    padding: 38px 28px 34px;
     text-align: center;
+    position: relative;
   }
-  .pricebox .now { font-size: clamp(46px, 13vw, 72px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+  .pricebox .badge {
+    position: absolute; top: -19px; left: 50%; transform: translateX(-50%);
+    background: var(--kakao); color: #23180a;
+    border-radius: 100px; padding: 9px 22px;
+    font-size: 17px; font-weight: 800; white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  }
+  .pricebox .was {
+    font-size: 21px; font-weight: 700; color: #8D96A6; margin: 10px 0 6px;
+  }
+  .pricebox .was s { text-decoration-thickness: 3px; text-decoration-color: var(--red); }
+  .pricebox .now { font-size: clamp(52px, 14vw, 80px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.05; }
+  .pricebox .now small { font-size: .34em; font-weight: 800; color: #FF8F97; vertical-align: 8px; margin-left: 6px; }
   .pricebox .last {
-    margin-top: 24px; padding-top: 22px;
+    margin-top: 22px; padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,.16);
     font-size: 18.5px; font-weight: 700; line-height: 1.8; color: #D6DBE4;
   }
@@ -659,9 +684,9 @@
     </figure>
 
     <div class="voice">
-      <div class="v">이 종목 괜찮나? 틀리면 또 손해인데..</div>
-      <div class="v">좋다고 해서 샀는데, 왜 나만 물려 있을까?</div>
-      <div class="v">나는 주식하면 안되나봐..</div>
+      <div class="v">이거 지금 사도 되는 건가.. 또 물리는 거 아니야?</div>
+      <div class="v">분명 좋다고 해서 샀는데.. 왜 나만 물려 있지</div>
+      <div class="v">나는 진짜 주식이랑 안 맞는 건가..</div>
     </div>
   </div>
 </section>
@@ -683,17 +708,17 @@
 
     <div class="alts">
       <div class="alt">
-        <div class="an">유튜버</div>
+        <div class="an"><span class="ic">📺</span>유튜버</div>
         <div class="at">서로 다른 이야기를 합니다</div>
         <div class="ab">같은 종목을 두고 한쪽은 사라 하고, 한쪽은 팔라고 하죠. 그리고 그 결과를 책임지지도 않고요.</div>
       </div>
       <div class="alt">
-        <div class="an">증권사</div>
+        <div class="an"><span class="ic">🏢</span>증권사</div>
         <div class="at">리포트가 나와도 그것만 믿고 <br>사는 사람은 없습니다</div>
         <div class="ab">읽어는 보죠. 그런데 그것만 보고 매수 버튼을 누르지는 못하잖아요.</div>
       </div>
       <div class="alt">
-        <div class="an">AI</div>
+        <div class="an"><span class="ic">🤖</span>AI</div>
         <div class="at">재무 데이터를 볼 권한이 없습니다</div>
         <div class="ab">인터넷을 뒤져서 찾고, <b>없으면 지어냅니다.</b> 특히 자료가 적은 중소형주일수록 심하더라고요.</div>
       </div>
@@ -949,9 +974,11 @@
       <p class="pull">좋은 회사인지까지만 알려주지, <br>지금 이 가격이 적당한지는 <br>아무도 말해주지 않습니다.</p>
     </div>
 
-    <div class="pricebox" style="margin-top:40px">
-      <div class="now">29만원</div>
-      <div class="last"><b>이 가격은 8월 기수가 마지막입니다.</b><br>9월부터는 39만원입니다.</div>
+    <div class="pricebox" style="margin-top:52px">
+      <div class="badge">8월 기수 한정 가격</div>
+      <div class="was">9월부터 <s>39만원</s></div>
+      <div class="now">29만원<small>−10만원</small></div>
+      <div class="last"><b>이 가격은 8월 기수가 마지막입니다.</b><br>다음 기수부터는 39만원입니다.</div>
     </div>
 
     <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
@@ -1015,10 +1042,10 @@
       <div class="oh">8월 기수 안내</div>
       <ul>
         <li>수강료 <b>29만원</b> — 이 가격은 이번 기수가 마지막입니다. 9월부터 39만원</li>
-        <li>이번 기수부터 <b>적정가 판정</b>과 <b>공시 검증</b>이 들어갑니다</li>
-        <li>7일 무조건 환불 보장</li>
-        <li>재무분석 도구 영구 사용권</li>
-        <li>수강생 전용 카톡방</li>
+        <li><b>재무분석 도구 영구 사용권</b> — 직접 갖추면 1년에 96만원짜리입니다</li>
+        <li><b>적정가 판정 · 공시 검증</b> — 이번 기수부터 새로 들어갑니다. 가격은 그대로고요</li>
+        <li><b>7일 무조건 환불 보장</b> — 일주일 들어보고 결정하셔도 됩니다</li>
+        <li><b>수강생 전용 카톡방</b> — 혼자 하다 멈추지 않도록</li>
       </ul>
     </div>
 
@@ -1230,20 +1257,22 @@
     }
   } catch (e) {}
 
-  /* ── 상단 내비 현재 위치 표시 ── */
+  /* ── 상단 내비 현재 위치 표시 ──
+     IO 방식은 두 항목이 동시에 켜지는 경계 사례가 있어, 스크롤 위치 기준으로
+     "지나온 섹션 중 가장 마지막" 하나만 켠다. */
   try {
     var navLinks = [].slice.call(document.querySelectorAll(".topnav a"));
-    var targets = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
-    var navIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        var i = targets.indexOf(en.target);
-        if (i < 0) return;
-        navLinks.forEach(function (a) { a.classList.remove("on"); });
-        navLinks[i].classList.add("on");
+    var navTargets = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+    function navSync() {
+      var line = window.scrollY + window.innerHeight * 0.42;
+      var active = -1;
+      navTargets.forEach(function (t, i) {
+        if (t && t.offsetTop <= line) active = i;
       });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    targets.forEach(function (t) { if (t) navIO.observe(t); });
+      navLinks.forEach(function (a, i) { a.classList.toggle("on", i === active); });
+    }
+    window.addEventListener("scroll", navSync, { passive: true });
+    navSync();
   } catch (e) {}
 
   /* ── 스티키 바 + 스크롤 깊이 계측 ── */
