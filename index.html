@@ -104,7 +104,7 @@
   }
   .eyebrow {
     display: inline-block;
-    font-size: 13.5px; font-weight: 700; letter-spacing: .14em;
+    font-size: 15px; font-weight: 700; letter-spacing: .12em;
     color: #FFC9CD;
     border: 1px solid rgba(255,255,255,.28);
     border-radius: 100px;
@@ -160,18 +160,23 @@
     margin: 34px 0 !important;
   }
   .dark-sec .pull { color: #fff !important; }
+  /* 모바일: 데스크톱 기준으로 넣은 강제 줄바꿈 해제 — 짧은 제목은 한 줄로,
+     긴 제목은 keep-all이 어절 단위로 자연스럽게 접는다 */
+  @media (max-width: 520px) {
+    h2 br, .band .t br, .pull br { display: none; }
+  }
 
   /* 섹션 제목 (가운데) */
   .sec-head { text-align: center; margin-bottom: 40px; }
   .kicker {
     display: inline-block;
-    font-size: 13.5px; font-weight: 800; letter-spacing: .12em;
+    font-size: 16px; font-weight: 800; letter-spacing: .1em;
     color: var(--red-text); background: #FFF1F1;
-    border-radius: 100px; padding: 7px 15px;
+    border-radius: 100px; padding: 9px 18px;
     margin-bottom: 18px;
   }
   h2 {
-    font-size: clamp(27px, 6.6vw, 40px);
+    font-size: clamp(23px, 6.2vw, 40px);
     font-weight: 800; line-height: 1.4;
     letter-spacing: -0.032em;
   }
@@ -207,8 +212,8 @@
   }
   .pitem .n {
     flex: 0 0 auto;
-    font-size: 15px; font-weight: 800; letter-spacing: .1em;
-    color: var(--coral); padding-top: 6px; min-width: 34px;
+    font-size: 16.5px; font-weight: 800; letter-spacing: .1em;
+    color: var(--coral); padding-top: 6px; min-width: 38px;
   }
   .pitem .tt {
     font-size: clamp(20px, 4.8vw, 24px);
@@ -239,7 +244,7 @@
     padding: 26px 24px;
     text-align: left;
   }
-  .alt .an { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--red-text); margin-bottom: 10px; }
+  .alt .an { font-size: 15px; font-weight: 800; letter-spacing: .1em; color: var(--red-text); margin-bottom: 10px; }
   .alt .at { font-size: 19.5px; font-weight: 800; line-height: 1.5; margin-bottom: 10px; letter-spacing: -0.015em; }
   .alt .ab { font-size: 18.5px; line-height: 1.85; color: var(--sub); }
   .alt .ab b { color: var(--text); }
@@ -256,7 +261,7 @@
   }
   .sol .sn {
     display: inline-block;
-    font-size: 13px; font-weight: 800; letter-spacing: .1em;
+    font-size: 15px; font-weight: 800; letter-spacing: .08em;
     color: #fff; background: var(--red-fill);
     border-radius: 100px; padding: 6px 14px;
     margin-bottom: 16px;
@@ -285,7 +290,7 @@
     padding: 28px 26px;
     text-align: left;
   }
-  .lim .ln { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: #FF8F97; margin-bottom: 10px; }
+  .lim .ln { font-size: 15px; font-weight: 800; letter-spacing: .1em; color: #FF8F97; margin-bottom: 10px; }
   .lim .lt { font-size: clamp(19px, 4.4vw, 22px); font-weight: 800; color: #fff; line-height: 1.5; margin-bottom: 12px; letter-spacing: -0.015em; }
   .lim .lb { font-size: 18.5px; line-height: 1.9; color: #A2ABB9; }
   .lim .lb b { color: #fff; }
@@ -304,7 +309,7 @@
     counter-increment: s4;
     content: "0" counter(s4);
     display: block;
-    font-size: 12.5px; font-weight: 800; letter-spacing: .14em;
+    font-size: 14.5px; font-weight: 800; letter-spacing: .12em;
     color: var(--red-text); margin-bottom: 12px;
   }
   .s4 .role { font-size: 17px; font-weight: 700; color: var(--sub); margin-bottom: 6px; }
@@ -605,9 +610,9 @@
   <div class="veil"></div>
   <div class="in">
     <div class="eyebrow">부코드 AI 주식투자 강의 · 사전대기</div>
-    <h1>내가 사면 떨어지고,<br>내가 팔면 오릅니다.</h1>
-    <p class="lead">저도 완전 똑같았습니다.<br>이익 나면 급하게 팔고, 손해 보면 언젠가 오르겠지 버티고.</p>
-    <p class="turn">그런데 몇 년을 그렇게 하고 나서야 알았습니다.<br><b>문제는 언제 사고 파느냐가 아니었습니다.</b></p>
+    <h1>내가 사면 떨어지고, <br>내가 팔면 오릅니다.</h1>
+    <p class="lead">저도 완전 똑같았습니다. <br>이익 나면 급하게 팔고, 손해 보면 언젠가 오르겠지 버티고.</p>
+    <p class="turn">그런데 몇 년을 그렇게 하고 나서야 알았습니다. <br><b>문제는 언제 사고 파느냐가 아니었습니다.</b></p>
     <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
     <p class="cta-note" style="color:#8D96A6">*사전대기는 무료이며, 결제 의무가 없습니다</p>
     <p class="rating">★ 월급쟁이부자들(월부) 공식 강의 평점 <b>4.7</b> / 5.0 · 후기 58개</p>
@@ -619,7 +624,7 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">문제</span>
-      <h2>왜 늘 같은 자리로<br>돌아올까요</h2>
+      <h2>왜 늘 같은 자리로 <br>돌아올까요</h2>
     </div>
 
     <div class="plist">
@@ -666,13 +671,13 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">왜 안 되는가</span>
-      <h2>당신 탓이<br>아닙니다.</h2>
+      <h2>당신 탓이 <br>아닙니다.</h2>
     </div>
 
     <div class="article">
-      <p class="lede">가치투자를 해야 한다는 건 다들 아시잖아요.<br>재무제표를 봐야 한다는 것도요.</p>
-      <p>그런데 종목 하나 제대로 보려면 두 시간이 걸립니다.<br>관심종목 열 개면 스무 시간이고요.</p>
-      <p class="pull">퇴근하고 그걸 매일<br>할 수 있는 사람은 없습니다.</p>
+      <p class="lede">가치투자를 해야 한다는 건 다들 아시잖아요. <br>재무제표를 봐야 한다는 것도요.</p>
+      <p>그런데 종목 하나 제대로 보려면 두 시간이 걸립니다. <br>관심종목 열 개면 스무 시간이고요.</p>
+      <p class="pull">퇴근하고 그걸 매일 <br>할 수 있는 사람은 없습니다.</p>
       <p>그래서 대신해줄 곳을 찾게 되는 겁니다.</p>
     </div>
 
@@ -684,7 +689,7 @@
       </div>
       <div class="alt">
         <div class="an">증권사</div>
-        <div class="at">리포트가 나와도 그것만 믿고<br>사는 사람은 없습니다</div>
+        <div class="at">리포트가 나와도 그것만 믿고 <br>사는 사람은 없습니다</div>
         <div class="ab">읽어는 보죠. 그런데 그것만 보고 매수 버튼을 누르지는 못하잖아요.</div>
       </div>
       <div class="alt">
@@ -706,8 +711,8 @@
 <!-- ═══ 전환 밴드 ═══ -->
 <div class="band">
   <div class="in">
-    <p class="t">믿을 곳이 없으니 결국 혼자 판단합니다.<br>근거 없이 하는 판단은 늘 불안합니다.</p>
-    <p class="s">불안하면 조금 오를 때 팔아버리고,<br>떨어지면 붙잡고 버팁니다.</p>
+    <p class="t">믿을 곳이 없으니 결국 혼자 판단합니다. <br>근거 없이 하는 판단은 늘 불안합니다.</p>
+    <p class="s">불안하면 조금 오를 때 팔아버리고, <br>떨어지면 붙잡고 버팁니다.</p>
   </div>
 </div>
 
@@ -716,7 +721,7 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">무료 공개</span>
-      <h2>지금부터 알려드리는 건<br><span class="y">전부 무료</span>입니다</h2>
+      <h2>지금부터 알려드리는 건 <br><span class="y">전부 무료</span>입니다</h2>
       <p class="desc">강의 안 들으셔도 됩니다. 이대로만 해보세요.</p>
     </div>
 
@@ -745,8 +750,8 @@
         <div class="sb">
           <p>좋은 회사라는 걸 확인했다면, 그다음은 가격입니다.</p>
           <p>아무리 좋은 회사라도 비싸게 사면 투자가 아닙니다.</p>
-          <p>그런데 여기서 대부분 실수하십니다.<br>같은 업종 평균과 비교하는 거예요.</p>
-          <p><b>좋은 회사는 원래 비쌉니다.</b> 돈을 잘 버니까요.<br>평균과 비교하면 좋은 회사를 전부 걸러내게 되는 겁니다.</p>
+          <p>그런데 여기서 대부분 실수하십니다. <br>같은 업종 평균과 비교하는 거예요.</p>
+          <p><b>좋은 회사는 원래 비쌉니다.</b> 돈을 잘 버니까요. <br>평균과 비교하면 좋은 회사를 전부 걸러내게 되는 겁니다.</p>
           <p>비교해야 할 건 <b>그 회사의 과거</b>입니다.</p>
           <div class="prompt">"이 회사의 최근 PER 범위에서 지금 주가는 어디쯤인가?"</div>
           <div class="prompt">"그동안 이익은 늘었는가, 줄었는가?"</div>
@@ -767,7 +772,7 @@
           <p>재무제표는 지난 분기 숫자예요. 그 이후에 무슨 일이 있었는지는 안 나오거든요.</p>
           <p>네이버 증권 종목 화면에서 <b>공시 탭만 한번 열어보세요.</b></p>
           <p>최근 3개월 안에 유상증자, 전환사채, 최대주주 지분 변동이 있다면 방금 본 재무 숫자는 이미 바뀐 뒤입니다.</p>
-          <p>제목만 봐도 됩니다.<br>있는지 없는지만 확인하는 겁니다.</p>
+          <p>제목만 봐도 됩니다. <br>있는지 없는지만 확인하는 겁니다.</p>
         </div>
         <figure class="slot" data-file="img/sales/05" data-spec="블록4-셋 · 네이버 증권 공시 탭 화면 (유상증자·전환사채 표시)">
           <picture>
@@ -787,7 +792,7 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">직접 해보면</span>
-      <h2>말은 쉬운데,<br>저도 하다가<br>포기했습니다</h2>
+      <h2>말은 쉬운데, <br>저도 하다가 <br>포기했습니다</h2>
     </div>
 
     <div class="lims">
@@ -799,16 +804,16 @@
       <div class="lim">
         <div class="ln">결론</div>
         <div class="lt">두 시간을 쓰고 나서도 살지 말지를 못 정하겠는 겁니다</div>
-        <div class="lb">PER이 과거보다 낮다는 건 알겠습니다. 그런데 그게 지금 사도 된다는 뜻인지는 모르겠더라고요. 유상증자 공시가 있는 건 봤습니다. 그런데 그게 이 회사에 얼마나 나쁜 일인지는 모르겠고요.<br><br><b>결국 감으로 샀습니다. 두 시간 전과 똑같이요.</b></div>
+        <div class="lb">PER이 과거보다 낮다는 건 알겠습니다. 그런데 그게 지금 사도 된다는 뜻인지는 모르겠더라고요. 유상증자 공시가 있는 건 봤습니다. 그런데 그게 이 회사에 얼마나 나쁜 일인지는 모르겠고요. <br><br><b>결국 감으로 샀습니다. 두 시간 전과 똑같이요.</b></div>
       </div>
     </div>
 
     <div class="article" style="margin-top:40px">
       <p>그러면 다음 종목은 안 보게 되더라고요.</p>
-      <p>두 시간을 써도 답이 안 나오는데,<br>열 개를 볼 이유가 없잖아요.</p>
+      <p>두 시간을 써도 답이 안 나오는데, <br>열 개를 볼 이유가 없잖아요.</p>
       <hr>
-      <p class="pull">지금까지 가치투자를 못 한 건<br>의지가 부족해서가 아니었습니다.</p>
-      <p>재무제표를 처음 보는 사람이<br>두 시간 만에 결론을 낼 수는 없잖아요.</p>
+      <p class="pull">지금까지 가치투자를 못 한 건 <br>의지가 부족해서가 아니었습니다.</p>
+      <p>재무제표를 처음 보는 사람이 <br>두 시간 만에 결론을 낼 수는 없잖아요.</p>
       <p>자료는 다 모았는데 판단만 안 서는 겁니다.</p>
     </div>
 
@@ -819,7 +824,7 @@
 <!-- ═══ 밴드 ═══ -->
 <div class="band band-dark">
   <div class="in">
-    <p class="t">누구라도<br>못 합니다.</p>
+    <p class="t">누구라도 <br>못 합니다.</p>
   </div>
 </div>
 
@@ -828,19 +833,19 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">진짜 이유</span>
-      <h2>문제는 시간이<br>아니었습니다.</h2>
+      <h2>문제는 시간이 <br>아니었습니다.</h2>
     </div>
 
     <div class="article">
-      <p class="lede">십 분 만에 답을 받아도 똑같았습니다.<br>여전히 살지 말지를 못 정하겠는 겁니다.</p>
+      <p class="lede">십 분 만에 답을 받아도 똑같았습니다. <br>여전히 살지 말지를 못 정하겠는 겁니다.</p>
       <p>왜 그런지 아세요?</p>
       <h3>좋은 회사인 건 알겠는데, 그래서 이 가격이 싼 건지 비싼 건지를 아무도 안 알려주기 때문입니다.</h3>
-      <p>수익성 8점, 안정성 7점.<br>좋은 회사 맞습니다.</p>
-      <p>그런데 지금 이 주가가<br>그 회사 값어치보다 싼가요?</p>
+      <p>수익성 8점, 안정성 7점. <br>좋은 회사 맞습니다.</p>
+      <p>그런데 지금 이 주가가 <br>그 회사 값어치보다 싼가요?</p>
       <p>그 답이 없으면 좋은 회사를 비싸게 사게 됩니다.</p>
-      <p class="pull">좋은 회사를 샀는데도<br>물리는 게 그래서입니다.</p>
+      <p class="pull">좋은 회사를 샀는데도 <br>물리는 게 그래서입니다.</p>
       <hr>
-      <p>도구들은 전부 회사가 좋은지까지만 봐주더라고요.<br>얼마가 적당한지는 안 봐주고요.</p>
+      <p>도구들은 전부 회사가 좋은지까지만 봐주더라고요. <br>얼마가 적당한지는 안 봐주고요.</p>
       <p class="pull" style="margin-bottom:0 !important">저는 <em class="mark">그 뒤</em>를 만들었습니다.</p>
     </div>
 
@@ -858,8 +863,8 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">그래서 만든 것</span>
-      <h2>가치투자를 하려면<br>순서가 있습니다</h2>
-      <p class="desc">볼 만한 회사를 추리고 → 좋은 회사인지 보고 →<br>지금 싼지 보고 → 그 판단이 아직 맞는지 확인합니다.<br><b style="color:var(--text)">네 단계 전부를 도구로 만들었습니다.</b></p>
+      <h2>가치투자를 하려면 <br>순서가 있습니다</h2>
+      <p class="desc">볼 만한 회사를 추리고 → 좋은 회사인지 보고 → <br>지금 싼지 보고 → 그 판단이 아직 맞는지 확인합니다. <br><b style="color:var(--text)">네 단계 전부를 도구로 만들었습니다.</b></p>
     </div>
 
     <div class="steps4">
@@ -876,7 +881,7 @@
       <div class="s4">
         <div class="role">지금 사도 되는 가격인지 봅니다</div>
         <div class="nm">적정가 판정</div>
-        <div class="bd">좋은 회사라도 비싸면 사면 안 됩니다. 이 회사가 버는 돈은 늘고 있는데 주가는 그만큼 안 올랐는지, 아니면 이미 다 올라버렸는지를 봅니다.<br><br><b>앞으로 오를지를 예측하는 게 아닙니다. 실제로 있었던 일만 봅니다.</b></div>
+        <div class="bd">좋은 회사라도 비싸면 사면 안 됩니다. 이 회사가 버는 돈은 늘고 있는데 주가는 그만큼 안 올랐는지, 아니면 이미 다 올라버렸는지를 봅니다. <br><br><b>앞으로 오를지를 예측하는 게 아닙니다. 실제로 있었던 일만 봅니다.</b></div>
       </div>
       <div class="s4">
         <div class="role">그 판단이 아직 유효한지 봅니다</div>
@@ -906,7 +911,7 @@
 <!-- ═══ 밴드 ═══ -->
 <div class="band">
   <div class="in">
-    <p class="t">혼자 하면 종목 하나에 두 시간입니다.<br>여기서는 종목 이름만 넣으면 됩니다.</p>
+    <p class="t">혼자 하면 종목 하나에 두 시간입니다. <br>여기서는 종목 이름만 넣으면 됩니다.</p>
   </div>
 </div>
 
@@ -915,12 +920,12 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">가격</span>
-      <h2>이걸 직접 갖추려면<br>얼마가 드는지<br>계산해봤습니다</h2>
+      <h2>이걸 직접 갖추려면 <br>얼마가 드는지 <br>계산해봤습니다</h2>
     </div>
 
     <div class="article" style="margin-bottom:34px">
-      <p>재무 데이터를 자동으로 모아주는 프로그램.<br>외주로 맡기면 <b>24만원</b>입니다.</p>
-      <p>그것도 가장 단순하게 만들었을 때 얘기고,<br>기능이 붙을수록 가격은 훌쩍 뜁니다.</p>
+      <p>재무 데이터를 자동으로 모아주는 프로그램. <br>외주로 맡기면 <b>24만원</b>입니다.</p>
+      <p>그것도 가장 단순하게 만들었을 때 얘기고, <br>기능이 붙을수록 가격은 훌쩍 뜁니다.</p>
     </div>
 
     <div class="ptable">
@@ -940,9 +945,9 @@
 
     <div class="article" style="margin-top:44px">
       <p class="lede">그런데 96만원을 다 써도 문제가 남습니다.</p>
-      <p>AI는 여전히 재무 데이터를 볼 권한이 없습니다.<br>인터넷을 뒤져 찾고, 없으면 지어냅니다.</p>
+      <p>AI는 여전히 재무 데이터를 볼 권한이 없습니다. <br>인터넷을 뒤져 찾고, 없으면 지어냅니다.</p>
       <p>그리고 좋은 회사인지까지만 알려주지,</p>
-      <p class="pull">지금 이 가격이 적당한지는<br>아무도 말해주지 않습니다.</p>
+      <p class="pull">지금 이 가격이 적당한지는 <br>아무도 말해주지 않습니다.</p>
     </div>
 
     <div class="pricebox" style="margin-top:40px">
@@ -998,8 +1003,8 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">사전대기 신청</span>
-      <h2>지금 결제하라는 게<br>아닙니다.</h2>
-      <p class="desc">연락처만 남겨주세요. 모집이 열리면<br><b style="color:var(--text)">등록 순서대로 가장 먼저</b> 안내드립니다.</p>
+      <h2>지금 결제하라는 게 <br>아닙니다.</h2>
+      <p class="desc">연락처만 남겨주세요. 모집이 열리면 <br><b style="color:var(--text)">등록 순서대로 가장 먼저</b> 안내드립니다.</p>
     </div>
 
     <div class="wait-count" id="waitCount">현재 <b id="waitNum">-</b>명이 사전대기 중입니다</div>
@@ -1034,9 +1039,9 @@
         </label>
         <button type="button" class="agree-more" id="agreeMore">자세히 보기</button>
         <div class="agree-detail" id="agreeDetail">
-          1. 수집 목적: 강의 모집 안내<br>
-          2. 수집 항목: 휴대폰 번호<br>
-          3. 보유 기간: 수집·이용 목적 달성 시까지, 또는 동의 철회 시. 단, 관련 법령에 따라 보유가 필요한 경우 해당 기간까지.<br>
+          1. 수집 목적: 강의 모집 안내 <br>
+          2. 수집 항목: 휴대폰 번호 <br>
+          3. 보유 기간: 수집·이용 목적 달성 시까지, 또는 동의 철회 시. 단, 관련 법령에 따라 보유가 필요한 경우 해당 기간까지. <br>
           4. 동의를 거부할 권리가 있으며, 비동의 시 신청이 접수되지 않습니다.
         </div>
         <div class="err" id="agreeErr">개인정보 수집 동의에 체크해주세요</div>
@@ -1046,7 +1051,7 @@
       <div class="done" id="formMsg">
         <div class="em">✓</div>
         <h3>사전대기 신청이 접수됐습니다</h3>
-        <p>곧 카톡으로 대기 순번을 보내드립니다.<br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
+        <p>곧 카톡으로 대기 순번을 보내드립니다. <br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
       </div>
     </div>
   </div>
@@ -1081,14 +1086,14 @@
 <div class="band">
   <div class="in">
     <p class="t">선택지는 둘 중 하나입니다.</p>
-    <p class="s">이 페이지를 그냥 닫으면 — 내일도 좋다는 말만 듣고 사게 됩니다.<br>연락처를 남기면 — 모집 소식을 가장 먼저 받습니다.<br><br>지금 결정은 "살까 말까"가 아닙니다. "소식을 받을까 말까"입니다.</p>
+    <p class="s">이 페이지를 그냥 닫으면 — 내일도 좋다는 말만 듣고 사게 됩니다. <br>연락처를 남기면 — 모집 소식을 가장 먼저 받습니다. <br><br>지금 결정은 "살까 말까"가 아닙니다. "소식을 받을까 말까"입니다.</p>
     <a class="btn on-red" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
     <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </div>
 
 <footer>
-  부코드 AI 주식투자 강의 · 사전대기 안내 페이지<br>
+  부코드 AI 주식투자 강의 · 사전대기 안내 페이지 <br>
   본 페이지는 투자 권유가 아니며, 투자의 책임은 투자자 본인에게 있습니다.
 </footer>
 
