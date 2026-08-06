@@ -953,6 +953,9 @@
       <div class="now">29만원</div>
       <div class="last"><b>이 가격은 8월 기수가 마지막입니다.</b><br>9월부터는 39만원입니다.</div>
     </div>
+
+    <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
+    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </section>
 
@@ -1256,7 +1259,8 @@
       });
     }
     if (window.__submitted) return;
-    var past = window.scrollY > window.innerHeight * 0.9;
+    // 히어로를 조금만 지나면 바로 등장 (기존 0.9화면 → 0.35화면)
+    var past = window.scrollY > window.innerHeight * 0.35;
     var r = applySec.getBoundingClientRect();
     var overForm = r.top < window.innerHeight && r.bottom > 200;
     bar.classList.toggle("show", past && !overForm);
