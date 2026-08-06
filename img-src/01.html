@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; font-family:"Pretendard Variable",Pretendard,"Malgun Gothic",sans-serif;
+       background:#101216; color:#E9ECF2; -webkit-font-smoothing:antialiased; }
+.wrap { padding:60px 70px 46px; position:relative; }
+.loop { position:relative; padding-left:64px; }
+.rail { position:absolute; left:25px; top:36px; bottom:36px; width:3px;
+        background:linear-gradient(180deg,#5B74FF,#FF6E78); border-radius:3px; }
+.step { position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15);
+        border-radius:18px; padding:30px 34px; margin-bottom:26px; }
+.step:last-of-type { margin-bottom:0; }
+.no { position:absolute; left:-64px; top:30px; width:52px; height:52px; border-radius:50%;
+      background:#16181D; border:3px solid #5B74FF; color:#fff;
+      display:flex; align-items:center; justify-content:center; font-size:23px; font-weight:800; }
+.step:nth-child(4) .no { border-color:#FF6E78; }
+.t { font-size:31px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:8px; }
+.d { font-size:23px; color:#A9B2C0; line-height:1.6; }
+.back { display:flex; align-items:center; gap:16px; margin:34px 0 0 64px;
+        color:#FF8F97; font-size:25px; font-weight:800; }
+.back .arr { font-size:34px; }
+.cap { margin-top:36px; text-align:center; font-size:19px; color:#6E7A90; }
+</style></head><body><div class="wrap">
+<div class="loop">
+  <div class="rail"></div>
+  <div class="step"><div class="no">1</div>
+    <div class="t">좋은 회사인지 모르고 삽니다</div>
+    <div class="d">누가 좋다고 하니까, 차트가 올라가니까.</div></div>
+  <div class="step"><div class="no">2</div>
+    <div class="t">떨어져도 이유를 모릅니다</div>
+    <div class="d">팔아야 할지 버텨야 할지, 감이 안 옵니다.</div></div>
+  <div class="step"><div class="no">3</div>
+    <div class="t">만회할 시간이 없습니다</div>
+    <div class="d">지금 잃는 돈은 노후에서 빼오는 돈이니까요.</div></div>
+</div>
+<div class="back"><span class="arr">↺</span>그리고 다시, 남의 말을 찾게 됩니다</div>
+<p class="cap">같은 자리로 돌아오는 구조 — 어느 하나만의 문제가 아닙니다</p>
+</div></body></html>
