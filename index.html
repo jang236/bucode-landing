@@ -1100,7 +1100,7 @@
 </footer>
 
 <div class="sticky" id="stickyBar">
-  <a href="#apply">사전대기 신청 — 모집 소식 가장 먼저 받기</a>
+  <a href="#apply" id="stickyCta">사전대기 신청 — 8월 부코드 AI 강의 듣기</a>
 </div>
 
 <script>
@@ -1247,6 +1247,12 @@
   } catch (e) {}
 
   /* ── 스티키 바 + 스크롤 깊이 계측 ── */
+  // 스티키 문구의 월은 방문 시점 기준 자동 갱신 (HTML의 "8월"은 JS 미동작 시 기본값)
+  try {
+    document.getElementById("stickyCta").textContent =
+      "사전대기 신청 — " + (new Date().getMonth() + 1) + "월 부코드 AI 강의 듣기";
+  } catch (e) {}
+
   var applySec = document.getElementById("apply");
   var bar = document.getElementById("stickyBar");
   var depthHit = {};
