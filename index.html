@@ -348,6 +348,11 @@
   .prow.total { background: #FAFBFC; }
   .prow.total .k { color: var(--text); font-weight: 800; font-size: 18px; }
   .prow.total .v { font-size: 23px; font-weight: 800; color: var(--red-text); }
+  .pthead {
+    background: #EEF1F5; color: #5A6472;
+    font-size: 15.5px; font-weight: 800; letter-spacing: .05em;
+    text-align: center; padding: 13px;
+  }
 
   .pricebox {
     max-width: 520px; margin: 0 auto;
@@ -386,19 +391,34 @@
   .score span { font-size: .42em; color: var(--sub); font-weight: 700; }
   .score-meta { font-size: 18px; color: var(--sub); margin-top: 12px; line-height: 1.8; }
   .score-meta b { color: var(--text); }
-  .chat { max-width: 560px; margin: 0 auto; background: var(--kchat); border-radius: 20px; padding: 24px 18px 14px; }
-  .bubble-wrap { text-align: left; margin-bottom: 18px; }
-  .bubble-name { font-size: 14.5px; color: #3E4D5C; margin: 0 0 6px 4px; font-weight: 700; }
-  .bubble {
-    display: inline-block;
-    background: var(--kakao); color: #23180a;
-    border-radius: 4px 18px 18px 18px;
-    padding: 15px 18px;
-    font-size: 18px; line-height: 1.8; font-weight: 500;
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  /* 후기 카루셀 — 한 장씩 자동 슬라이드 */
+  .car { max-width: 620px; margin: 0 auto; position: relative; }
+  .car-view { overflow: hidden; border-radius: 20px; }
+  .car-track { display: flex; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+  .car-item { flex: 0 0 100%; padding: 4px; }
+  .rv-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 18px; padding: 34px 30px 28px;
+    text-align: left; min-height: 300px;
+    box-shadow: 0 8px 26px rgba(2,8,23,.07);
+    display: flex; flex-direction: column;
   }
-  .bubble .tt { display: block; font-weight: 800; margin-bottom: 5px; }
-  .bubble-stars { display: block; font-size: 14px; color: #8A5A12; letter-spacing: 2px; margin-top: 7px; font-weight: 700; }
+  .rv-card .q { font-size: 44px; line-height: 1; color: var(--red); font-weight: 800; margin-bottom: 10px; }
+  .rv-card .tt { font-size: 20px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.5; margin-bottom: 12px; }
+  .rv-card .bd { font-size: 18px; line-height: 1.85; color: #38404D; flex: 1; }
+  .rv-card .who {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
+  }
+  .rv-card .nm { font-size: 16px; font-weight: 700; color: var(--sub); }
+  .rv-card .st { font-size: 16px; color: #C27A00; letter-spacing: 2px; font-weight: 700; }
+  .car-dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
+  .car-dots button {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: none; background: #D5DAE1; cursor: pointer; padding: 0;
+    transition: background .2s, width .2s;
+  }
+  .car-dots button.on { background: var(--red-fill); width: 26px; border-radius: 99px; }
 
   /* ── 이미지 ── */
   .shot {
@@ -447,18 +467,15 @@
     font-size: 18px; font-weight: 800; letter-spacing: .02em;
     text-align: center;
   }
-  .offer ul { list-style: none; padding: 10px 24px 22px; text-align: left; }
-  .offer li {
-    position: relative; padding: 15px 0 15px 28px;
-    font-size: 18.5px; line-height: 1.8;
-    border-bottom: 1px solid var(--line);
+  .offer .obody { padding: 6px 22px 14px; text-align: left; }
+  .offer details:last-child { border-bottom: none; }
+  .offer summary { font-size: 17.5px; padding: 19px 4px; }
+  .offer summary b { color: var(--red-text); }
+  .offer .a { font-size: 16.5px; padding-bottom: 20px; }
+  .offer .hint {
+    text-align: center; font-size: 13.5px; color: #98A2B0;
+    padding: 0 0 16px;
   }
-  .offer li:last-child { border-bottom: none; }
-  .offer li::before {
-    content: ""; position: absolute; left: 4px; top: 24px;
-    width: 8px; height: 8px; border-radius: 50%; background: var(--red);
-  }
-  .offer li b { font-weight: 800; }
 
   /* ── 대기인원 ── */
   .wait-count {
@@ -954,11 +971,13 @@
     </div>
 
     <div class="ptable">
-      <div class="prow"><span class="k">데이터 수집 프로그램</span><span class="v">24만원</span></div>
-      <div class="prow"><span class="k">AI 구독료</span><span class="v">36만원</span></div>
-      <div class="prow"><span class="k">종목 정보 서비스</span><span class="v">36만원</span></div>
-      <div class="prow total"><span class="k">1년에</span><span class="v">96만원</span></div>
+      <div class="pthead">이 강의 없이, 직접 갖춘다면</div>
+      <div class="prow"><span class="k">데이터 수집 프로그램 (외주)</span><span class="v">24만원</span></div>
+      <div class="prow"><span class="k">AI 구독료 (타사)</span><span class="v">36만원</span></div>
+      <div class="prow"><span class="k">종목 정보 서비스 (타사)</span><span class="v">36만원</span></div>
+      <div class="prow total"><span class="k">따로따로 갖추면 1년에</span><span class="v">96만원</span></div>
     </div>
+    <p class="shot-cap">※ 위는 외주·타사 서비스 비용 합계입니다 — 이 강의의 가격이 아닙니다</p>
 
     <figure class="slot" data-file="img/sales/09" data-spec="블록8 · 외주 플랫폼 실거래 캡처 (24만원)" style="max-width:520px">
       <picture>
@@ -998,23 +1017,36 @@
       <div class="score-meta">후기 <b>58개</b> · 1~3점 <b>0개</b><br>수강생의 <b>절반 이상이 40대와 50대</b>입니다</div>
     </div>
 
-    <div class="chat">
-      <div class="bubble-wrap">
-        <div class="bubble-name">40대 남성</div>
-        <div class="bubble"><span class="tt">휘둘리지 않고 데이터로 투자하고 싶었습니다</span>지금까지 AI를 써왔지만 이렇게 자세한 과정이 있는 줄 몰랐습니다.<span class="bubble-stars">★★★★★</span></div>
+    <div class="car" id="rvCar">
+      <div class="car-view">
+        <div class="car-track" id="rvTrack">
+          <div class="car-item"><div class="rv-card">
+            <div class="q">“</div>
+            <div class="tt">휘둘리지 않고 데이터로<br>투자하고 싶었습니다</div>
+            <div class="bd">지금까지 AI를 써왔지만 이렇게 디테일한 과정이 있는 것도 처음 알았고, 여태 내가 사용한 활용력은 5%도 안 될 것 같은 느낌이 들었습니다. 엄청난 투자 무기가 될 것이라는 확신이 생겼습니다.</div>
+            <div class="who"><span class="nm">여섯시십분 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
+          </div></div>
+          <div class="car-item"><div class="rv-card">
+            <div class="q">“</div>
+            <div class="tt">자료를 찾고 정리하는 과정이<br>늘 어려웠습니다</div>
+            <div class="bd">뉴스도 많고, 재무제표도 봐야 하고, 산업 흐름까지 확인해야 하다 보니 혼자서는 어디서부터 시작해야 할지 막막할 때가 많았습니다. 이번 강의를 들으면서 AI를 단순히 질문하는 용도가 아니라 판단을 정리해주는 도구로 쓸 수 있다는 걸 알았습니다.</div>
+            <div class="who"><span class="nm">지웅군 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
+          </div></div>
+          <div class="car-item"><div class="rv-card">
+            <div class="q">“</div>
+            <div class="tt">독학하다 포기했던 50대,<br>AI의 신세계를 맛봤습니다</div>
+            <div class="bd">책도 사보고 유튜브도 봤지만 그때뿐이지 활용할 수가 없었어요. 어떤 질문을 하느냐에 따라 답이 달라지는 AI에게 질문하고 답하며 공부하려 하니 막막했는데, 이 강의로 정말 AI의 신세계를 맛봤습니다.</div>
+            <div class="who"><span class="nm">나시문 · 50대 여성</span><span class="st">★★★★★ 5.0</span></div>
+          </div></div>
+          <div class="car-item"><div class="rv-card">
+            <div class="q">“</div>
+            <div class="tt">주린이 중의 주린이였습니다</div>
+            <div class="bd">국내 주식장에 언제 들어가야 되는지도 잘 모르겠었던 주린이 중에 주린이였습니다. AI로 그 복잡한 재무제표나 인터넷 뉴스들을 혼자서 분석하지 않아도 된다는 걸 알고나서 크게 놀랐습니다.</div>
+            <div class="who"><span class="nm">방울토마토마토</span><span class="st">★★★★☆ 4.0</span></div>
+          </div></div>
+        </div>
       </div>
-      <div class="bubble-wrap">
-        <div class="bubble-name">40대 남성</div>
-        <div class="bubble"><span class="tt">질문하는 용도가 아니라, 판단을 정리해주는 도구</span>자료를 찾고 정리하는 과정이 늘 어려웠는데, AI를 그렇게 쓸 수 있다는 걸 알았습니다.<span class="bubble-stars">★★★★★</span></div>
-      </div>
-      <div class="bubble-wrap">
-        <div class="bubble-name">50대 여성</div>
-        <div class="bubble"><span class="tt">독학하다 포기했던 50대</span>책도 사보고 유튜브도 봤지만 그때뿐이지 활용할 수가 없었습니다.<span class="bubble-stars">★★★★★</span></div>
-      </div>
-      <div class="bubble-wrap">
-        <div class="bubble-name">50대 남성</div>
-        <div class="bubble"><span class="tt">주식 앱만 보면서 막막했습니다</span>이제 장기적으로 해볼 수 있겠다는 마음이 들었습니다.<span class="bubble-stars">★★★★☆</span></div>
-      </div>
+      <div class="car-dots" id="rvDots"></div>
     </div>
     <figure class="slot" data-file="img/sales/10" data-spec="블록9 · 월부 후기 캡처 (실명 제외, 닉네임만)">
       <picture>
@@ -1032,21 +1064,37 @@
   <div class="inner">
     <div class="sec-head">
       <span class="kicker">사전대기 신청</span>
-      <h2>지금 결제하라는 게 <br>아닙니다.</h2>
-      <p class="desc">연락처만 남겨주세요. 모집이 열리면 <br><b style="color:var(--text)">등록 순서대로 가장 먼저</b> 안내드립니다.</p>
+      <h2>결제는 나중 얘기고, <br>오늘은 순번만 정해집니다.</h2>
+      <p class="desc">연락처를 남기는 순간 <b style="color:var(--text)">당신의 대기 순번</b>이 확정되고, <br>모집이 열리면 그 순서대로 안내드립니다. <br><b style="color:var(--text)">늦게 남길수록, 순번은 그만큼 뒤로 밀립니다.</b></p>
     </div>
 
     <div class="wait-count" id="waitCount">현재 <b id="waitNum">-</b>명이 사전대기 중입니다</div>
 
     <div class="offer">
       <div class="oh">8월 기수 안내</div>
-      <ul>
-        <li>수강료 <b>29만원</b> — 이 가격은 이번 기수가 마지막입니다. 9월부터 39만원</li>
-        <li><b>재무분석 도구 영구 사용권</b> — 직접 갖추면 1년에 96만원짜리입니다</li>
-        <li><b>적정가 판정 · 공시 검증</b> — 이번 기수부터 새로 들어갑니다. 가격은 그대로고요</li>
-        <li><b>7일 무조건 환불 보장</b> — 일주일 들어보고 결정하셔도 됩니다</li>
-        <li><b>수강생 전용 카톡방</b> — 혼자 하다 멈추지 않도록</li>
-      </ul>
+      <div class="obody">
+        <details>
+          <summary>수강료 <b>29만원</b> — 마지막 가격</summary>
+          <div class="a">이 가격으로 들을 수 있는 마지막 기수입니다. 다음 기수부터는 39만원으로 올라갑니다. 사전대기는 무료고, 결제는 모집이 열린 뒤 결정하시면 됩니다.</div>
+        </details>
+        <details>
+          <summary><b>재무분석 도구</b> 영구 사용권</summary>
+          <div class="a">네이버 증권 데이터를 그대로 읽는 분석 도구를 수강이 끝난 뒤에도 계속 씁니다. 위에서 계산한 대로, 직접 갖추면 1년에 96만원이 드는 구성입니다.</div>
+        </details>
+        <details>
+          <summary><b>적정가 판정 · 공시 검증</b> — 이번 기수 신규</summary>
+          <div class="a">"좋은 회사인가"에서 멈추지 않고, 지금 사도 되는 가격인지 · 그 판단이 아직 유효한지까지 봅니다. 이번 기수부터 새로 들어가는데 가격은 그대로입니다.</div>
+        </details>
+        <details>
+          <summary><b>7일 무조건 환불</b> 보장</summary>
+          <div class="a">일주일 들어보고 아니다 싶으면 전액 환불받으시면 됩니다. 결제일로부터 7일 이내 100% 환불 — 위험 부담은 제가 집니다.</div>
+        </details>
+        <details>
+          <summary><b>수강생 전용 카톡방</b></summary>
+          <div class="a">혼자 하다 멈추지 않도록, 같은 과정을 듣는 수강생들과 함께 갑니다. 업데이트 자료도 이 방에서 계속 받으실 수 있습니다.</div>
+        </details>
+        <div class="hint">항목을 누르면 자세한 설명이 열립니다</div>
+      </div>
     </div>
 
     <div class="selfcheck">
@@ -1273,6 +1321,36 @@
     }
     window.addEventListener("scroll", navSync, { passive: true });
     navSync();
+  } catch (e) {}
+
+  /* ── 후기 카루셀 (자동 슬라이드) ── */
+  try {
+    var track = document.getElementById("rvTrack");
+    var items = track.children.length;
+    var dotsBox = document.getElementById("rvDots");
+    var cur = 0, timer = null;
+    for (var d = 0; d < items; d++) {
+      var b = document.createElement("button");
+      b.setAttribute("aria-label", "후기 " + (d + 1));
+      (function (idx) { b.addEventListener("click", function () { go(idx); restart(); }); })(d);
+      dotsBox.appendChild(b);
+    }
+    function go(i) {
+      cur = (i + items) % items;
+      track.style.transform = "translateX(-" + (cur * 100) + "%)";
+      [].forEach.call(dotsBox.children, function (dot, j) { dot.classList.toggle("on", j === cur); });
+    }
+    function restart() {
+      if (timer) clearInterval(timer);
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        timer = setInterval(function () { go(cur + 1); }, 4000);
+      }
+    }
+    // 손으로 만지는 동안은 멈춤
+    var car = document.getElementById("rvCar");
+    car.addEventListener("pointerenter", function () { if (timer) clearInterval(timer); });
+    car.addEventListener("pointerleave", restart);
+    go(0); restart();
   } catch (e) {}
 
   /* ── 스티키 바 + 스크롤 깊이 계측 ── */
