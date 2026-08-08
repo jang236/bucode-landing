@@ -644,6 +644,20 @@
   }
   .sticky a:hover { background: var(--red-deep); }
 
+  /* ── 감정 연출 (대형 이모지 + 전환 장치) ── */
+  .mood { text-align: center; margin: 8px auto 34px; position: relative; }
+  .mood .emj { font-size: clamp(96px, 24vw, 150px); line-height: 1.15; display: block; }
+  .mood .chart {
+    display: block; margin: -18px auto 0; width: min(300px, 62vw); height: 74px;
+  }
+  .mood .cap { font-size: 16.5px; font-weight: 700; color: var(--sub); margin-top: 10px; }
+  .dark-sec .mood .cap { color: #9BA3B2; }
+  .tdots { display: flex; flex-direction: column; align-items: center; gap: 9px; margin: 34px auto; }
+  .tdots i { width: 9px; height: 9px; border-radius: 2px; background: var(--red-fill); }
+  .dark-sec .tdots i { background: #FF8F97; }
+  .tarrow { text-align: center; margin: 26px auto; }
+  .tarrow svg { width: 30px; height: 52px; }
+
   /* ── 리빌 ── */
   .rv { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
   .rv.in { opacity: 1; transform: none; }
@@ -693,6 +707,16 @@
       <h2>왜 늘 같은 자리로 <br>돌아올까요</h2>
     </div>
 
+    <div class="mood">
+      <span class="emj">😫</span>
+      <svg class="chart" viewBox="0 0 300 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="6,14 60,30 96,22 150,44 192,38 246,60 294,68"
+          stroke="#FF6E78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M294,68 l-13,-3 M294,68 l-4,-12" stroke="#FF6E78" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <div class="cap">매번 손실… 이제 정말 지칩니다</div>
+    </div>
+
     <div class="plist">
       <div class="pitem">
         <div class="n">하나</div>
@@ -723,6 +747,8 @@
         <img src="img/sales/mo_01.jpg" alt="확신 없는 매매, 이유 모를 하락, 만회할 시간 부족 — 세 가지 문제" loading="lazy">
       </picture>
     </figure>
+
+    <div class="tdots"><i></i><i></i><i></i></div>
 
     <div class="voice">
       <div class="v">이거 지금 사도 되는 건가.. 또 물리는 거 아니야?</div>
@@ -874,6 +900,8 @@
       </div>
     </div>
 
+    <img class="shot sm" src="img/burden.jpg" alt="나이, 시간, 금융지식, 돈의 무게에 깔린 투자자" loading="lazy" style="margin-top:38px">
+
     <div class="article" style="margin-top:40px">
       <p>그러면 다음 종목은 안 보게 되더라고요.</p>
       <p>두 시간을 써도 답이 안 나오는데, <br>열 개를 볼 이유가 없잖아요.</p>
@@ -902,9 +930,14 @@
       <h2>문제는 시간이 <br>아니었습니다.</h2>
     </div>
 
+    <div class="mood">
+      <span class="emj">🤔</span>
+    </div>
+
     <div class="article">
       <p class="lede">십 분 만에 답을 받아도 똑같았습니다. <br>여전히 살지 말지를 못 정하겠는 겁니다.</p>
       <p>왜 그런지 아세요?</p>
+      <div class="tarrow"><svg viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 3v40M15 43l-10-11M15 43l10-11" stroke="#CE2B37" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h3>좋은 회사인 건 알겠는데, 그래서 이 가격이 싼 건지 비싼 건지를 아무도 안 알려주기 때문입니다.</h3>
       <p>수익성 8점, 안정성 7점. <br>좋은 회사 맞습니다.</p>
       <p>그런데 지금 이 주가가 <br>그 회사 값어치보다 싼가요?</p>
@@ -969,6 +1002,8 @@
         <img src="img/sales/mo_08.jpg" alt="종목 이름을 넣으면 분석 결과가 나오는 실제 도구 화면" loading="lazy">
       </picture>
     </figure>
+
+    <img class="shot sm" src="img/handshake.jpg" alt="사람과 AI가 손을 맞잡은 모습" loading="lazy" style="margin-top:38px">
 
     <img class="shot sm" src="img/handshake.jpg" alt="사람과 AI의 협력" loading="lazy">
   </div>
