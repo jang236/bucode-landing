@@ -122,7 +122,7 @@
     color: #fff;
     margin-bottom: 24px;
   }
-  .hero .lead { font-size: 18.5px; line-height: 1.9; color: #B9C0CC; margin-bottom: 26px; }
+  .hero .lead { font-size: clamp(20px, 5vw, 24px); line-height: 1.85; color: #C9D0DB; margin-bottom: 26px; }
   .hero .turn {
     font-size: clamp(21px, 5.2vw, 27px);
     font-weight: 800; line-height: 1.65; color: #fff;
@@ -136,7 +136,7 @@
   /* ── 기사형 본문 ── */
   .article { max-width: 720px; margin: 0 auto; text-align: left; }
   .article p {
-    font-size: 18.5px; line-height: 1.95;
+    font-size: 19px; line-height: 1.95;
     color: #2A313C;
     margin-bottom: 26px;
   }
@@ -151,7 +151,7 @@
   }
   .article h3:first-child { margin-top: 0; }
   .article .lede {
-    font-size: 20px; font-weight: 700; line-height: 1.85;
+    font-size: clamp(20px, 4.8vw, 23px); font-weight: 700; line-height: 1.85;
     color: var(--text); margin-bottom: 30px;
   }
   .article hr { border: 0; border-top: 1px solid var(--line); margin: 46px 0; }
@@ -185,7 +185,7 @@
     letter-spacing: -0.032em;
   }
   h2 .y { color: var(--red-text); }
-  .sec-head .desc { font-size: 18.5px; line-height: 1.85; color: var(--sub); margin-top: 16px; }
+  .sec-head .desc { font-size: 19px; line-height: 1.85; color: var(--sub); margin-top: 16px; }
 
   /* ── 풀블리드 강조 블록 ── */
   .band { background: var(--red-fill); color: #fff; padding: 62px 0; }
@@ -194,7 +194,7 @@
     font-size: clamp(23px, 5.6vw, 34px);
     font-weight: 800; line-height: 1.65; letter-spacing: -0.025em;
   }
-  .band .s { font-size: 18.5px; line-height: 1.85; margin-top: 20px; color: #fff; }
+  .band .s { font-size: 19px; line-height: 1.85; margin-top: 20px; color: #fff; }
   .band-dark { background: var(--dark); }
 
   /* ── 다크 섹션 ── */
@@ -224,7 +224,7 @@
     font-weight: 800; line-height: 1.5; color: #fff;
     letter-spacing: -0.02em; margin-bottom: 12px;
   }
-  .pitem .bd { font-size: 18.5px; line-height: 1.9; color: #A9B2C0; }
+  .pitem .bd { font-size: 19px; line-height: 1.9; color: #A9B2C0; }
   .pitem .bd em { font-style: normal; color: #fff; font-weight: 700; }
 
   /* ── 인용 카드 (마음의 소리) ── */
@@ -277,8 +277,8 @@
     border-radius: 100px; padding: 6px 14px;
     margin-bottom: 16px;
   }
-  .sol .st { font-size: clamp(20px, 4.6vw, 23px); font-weight: 800; line-height: 1.5; letter-spacing: -0.02em; margin-bottom: 16px; }
-  .sol .sb { font-size: 18.5px; line-height: 1.92; color: #38404D; }
+  .sol .st { font-size: clamp(20px, 4.8vw, 24px); font-weight: 800; line-height: 1.5; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .sol .sb { font-size: 19px; line-height: 1.92; color: #38404D; }
   .sol .sb b { color: var(--text); font-weight: 700; }
   .sol .sb p { margin-bottom: 16px; }
   .sol .sb p:last-child { margin-bottom: 0; }
@@ -287,7 +287,7 @@
     border-left: 3px solid var(--red);
     border-radius: 8px;
     padding: 17px 18px;
-    font-size: 18px; font-weight: 600; line-height: 1.8;
+    font-size: 19px; font-weight: 600; line-height: 1.8;
     color: #2B3542;
     margin: 14px 0;
   }
@@ -417,7 +417,7 @@
   }
   .rv-card .q { font-size: 44px; line-height: 1; color: var(--red); font-weight: 800; margin-bottom: 10px; }
   .rv-card .tt { font-size: 20px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.5; margin-bottom: 12px; }
-  .rv-card .bd { font-size: 18px; line-height: 1.85; color: #38404D; flex: 1; }
+  .rv-card .bd { font-size: 19px; line-height: 1.85; color: #38404D; flex: 1; }
   .rv-card .who {
     display: flex; justify-content: space-between; align-items: center;
     margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
@@ -623,7 +623,7 @@
   summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; color: var(--red-text); font-size: 22px; font-weight: 400; flex-shrink: 0; }
   details[open] summary::after { content: "\2212"; }
-  .a { padding: 0 4px 24px; font-size: 18.5px; color: var(--sub); line-height: 1.88; }
+  .a { padding: 0 4px 24px; font-size: 19px; color: var(--sub); line-height: 1.88; }
 
   /* ── 스티키 ── */
   .sticky {
@@ -682,7 +682,6 @@
     <h1>저는 투자를 한 게 아니라, <br>도박을 하고 있었습니다.</h1>
     <p class="lead">주식 처음 시작하고 2, 3천을 잃었습니다. <br>그때 계좌를 보면서 든 생각이 딱 그거였어요.</p>
     <p class="turn">급등주 사고, 좋다는 거 따라 사고, 감으로 팔고. <br><b>그 안에 제 판단은 하나도 없었습니다.</b></p>
-    <p class="rating">★ 월급쟁이부자들(월부) 공식 강의 평점 <b>4.7</b> / 5.0 · 후기 58개</p>
   </div>
 </header>
 
