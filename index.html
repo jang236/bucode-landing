@@ -455,6 +455,14 @@
     display: block; width: 100%; height: auto;
     border-radius: 14px;
   }
+  .slot-label {
+    display: block;
+    background: var(--red-fill); color: #fff;
+    font-size: var(--fs-body); font-weight: 800;
+    text-align: center; padding: 12px 14px;
+    border-radius: 14px 14px 0 0;
+  }
+  .slot-label + picture img { border-top-left-radius: 0; border-top-right-radius: 0; }
   .slot.bleed { max-width: none; margin-left: -20px; margin-right: -20px; }
   .slot.bleed img { border-radius: 0; }
   .slot.ph picture { display: none; }
@@ -877,6 +885,7 @@
     <p class="shot-cap">※ 위는 외주·타사 서비스 비용 합계입니다 (이 강의의 가격이 아닙니다)</p>
 
     <figure class="slot" data-file="img/sales/09" data-spec="블록8 · 외주 플랫폼 실거래 캡처 (24만원)" style="max-width:520px">
+      <span class="slot-label">크X 개발자 외주 최소금액</span>
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_09.jpg">
         <img src="img/sales/mo_09.jpg" alt="데이터 수집 프로그램 외주 실거래 가격 24만원 견적 화면" loading="lazy" style="border:1px solid var(--line)">
