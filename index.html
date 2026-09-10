@@ -409,15 +409,12 @@
   .score span { font-size: .42em; color: var(--sub); font-weight: 700; }
   .score-meta { font-size: var(--fs-body); color: var(--sub); margin-top: 12px; line-height: 1.8; }
   .score-meta b { color: var(--text); }
-  /* 후기 카루셀 — 한 장씩 자동 슬라이드 */
-  .car { max-width: 620px; margin: 0 auto; position: relative; }
-  .car-view { overflow: hidden; border-radius: 20px; }
-  .car-track { display: flex; transition: transform .55s cubic-bezier(.4,0,.2,1); }
-  .car-item { flex: 0 0 100%; padding: 4px; }
+  /* 후기 — 세로 스크롤 리스트 */
+  .rv-list { max-width: 680px; margin: 0 auto; display: grid; gap: 16px; }
   .rv-card {
     background: var(--card); border: 1px solid var(--line);
     border-radius: 18px; padding: 34px 30px 28px;
-    text-align: left; min-height: 300px;
+    text-align: left;
     box-shadow: 0 8px 26px rgba(2,8,23,.07);
     display: flex; flex-direction: column;
   }
@@ -912,52 +909,38 @@
 <!-- ═══ 블록 9 · 후기 ═══ -->
 <section>
   <div class="inner">
-    <div class="sec-head" style="margin-bottom:0">
-      <p style="font-size:var(--fs-body);font-weight:700;color:var(--sub)">월급쟁이부자들(월부) 공식 강의 평점</p>
-    </div>
     <div class="score-wrap">
       <div class="stars">★★★★★</div>
       <div class="score">4.7<span> / 5.0</span></div>
       <div class="score-meta">후기 <b>58개</b> · 1~3점 <b>0개</b><br>수강생의 <b>절반 이상이 40대와 50대</b>입니다</div>
     </div>
 
-    <div class="car" id="rvCar">
-      <div class="car-view">
-        <div class="car-track" id="rvTrack">
-          <div class="car-item"><div class="rv-card">
+    <div class="rv-list">
+          <div class="rv-card">
             <div class="q">“</div>
             <div class="tt">휘둘리지 않고 데이터로<br>투자하고 싶었습니다</div>
             <div class="bd">지금까지 AI를 써왔지만 이렇게 디테일한 과정이 있는 것도 처음 알았고, 여태 내가 사용한 활용력은 5%도 안 될 것 같은 느낌이 들었습니다. 엄청난 투자 무기가 될 것이라는 확신이 생겼습니다.</div>
             <div class="who"><span class="nm">여섯시십분 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
-          </div></div>
-          <div class="car-item"><div class="rv-card">
+          </div>
+          <div class="rv-card">
             <div class="q">“</div>
             <div class="tt">자료를 찾고 정리하는 과정이<br>늘 어려웠습니다</div>
             <div class="bd">뉴스도 많고, 재무제표도 봐야 하고, 산업 흐름까지 확인해야 하다 보니 혼자서는 어디서부터 시작해야 할지 막막할 때가 많았습니다. 이번 강의를 들으면서 AI를 단순히 질문하는 용도가 아니라 판단을 정리해주는 도구로 쓸 수 있다는 걸 알았습니다.</div>
             <div class="who"><span class="nm">지웅군 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
-          </div></div>
-          <div class="car-item"><div class="rv-card">
+          </div>
+          <div class="rv-card">
             <div class="q">“</div>
             <div class="tt">독학하다 포기했던 50대,<br>AI의 신세계를 맛봤습니다</div>
             <div class="bd">책도 사보고 유튜브도 봤지만 그때뿐이지 활용할 수가 없었어요. 어떤 질문을 하느냐에 따라 답이 달라지는 AI에게 질문하고 답하며 공부하려 하니 막막했는데, 이 강의로 정말 AI의 신세계를 맛봤습니다.</div>
             <div class="who"><span class="nm">나시문 · 50대 여성</span><span class="st">★★★★★ 5.0</span></div>
-          </div></div>
-          <div class="car-item"><div class="rv-card">
+          </div>
+          <div class="rv-card">
             <div class="q">“</div>
             <div class="tt">주린이 중의 주린이였습니다</div>
             <div class="bd">국내 주식장에 언제 들어가야 되는지도 잘 모르겠었던 주린이 중에 주린이였습니다. AI로 그 복잡한 재무제표나 인터넷 뉴스들을 혼자서 분석하지 않아도 된다는 걸 알고나서 크게 놀랐습니다.</div>
             <div class="who"><span class="nm">방울토마토마토</span><span class="st">★★★★☆ 4.0</span></div>
-          </div></div>
-        </div>
-      </div>
-      <div class="car-dots" id="rvDots"></div>
+          </div>
     </div>
-    <figure class="slot" data-file="img/sales/10" data-spec="블록9 · 월부 후기 캡처 (실명 제외, 닉네임만)">
-      <picture>
-        <source media="(min-width:768px)" srcset="img/sales/pc_10.jpg">
-        <img src="img/sales/mo_10.jpg" alt="월부 플랫폼에 등록된 실제 수강 후기 화면 — 여섯시십분, 지웅군, 방울토마토마토 님의 후기" loading="lazy" style="border:1px solid var(--line)">
-      </picture>
-    </figure>
 
     <p class="shot-cap">※ 월부 플랫폼에 등록된 실제 수강 후기 중 발췌</p>
   </div>
@@ -1220,47 +1203,6 @@
     }
     window.addEventListener("scroll", navSync, { passive: true });
     navSync();
-  } catch (e) {}
-
-  /* ── 후기 카루셀 (자동 슬라이드) ── */
-  try {
-    var rvTrackEl = document.getElementById("rvTrack");
-    var items = rvTrackEl.children.length;
-    var dotsBox = document.getElementById("rvDots");
-    var cur = 0, timer = null;
-    for (var d = 0; d < items; d++) {
-      var b = document.createElement("button");
-      b.setAttribute("aria-label", "후기 " + (d + 1));
-      (function (idx) { b.addEventListener("click", function () { go(idx); restart(); }); })(d);
-      dotsBox.appendChild(b);
-    }
-    function go(i) {
-      cur = (i + items) % items;
-      rvTrackEl.style.transform = "translateX(-" + (cur * 100) + "%)";
-      [].forEach.call(dotsBox.children, function (dot, j) { dot.classList.toggle("on", j === cur); });
-    }
-    function restart() {
-      if (timer) clearInterval(timer);
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        timer = setInterval(function () { go(cur + 1); }, 4000);
-      }
-    }
-    // 만지면 잠깐 멈췄다가 알아서 재개 (모바일 터치는 leave가 안 와서 영구정지되므로 시간 기반)
-    var car = document.getElementById("rvCar");
-    var resume = null;
-    function pauseAwhile() {
-      if (timer) clearInterval(timer);
-      if (resume) clearTimeout(resume);
-      resume = setTimeout(restart, 7000);
-    }
-    car.addEventListener("pointerdown", pauseAwhile);
-    car.addEventListener("pointerenter", function (e) {
-      if (e.pointerType === "mouse") { if (timer) clearInterval(timer); }
-    });
-    car.addEventListener("pointerleave", function (e) {
-      if (e.pointerType === "mouse") restart();
-    });
-    go(0); restart();
   } catch (e) {}
 
   /* ── 스크롤 깊이 계측 ── */
