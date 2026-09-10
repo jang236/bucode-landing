@@ -674,27 +674,14 @@
 </head>
 <body>
 
-<!-- ═══ 상단 앵커 내비 ═══ -->
-<nav class="topnav">
-  <div class="in">
-    <a href="#story">문제</a>
-    <a href="#method">AI 활용법</a>
-    <a href="#product">강의</a>
-    <a href="#apply">신청하기</a>
-  </div>
-</nav>
-
 <!-- ═══ 블록 1 · 히어로 ═══ -->
 <header class="hero">
   <div class="bg"></div>
   <div class="veil"></div>
   <div class="in">
-    <div class="eyebrow">부코드 AI 주식투자 강의 · 사전대기</div>
     <h1>저는 투자를 한 게 아니라, <br>도박을 하고 있었습니다.</h1>
     <p class="lead">주식 처음 시작하고 2, 3천을 잃었습니다. <br>그때 계좌를 보면서 든 생각이 딱 그거였어요.</p>
     <p class="turn">급등주 사고, 좋다는 거 따라 사고, 감으로 팔고. <br><b>그 안에 제 판단은 하나도 없었습니다.</b></p>
-    <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
-    <p class="cta-note" style="color:#8D96A6">*사전대기는 무료이며, 결제 의무가 없습니다</p>
     <p class="rating">★ 월급쟁이부자들(월부) 공식 강의 평점 <b>4.7</b> / 5.0 · 후기 58개</p>
   </div>
 </header>
@@ -926,9 +913,6 @@
     </div>
 
     <p class="deadline">9월 기수가 끝나면, 이 가격도 함께 끝납니다.<span class="sub-line">다음 기수부터 수강료는 39만원입니다.</span></p>
-
-    <a class="btn" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
-    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </section>
 
@@ -1101,8 +1085,6 @@
   <div class="in">
     <p class="t">선택지는 둘 중 하나입니다.</p>
     <p class="s">이 페이지를 닫으면 — 내일도 남의 판단으로 사게 됩니다. <br>연락처를 남기면 — 먼저 써본 사람 쪽에 섭니다. <br><br>지금 결정은 "살까 말까"가 아닙니다. "소식을 받을까 말까"입니다.</p>
-    <a class="btn on-red" href="#apply">사전대기 신청하기<span class="small">모집 오픈 시, 등록 순서대로 가장 먼저 안내</span></a>
-    <p class="cta-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
   </div>
 </div>
 
@@ -1110,10 +1092,6 @@
   부코드 AI 주식투자 강의 · 사전대기 안내 페이지 <br>
   본 페이지는 투자 권유가 아니며, 투자의 책임은 투자자 본인에게 있습니다.
 </footer>
-
-<div class="sticky" id="stickyBar">
-  <a href="#apply" id="stickyCta">사전대기 신청 — 9월 부코드 AI 강의 듣기</a>
-</div>
 
 <script>
 (function () {
@@ -1184,7 +1162,6 @@
     function done() {
       document.getElementById("formBody").style.display = "none";
       document.getElementById("formMsg").style.display = "block";
-      document.getElementById("stickyBar").classList.remove("show");
       window.__submitted = true;
       track("generate_lead");
     }
@@ -1262,8 +1239,8 @@
 
   /* ── 후기 카루셀 (자동 슬라이드) ── */
   try {
-    var track = document.getElementById("rvTrack");
-    var items = track.children.length;
+    var rvTrackEl = document.getElementById("rvTrack");
+    var items = rvTrackEl.children.length;
     var dotsBox = document.getElementById("rvDots");
     var cur = 0, timer = null;
     for (var d = 0; d < items; d++) {
@@ -1274,7 +1251,7 @@
     }
     function go(i) {
       cur = (i + items) % items;
-      track.style.transform = "translateX(-" + (cur * 100) + "%)";
+      rvTrackEl.style.transform = "translateX(-" + (cur * 100) + "%)";
       [].forEach.call(dotsBox.children, function (dot, j) { dot.classList.toggle("on", j === cur); });
     }
     function restart() {
@@ -1301,15 +1278,7 @@
     go(0); restart();
   } catch (e) {}
 
-  /* ── 스티키 바 + 스크롤 깊이 계측 ── */
-  // 스티키 문구의 월은 방문 시점 기준 자동 갱신 (HTML의 "9월"은 JS 미동작 시 기본값)
-  try {
-    document.getElementById("stickyCta").textContent =
-      "사전대기 신청 — " + (new Date().getMonth() + 1) + "월 부코드 AI 강의 듣기";
-  } catch (e) {}
-
-  var applySec = document.getElementById("apply");
-  var bar = document.getElementById("stickyBar");
+  /* ── 스크롤 깊이 계측 ── */
   var depthHit = {};
   window.addEventListener("scroll", function () {
     var h = document.body.scrollHeight - window.innerHeight;
@@ -1319,12 +1288,6 @@
         if (pct >= m && !depthHit[m]) { depthHit[m] = 1; track("scroll_depth", { percent: m }); }
       });
     }
-    if (window.__submitted) return;
-    // 히어로를 조금만 지나면 바로 등장 (기존 0.9화면 → 0.35화면)
-    var past = window.scrollY > window.innerHeight * 0.35;
-    var r = applySec.getBoundingClientRect();
-    var overForm = r.top < window.innerHeight && r.bottom > 200;
-    bar.classList.toggle("show", past && !overForm);
   }, { passive: true });
 
   /* ── CTA 클릭 계측 ── */
