@@ -469,7 +469,9 @@
      img/sales/mo_XX.jpg (모바일) + pc_XX.jpg (데스크톱).
      파일이 없으면 슬롯은 자동으로 숨겨지고 아래 HTML 텍스트만 보입니다.
      자리 확인은 주소 끝에 ?slots=1 을 붙이면 됩니다. */
-  .slot { margin: 40px auto 0; max-width: 860px; }
+  /* 슬롯은 기본 숨김 — 이미지가 실제로 로드되면 JS가 .ok를 붙여 표시 (깨진 아이콘 노출 방지) */
+  .slot { display: none; margin: 40px auto 0; max-width: 860px; }
+  .slot.ok, .slot.ph { display: block; }
   .slot:first-child { margin-top: 0; }
   .slot picture { display: block; }
   .slot img {
@@ -762,31 +764,31 @@
     <figure class="slot tight" data-file="img/sales/p1" data-spec="상품 1 · AI 기업 분석 시스템">
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_p1.jpg">
-        <img src="img/sales/mo_p1.jpg" alt="1. 의심을 끊어내는 AI 기업 분석 시스템 — 종목명 하나만 입력하면 재무·차트·뉴스·실시간 데이터까지 AI가 통합 분석" loading="lazy">
+        <img src="img/sales/mo_p1.jpg" alt="" loading="lazy">
       </picture>
     </figure>
     <figure class="slot tight" data-file="img/sales/p2" data-spec="상품 2 · AI 종목 선별 시스템">
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_p2.jpg">
-        <img src="img/sales/mo_p2.jpg" alt="2. 전문가 매매법을 복제하는 AI 종목 선별 시스템 — 한 번 만들면 평생 내 시스템" loading="lazy">
+        <img src="img/sales/mo_p2.jpg" alt="" loading="lazy">
       </picture>
     </figure>
     <figure class="slot tight" data-file="img/sales/p3" data-spec="상품 3 · AI 뉴스 분석 봇">
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_p3.jpg">
-        <img src="img/sales/mo_p3.jpg" alt="3. 카톡 한 번이면 끝나는 AI 뉴스 분석 봇 — 실시간 뉴스와 유튜브를 AI가 핵심 요약" loading="lazy">
+        <img src="img/sales/mo_p3.jpg" alt="" loading="lazy">
       </picture>
     </figure>
     <figure class="slot tight" data-file="img/sales/p4" data-spec="상품 4 · AI ETF 분석 시스템">
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_p4.jpg">
-        <img src="img/sales/mo_p4.jpg" alt="4. AI ETF 분석 시스템 — 성향과 의도 한 번이면 30초 만에 내 노후 포트폴리오" loading="lazy">
+        <img src="img/sales/mo_p4.jpg" alt="" loading="lazy">
       </picture>
     </figure>
     <figure class="slot tight" data-file="img/sales/p5" data-spec="상품 5 · AI 도구별 핵심 사용법 + 수강생 전용 시크릿방">
       <picture>
         <source media="(min-width:768px)" srcset="img/sales/pc_p5.jpg">
-        <img src="img/sales/mo_p5.jpg" alt="5. AI 도구별 핵심 사용법과 수강생 전용 시크릿방 안내" loading="lazy">
+        <img src="img/sales/mo_p5.jpg" alt="" loading="lazy">
       </picture>
     </figure>
   </div>
@@ -999,11 +1001,11 @@
     var source = slot.querySelector("source");
     var probe = new Image();
     probe.onerror = function () {
-      // 모바일 이미지가 없으면 슬롯 자체를 비운다.
+      // 모바일 이미지가 없으면 슬롯은 숨김 유지 (?slots=1일 때만 자리 표시)
       if (showSlots) slot.classList.add("ph");
-      else slot.style.display = "none";
     };
     probe.onload = function () {
+      slot.classList.add("ok");
       // 모바일만 있고 PC 버전이 없으면, <source>를 떼서 모바일 이미지로 폴백시킨다.
       // (<picture>는 srcset이 404여도 자동으로 img로 내려오지 않는다.)
       if (!source) return;
