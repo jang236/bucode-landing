@@ -1,882 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>부코드 AI 주식투자 강의 · 사전대기</title>
-<meta name="description" content="듣고 그냥 사면 도박, 검증하고 사면 투자입니다. 기준 있는 질문과 네이버 증권과 100% 일치하는 데이터로, 종목 이름 하나에 30초 만에 내 판단을 만드는 AI 투자 강의. 사전대기 신청자에게 가장 먼저 안내드립니다.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 주식투자 수강 사전 대기 | 부코드</title>
+<meta name="description" content="AI와 자체 스크리너로 종목을 좁히고 매수·매도 계획과 매수 후 점검까지 연습하세요. 수강 사전 대기 신청.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="저는 투자를 한 게 아니라, 도박을 하고 있었습니다 | 부코드 AI 주식투자 강의">
-<meta property="og:description" content="듣고 그냥 사면 도박, 검증하고 사면 투자. 종목 이름만 넣으면 30초 만에 검증합니다. 사전대기 신청자에게 가장 먼저 안내드립니다.">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://jang236.github.io/bucode-landing/img/og_1200x630.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="theme-color" content="#F8F8F8">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23EF5555'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23ffffff' font-family='sans-serif' font-weight='900'%3EB%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="종목 선정부터 매수 후 점검까지 | 부코드 AI 주식투자">
+<meta property="og:description" content="AI와 자체 스크리너로 종목을 좁히고 매수·매도 계획과 매수 후 점검까지 연습하세요. 수강 사전 대기 신청.">
+<meta property="og:url" content="https://jang236.github.io/bucode-landing/">
+<meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root {
-    --bg: #F8F8F8;
-    --card: #ffffff;
-    --line: #E6E8EC;
-    --text: #020817;
-    --sub: #5A6472;
-    /* 빨강 3종 분리 (WCAG AA)
-       --red      : 장식 전용 (테두리·점·체크박스) — 글자가 얹히지 않는 곳
-       --red-text : 밝은 배경 위 빨강 "글자" — 흰 배경 5.22, 연분홍 배경 4.75
-       --red-fill : 흰 글자를 얹는 "면" (버튼·밴드·배지) — 흰 글자 4.55 */
-    --red: #EF5555;
-    --red-text: #CE2B37;
-    --red-fill: #D93A3A;
-    --red-deep: #C22B2B;
-    --coral: #FF6E78;
-    --kakao: #fee500;
-    --kchat: #b2c7da;
-    --dark: #16181D;
-    /* 타이포 3단계: 제목 / 부제목 / 본문 (+각주) — 상품 이미지 타이포 스케일에 맞춤 */
-    --fs-title: clamp(30px, 8vw, 54px);
-    --fs-sub: clamp(23px, 5.6vw, 30px);
-    --fs-body: 22px;
-    --fs-cap: 15px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── 레이아웃: 레퍼런스형 넓은 단일 컬럼 ── */
-  .wrap { max-width: 900px; margin: 0 auto; }
-  .inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-  section { padding: 56px 0; }
-  @media (min-width: 768px) { section { padding: 80px 0; } }
-  .sec-white { background: var(--card); }
-
-  /* ── 상단 앵커 내비 ── */
-  .topnav {
-    position: sticky; top: 0; z-index: 70;
-    background: rgba(255,255,255,.94);
-    backdrop-filter: saturate(180%) blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .topnav .in {
-    max-width: 900px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 0 8px;
-    /* 좁은 화면에서 항목이 넘치면 내비 안에서만 가로 스크롤 (페이지는 안 밀림) */
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .topnav .in::-webkit-scrollbar { display: none; }
-  .topnav a {
-    flex: 1 0 auto; text-align: center;
-    padding: 16px 12px;
-    font-size: 16.5px; font-weight: 800;
-    color: #454F5E; text-decoration: none;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-    letter-spacing: -0.01em;
-  }
-  /* 활성 표시는 .on 하나만 — hover는 색만 살짝 */
-  .topnav a:hover { color: var(--red-text); }
-  .topnav a.on { color: var(--red-text); border-bottom-color: var(--red-text); }
-
-  /* ── 히어로 ── */
-  .hero {
-    position: relative;
-    padding: 0;
-    background: #0B0D11;
-    overflow: hidden;
-  }
-  .hero .bg {
-    position: absolute; inset: 0;
-    background: url("img/hero-night.jpg") center/cover no-repeat;
-    opacity: .72;
-  }
-  .hero .veil {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(11,13,17,.28) 0%, rgba(11,13,17,.6) 62%, #0B0D11 100%);
-  }
-  .hero h1, .hero .lead, .hero .turn { text-shadow: 0 2px 18px rgba(0,0,0,.55); }
-  .hero .in {
-    position: relative; z-index: 2;
-    max-width: 900px; margin: 0 auto;
-    padding: 88px 22px 72px;
-    text-align: center;
-  }
-  .eyebrow {
-    display: inline-block;
-    font-size: 15px; font-weight: 700; letter-spacing: .12em;
-    color: #FFC9CD;
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 100px;
-    padding: 7px 16px;
-    margin-bottom: 26px;
-  }
-  .hero h1 {
-    font-size: var(--fs-title);
-    font-weight: 800; line-height: 1.3;
-    letter-spacing: -0.035em;
-    color: #fff;
-    margin-bottom: 24px;
-  }
-  .hero .lead { font-size: var(--fs-sub); line-height: 1.85; color: #C9D0DB; margin-bottom: 26px; }
-  .hero .turn {
-    font-size: var(--fs-sub);
-    font-weight: 800; line-height: 1.65; color: #fff;
-    letter-spacing: -0.02em;
-    max-width: 620px; margin: 0 auto;
-  }
-  .hero .turn b { color: var(--coral); }
-  .hero .rating { font-size: 14.5px; color: #9BA3B2; margin-top: 22px; }
-  .hero .rating b { color: var(--coral); }
-
-  /* ── 기사형 본문 ── */
-  .article { max-width: 720px; margin: 0 auto; text-align: left; }
-  .article p {
-    font-size: var(--fs-body); line-height: 1.95;
-    color: #2A313C;
-    margin-bottom: 26px;
-  }
-  .article p b { color: var(--text); font-weight: 700; }
-  .article h3 {
-    font-size: var(--fs-sub);
-    font-weight: 800; line-height: 1.5;
-    /* 밝은 배경에서는 코랄(#FF6E78)이 명암비 2.71로 미달 — 다크 섹션에서만 코랄 사용 */
-    color: var(--red-text);
-    letter-spacing: -0.02em;
-    margin: 54px 0 22px;
-  }
-  .article h3:first-child { margin-top: 0; }
-  .article .lede {
-    font-size: var(--fs-sub); font-weight: 700; line-height: 1.85;
-    color: var(--text); margin-bottom: 30px;
-  }
-  .article hr { border: 0; border-top: 1px solid var(--line); margin: 46px 0; }
-  /* 홀로 서는 핵심 한 줄 — 문단 속에 파묻히지 않게 */
-  .pull {
-    font-size: var(--fs-sub);
-    font-weight: 800; line-height: 1.7;
-    letter-spacing: -0.02em;
-    color: var(--text) !important;
-    margin: 34px 0 !important;
-  }
-  .dark-sec .pull { color: #fff !important; }
-  /* 모바일: 데스크톱 기준으로 넣은 강제 줄바꿈 해제 — 짧은 제목은 한 줄로,
-     긴 제목은 keep-all이 어절 단위로 자연스럽게 접는다 */
-  @media (max-width: 520px) {
-    h2 br, .band .t br, .pull br { display: none; }
-  }
-
-  /* 섹션 제목 (가운데) */
-  .sec-head { text-align: center; margin-bottom: 40px; }
-  .kicker {
-    display: inline-block;
-    font-size: 16px; font-weight: 800; letter-spacing: .1em;
-    color: var(--red-text); background: #FFF1F1;
-    border-radius: 100px; padding: 9px 18px;
-    margin-bottom: 18px;
-  }
-  h2 {
-    font-size: var(--fs-title);
-    font-weight: 800; line-height: 1.4;
-    letter-spacing: -0.032em;
-  }
-  h2 .y { color: var(--red-text); }
-  .sec-head .desc { font-size: var(--fs-body); line-height: 1.85; color: var(--sub); margin-top: 16px; }
-
-  /* ── 풀블리드 강조 블록 ── */
-  .band { background: var(--red-fill); color: #fff; padding: 62px 0; }
-  .band .in { max-width: 760px; margin: 0 auto; padding: 0 22px; text-align: center; }
-  .band .t {
-    font-size: var(--fs-title);
-    font-weight: 800; line-height: 1.65; letter-spacing: -0.025em;
-  }
-  .band .s { font-size: var(--fs-body); line-height: 1.85; margin-top: 20px; color: #fff; }
-  .band-dark { background: var(--dark); }
-
-  /* ── 다크 섹션 ── */
-  .dark-sec { background: linear-gradient(180deg, #16181D 0%, #08090C 100%); color: #E9ECF2; }
-  .dark-sec h2 { color: #fff; }
-  .dark-sec .kicker { color: #FFB4B4; background: rgba(239,85,85,.16); }
-  .dark-sec .sec-head .desc { color: #97A0B0; }
-  .dark-sec .article p { color: #B4BCC9; }
-  .dark-sec .article p b, .dark-sec .article .lede { color: #fff; }
-  .dark-sec .article h3 { color: #FF8F97; }
-  .dark-sec .article hr { border-top-color: rgba(255,255,255,.12); }
-
-  /* ── 문제 카드 (번호형) ── */
-  .plist { max-width: 720px; margin: 0 auto; text-align: left; }
-  .pitem {
-    display: flex; gap: 20px;
-    padding: 30px 0;
-    border-top: 1px solid rgba(255,255,255,.13);
-  }
-  .pitem .n {
-    flex: 0 0 auto;
-    font-size: var(--fs-sub); font-weight: 800; letter-spacing: .1em;
-    color: var(--coral); padding-top: 0; min-width: 38px;
-  }
-  .pitem .tt {
-    font-size: var(--fs-sub);
-    font-weight: 800; line-height: 1.5; color: #fff;
-    letter-spacing: -0.02em; margin-bottom: 12px;
-  }
-  .pitem .bd { font-size: var(--fs-body); line-height: 1.9; color: #A9B2C0; }
-  .pitem .bd em { font-style: normal; color: #fff; font-weight: 700; }
-
-  /* ── 인용 카드 (마음의 소리) ── */
-  .voice { max-width: 860px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 12px; }
-  .voice .v {
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.16);
-    border-radius: 14px;
-    padding: 24px 28px;
-    font-size: var(--fs-sub); font-weight: 700; line-height: 1.7; color: #E9ECF2;
-    text-align: left;
-  }
-  .voice .v::before { content: "\201C"; color: var(--coral); font-weight: 800; margin-right: 5px; }
-
-  /* ── 실패 대안 카드 ── */
-  .alts { max-width: 720px; margin: 34px auto 0; display: grid; gap: 14px; }
-  .alt {
-    background: var(--card);
-    border: 1.5px solid #DCE1E8;
-    border-left: 5px solid var(--red-fill);
-    border-radius: 14px;
-    padding: 26px 24px;
-    text-align: left;
-    box-shadow: 0 4px 16px rgba(2,8,23,.05);
-  }
-  .alt .an {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 18px; font-weight: 800; letter-spacing: .04em;
-    color: var(--red-text); margin-bottom: 14px;
-  }
-  .alt .an svg { width: 30px; height: 30px; flex-shrink: 0; }
-  .alt .at { font-size: 22px; font-weight: 800; line-height: 1.5; margin-bottom: 12px; letter-spacing: -0.02em; }
-  .alt .ab { font-size: 19.5px; line-height: 1.85; color: #4A5462; }
-  .alt .ab b { color: var(--text); }
-
-  /* ── 무료 공개 카드 ── */
-  .sols { max-width: 760px; margin: 0 auto; display: grid; gap: 18px; }
-  .sol {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 32px 28px;
-    text-align: left;
-    box-shadow: 0 4px 18px rgba(2,8,23,.04);
-  }
-  .sol .sn {
-    display: inline-block;
-    font-size: 15px; font-weight: 800; letter-spacing: .08em;
-    color: #fff; background: var(--red-fill);
-    border-radius: 100px; padding: 6px 14px;
-    margin-bottom: 16px;
-  }
-  .sol .st { font-size: var(--fs-sub); font-weight: 800; line-height: 1.5; letter-spacing: -0.02em; margin-bottom: 16px; }
-  .sol .st .y { color: var(--red-text); }
-  .sol .sb { font-size: var(--fs-body); line-height: 1.92; color: #38404D; }
-  .sol .sb b { color: var(--text); font-weight: 700; }
-  .sol .sb p { margin-bottom: 16px; }
-  .sol .sb p:last-child { margin-bottom: 0; }
-  .prompt {
-    background: #F4F6F9;
-    border-left: 3px solid var(--red);
-    border-radius: 8px;
-    padding: 17px 18px;
-    font-size: var(--fs-body); font-weight: 600; line-height: 1.8;
-    color: #2B3542;
-    margin: 14px 0;
-  }
-
-  /* ── 한계 카드 ── */
-  .lims { max-width: 720px; margin: 0 auto; display: grid; gap: 16px; }
-  .lim {
-    background: rgba(255,255,255,.045);
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 16px;
-    padding: 28px 26px;
-    text-align: left;
-  }
-  .lim .ln { font-size: 15px; font-weight: 800; letter-spacing: .1em; color: #FF8F97; margin-bottom: 10px; }
-  .lim .lt { font-size: clamp(19px, 4.4vw, 22px); font-weight: 800; color: #fff; line-height: 1.5; margin-bottom: 12px; letter-spacing: -0.015em; }
-  .lim .lb { font-size: 18.5px; line-height: 1.9; color: #A2ABB9; }
-  .lim .lb b { color: #fff; }
-
-  /* ── 제품 4단계 ── */
-  .steps4 { max-width: 760px; margin: 0 auto; display: grid; gap: 16px; counter-reset: s4; }
-  .s4 {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 30px 28px;
-    text-align: left;
-    position: relative;
-  }
-  .s4::before {
-    counter-increment: s4;
-    content: "0" counter(s4);
-    display: block;
-    font-size: 14.5px; font-weight: 800; letter-spacing: .12em;
-    color: var(--red-text); margin-bottom: 12px;
-  }
-  .s4 .role { font-size: 17px; font-weight: 700; color: var(--sub); margin-bottom: 6px; }
-  .s4 .nm { font-size: clamp(21px, 5vw, 26px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
-  .s4 .bd { font-size: 18.5px; line-height: 1.9; color: #38404D; }
-  .s4 .bd b { color: var(--text); font-weight: 700; }
-
-  /* ── 가격표 ── */
-  .ptable {
-    max-width: 520px; margin: 0 auto;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    overflow: hidden;
-    text-align: left;
-  }
-  .prow {
-    display: flex; justify-content: space-between; align-items: center; gap: 14px;
-    padding: 19px 24px;
-    border-bottom: 1px solid var(--line);
-  }
-  .prow:last-child { border-bottom: none; }
-  .prow .k { font-size: var(--fs-body); line-height: 1.75; color: var(--sub); font-weight: 600; }
-  .prow .v { font-size: var(--fs-body); font-weight: 800; white-space: nowrap; }
-  .prow.total { background: #FAFBFC; }
-  .prow.total .k { color: var(--text); font-weight: 800; font-size: var(--fs-body); }
-  .prow.total .v { font-size: var(--fs-sub); font-weight: 800; color: var(--red-text); }
-  .pthead {
-    background: #EEF1F5; color: #5A6472;
-    font-size: var(--fs-cap); font-weight: 800; letter-spacing: .05em;
-    text-align: center; padding: 13px;
-  }
-
-  /* 직접 갖추기 vs 이 강의 — 대결 구도 */
-  .vs { display: flex; gap: 0; max-width: 720px; margin: 0 auto; align-items: stretch; }
-  .vs .side {
-    flex: 1; padding: 34px 26px; text-align: center;
-    border: 1.5px solid var(--line); background: #F4F6F9;
-    border-radius: 20px 0 0 20px;
-  }
-  .vs .side.win {
-    background: var(--dark); color: #fff;
-    border: none; border-radius: 0 20px 20px 0;
-    box-shadow: 0 14px 40px rgba(2,8,23,.22);
-    position: relative;
-  }
-  .vs .lb { font-size: var(--fs-body); font-weight: 800; letter-spacing: .06em; color: var(--sub); margin-bottom: 14px; }
-  .vs .win .lb { color: #FF8F97; }
-  .vs .amt { font-size: var(--fs-title); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; color: #66707F; }
-  .vs .win .amt { color: #fff; font-size: var(--fs-title); }
-  .vs .per { font-size: var(--fs-cap); color: #8B94A3; margin-top: 6px; }
-  .vs .win .per { color: #B9C0CC; }
-  .vs .note { font-size: var(--fs-cap); line-height: 1.65; color: #8B94A3; margin-top: 16px; padding-top: 14px; border-top: 1px dashed #D8DCE3; }
-  .vs .win .note { color: #D6DBE4; border-top-color: rgba(255,255,255,.18); }
-  .vs-badge {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    background: var(--red-fill); color: #fff;
-    border-radius: 100px; padding: 6px 16px;
-    font-size: 14px; font-weight: 800; white-space: nowrap;
-  }
-  @media (max-width: 600px) {
-    .vs { flex-direction: column; }
-    .vs .side { border-radius: 20px 20px 0 0; }
-    .vs .side.win { border-radius: 0 0 20px 20px; }
-  }
-  .deadline {
-    max-width: 720px; margin: 26px auto 0;
-    text-align: center;
-    font-size: var(--fs-sub); font-weight: 700; line-height: 1.75;
-    color: var(--text);
-  }
-  .deadline b { color: var(--red-text); }
-  .deadline .sub-line { display: block; font-size: var(--fs-body); font-weight: 600; color: var(--sub); margin-top: 6px; }
-
-  /* ── 후기 ── */
-  .score-wrap { text-align: center; margin-bottom: 38px; }
-  /* 24px 이상이면 WCAG 대형 텍스트 기준(3.0) 적용 — 금색을 유지하면서 통과 */
-  .stars { color: #C27A00; font-size: 24px; letter-spacing: 4px; margin-bottom: 8px; }
-  .score { font-size: var(--fs-title); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
-  .score span { font-size: .42em; color: var(--sub); font-weight: 700; }
-  .score-meta { font-size: var(--fs-body); color: var(--sub); margin-top: 12px; line-height: 1.8; }
-  .score-meta b { color: var(--text); }
-  /* 후기 — 세로 스크롤 리스트 */
-  .rv-list { max-width: 680px; margin: 0 auto; display: grid; gap: 16px; }
-  .rv-card {
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 18px; padding: 34px 30px 28px;
-    text-align: left;
-    box-shadow: 0 8px 26px rgba(2,8,23,.07);
-    display: flex; flex-direction: column;
-  }
-  .rv-card .q { font-size: var(--fs-title); line-height: 1; color: var(--red); font-weight: 800; margin-bottom: 10px; }
-  .rv-card .tt { font-size: var(--fs-sub); font-weight: 800; letter-spacing: -0.015em; line-height: 1.5; margin-bottom: 12px; }
-  .rv-card .bd { font-size: var(--fs-body); line-height: 1.85; color: #38404D; flex: 1; }
-  .rv-card .who {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
-  }
-  .rv-card .nm { font-size: var(--fs-cap); font-weight: 700; color: var(--sub); }
-  .rv-card .st { font-size: var(--fs-cap); color: #C27A00; letter-spacing: 2px; font-weight: 700; }
-  .car-dots { display: flex; justify-content: center; gap: 9px; margin-top: 18px; }
-  .car-dots button {
-    width: 10px; height: 10px; border-radius: 50%;
-    border: none; background: #D5DAE1; cursor: pointer; padding: 0;
-    transition: background .2s, width .2s;
-  }
-  .car-dots button.on { background: var(--red-fill); width: 26px; border-radius: 99px; }
-
-  /* ── 3가지 체크리스트 · 책/채널 칩 ── */
-  .klist { max-width: 560px; margin: 36px auto 0; display: grid; gap: 14px; }
-  .kitem {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 14px; padding: 18px 20px;
-    font-size: var(--fs-body); font-weight: 700; text-align: left;
-    color: var(--text); /* 다크 섹션 안에서도 흰 카드 위 글자는 항상 진한 색 */
-  }
-  .kitem .kt {
-    flex: 0 0 auto;
-    background: #FFF1F1; color: var(--red-text);
-    font-size: var(--fs-cap); font-weight: 800;
-    border-radius: 8px; padding: 6px 11px;
-  }
-  .books { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .books span {
-    background: #F4F6F9; border: 1px solid var(--line);
-    border-radius: 8px; padding: 7px 12px;
-    font-size: var(--fs-cap); font-weight: 700; color: #38404D;
-  }
-
-  /* ── 이미지 ── */
-  .shot {
-    display: block; width: 100%;
-    max-width: 720px; margin: 40px auto 0;
-    border-radius: 16px;
-  }
-  .shot.sm { max-width: 460px; }
-  .shot-cap { font-size: var(--fs-cap); color: var(--sub); text-align: center; margin-top: 12px; }
-
-  /* ── 세일즈 이미지 슬롯 ──
-     img/sales/mo_XX.jpg (모바일) + pc_XX.jpg (데스크톱).
-     파일이 없으면 슬롯은 자동으로 숨겨지고 아래 HTML 텍스트만 보입니다.
-     자리 확인은 주소 끝에 ?slots=1 을 붙이면 됩니다. */
-  .slot { display: block; margin: 40px auto 0; max-width: 860px; }
-  .slot:first-child { margin-top: 0; }
-  .slot picture { display: block; }
-  .slot img {
-    display: block; width: 100%; height: auto;
-    border-radius: 14px;
-  }
-  .sr-only {
-    position: absolute; width: 1px; height: 1px;
-    padding: 0; margin: -1px; overflow: hidden;
-    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-  #form { scroll-margin-top: 24px; }
-  /* 상품 상세 이미지: 간격 없이 이어붙임 */
-  .slot.tight { margin: 0 auto; }
-  .slot.tight img { border-radius: 0; }
-  .slot-label {
-    display: block;
-    background: var(--red-fill); color: #fff;
-    font-size: var(--fs-body); font-weight: 800;
-    text-align: center; padding: 12px 14px;
-    border-radius: 14px 14px 0 0;
-  }
-  .slot-label + picture img { border-top-left-radius: 0; border-top-right-radius: 0; }
-  .slot.bleed { max-width: none; margin-left: -20px; margin-right: -20px; }
-  .slot.bleed img { border-radius: 0; }
-  .slot.ph picture { display: none; }
-  .slot.ph::before {
-    content: attr(data-file) "\A" attr(data-spec);
-    white-space: pre-wrap;
-    display: flex; align-items: center; justify-content: center;
-    min-height: 170px; padding: 26px;
-    border: 2px dashed var(--red); border-radius: 14px;
-    background: #FFF5F5; color: var(--red);
-    font-size: 14px; font-weight: 700; line-height: 1.9; text-align: center;
-  }
-
-  /* ── 오퍼 박스 ── */
-  .offer {
-    max-width: 560px; margin: 0 auto;
-    background: var(--card);
-    border: 2px solid var(--red);
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .offer .oh {
-    background: var(--red-fill); color: #fff;
-    padding: 16px 22px;
-    font-size: var(--fs-body); font-weight: 800; letter-spacing: .02em;
-    text-align: center;
-  }
-  .offer .obody { padding: 8px 24px 24px; text-align: left; }
-  .stack-row {
-    display: flex; justify-content: space-between; align-items: flex-start; gap: 18px;
-    padding: 21px 2px;
-    border-bottom: 1px solid var(--line);
-  }
-  .stack-row .st-t { font-size: var(--fs-sub); font-weight: 800; letter-spacing: -0.015em; margin-bottom: 6px; }
-  .stack-row .st-d { font-size: var(--fs-body); color: var(--sub); line-height: 1.7; }
-  .stack-row .tag {
-    flex-shrink: 0;
-    background: #FFF1F1; color: var(--red-text);
-    font-size: var(--fs-cap); font-weight: 800;
-    border-radius: 100px; padding: 8px 15px;
-    white-space: nowrap;
-  }
-  .stack-total {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 24px 2px 4px;
-  }
-  .stack-total .t { font-size: var(--fs-sub); font-weight: 800; }
-  .stack-total .v { font-size: var(--fs-title); font-weight: 800; letter-spacing: -0.03em; color: var(--red-text); }
-
-  /* ── 대기인원 ── */
-  .wait-count {
-    display: none;
-    max-width: 460px; margin: 0 auto 24px;
-    background: var(--dark); color: #fff;
-    border-radius: 100px; padding: 14px 24px;
-    font-size: var(--fs-body); font-weight: 700; text-align: center;
-  }
-  .wait-count b { color: var(--kakao); font-weight: 800; }
-
-  /* ── 셀프체크 ── */
-  .selfcheck {
-    max-width: 560px; margin: 28px auto 0;
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 18px; padding: 26px 24px; text-align: left;
-  }
-  .selfcheck .t { font-size: var(--fs-sub); font-weight: 800; margin-bottom: 16px; text-align: center; }
-  .sc-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    padding: 13px 0; font-size: var(--fs-body); line-height: 1.7; font-weight: 600;
-    cursor: pointer; color: var(--sub); transition: color .15s;
-  }
-  .sc-item input { width: 21px; height: 21px; accent-color: var(--red); cursor: pointer; margin-top: 2px; flex-shrink: 0; }
-  .sc-item.on { color: var(--text); }
-  .selfcheck .bottom {
-    margin-top: 14px; padding-top: 16px;
-    border-top: 1px solid var(--line);
-    font-size: var(--fs-body); line-height: 1.7; font-weight: 700; text-align: center; color: var(--sub);
-  }
-  .selfcheck .bottom.hot { color: var(--red-text); }
-
-  /* ── 폼 ── */
-  .form-card {
-    max-width: 560px; margin: 20px auto 0;
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 20px; padding: 32px 26px; text-align: left;
-    box-shadow: 0 10px 34px rgba(2,8,23,.07);
-  }
-  .f-label { display: block; font-size: var(--fs-cap); font-weight: 700; color: var(--sub); margin-bottom: 9px; }
-  input[type=tel] {
-    width: 100%;
-    background: #F6F7F9; border: 1.5px solid var(--line);
-    border-radius: 12px; color: var(--text);
-    font-size: 19px; font-weight: 700; letter-spacing: .02em;
-    padding: 17px; outline: none; margin-bottom: 14px;
-    transition: border-color .15s; font-family: inherit;
-  }
-  input[type=tel]::placeholder { color: #A9B2BE; font-weight: 500; }
-  input[type=tel]:focus { border-color: var(--red); background: #fff; }
-  .agree-row {
-    display: flex; align-items: center; gap: 10px;
-    font-size: var(--fs-body); line-height: 1.6; color: var(--sub); cursor: pointer; margin-bottom: 8px;
-  }
-  .agree-row input { width: 18px; height: 18px; accent-color: var(--red); cursor: pointer; }
-  .agree-row b { color: var(--text); }
-  .agree-detail {
-    display: none; font-size: 12.5px; color: #7C8695; line-height: 1.65;
-    background: #F6F7F9; border-radius: 10px; padding: 13px 15px; margin-bottom: 6px;
-  }
-  .agree-detail.open { display: block; }
-  /* 탭 영역 44px 확보 (기존 15px는 손가락으로 누르기 어려움) */
-  .agree-more {
-    display: inline-block;
-    font-size: var(--fs-cap); color: #5A6472; text-decoration: underline;
-    cursor: pointer; background: none; border: none;
-    padding: 14px 6px; margin: 0 0 6px -6px;
-    font-family: inherit;
-  }
-  .err { display: none; color: var(--red-text); font-size: var(--fs-cap); font-weight: 700; margin: -6px 0 12px; }
-  .submit {
-    width: 100%; background: var(--red-fill); color: #fff;
-    font-size: var(--fs-body); font-weight: 800; padding: 19px;
-    border: none; border-radius: 13px; cursor: pointer;
-    font-family: inherit; letter-spacing: -0.01em;
-    box-shadow: 0 8px 24px rgba(239,85,85,.3);
-    transition: transform .1s, background .15s;
-  }
-  .submit:hover { background: var(--red-deep); }
-  .submit:active { transform: scale(.98); }
-  .submit:disabled { background: #E5A7A7; cursor: not-allowed; box-shadow: none; }
-  .form-note { font-size: var(--fs-cap); color: var(--sub); text-align: center; margin-top: 14px; }
-  .done { display: none; text-align: center; padding: 26px 0 14px; }
-  .done .em {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 58px; height: 58px; margin: 0 auto 16px;
-    border-radius: 50%; background: var(--red-fill); color: #fff;
-    font-size: 30px; font-weight: 800;
-  }
-  .done h3 { font-size: var(--fs-sub); font-weight: 800; margin-bottom: 10px; }
-  .done p { font-size: var(--fs-body); color: var(--sub); line-height: 1.8; }
-
-  /* ── CTA ── */
-  .btn {
-    display: block; width: 100%; max-width: 420px;
-    margin: 34px auto 0;
-    background: var(--red-fill); color: #fff;
-    font-size: 19px; font-weight: 800;
-    padding: 21px; border: none; border-radius: 14px;
-    cursor: pointer; text-decoration: none; text-align: center;
-    letter-spacing: -0.01em;
-    box-shadow: 0 10px 30px rgba(239,85,85,.32);
-    transition: transform .12s ease, background .15s;
-  }
-  .btn:hover { background: var(--red-deep); }
-  .btn:active { transform: scale(.97); }
-  .btn .small { display: block; font-size: 15.5px; font-weight: 600; opacity: .95; margin-top: 4px; }
-  .btn.on-red { background: #fff; color: var(--red-text); box-shadow: 0 10px 30px rgba(0,0,0,.16); }
-  .btn.on-red:hover { background: #FFF2F2; }
-  .cta-note { font-size: 13.5px; color: var(--sub); margin-top: 13px; text-align: center; }
-  .band .cta-note { color: rgba(255,255,255,.8); }
-
-  /* ── FAQ ── */
-  .faq { max-width: 720px; margin: 0 auto; text-align: left; }
-  details { border-bottom: 1px solid var(--line); }
-  summary {
-    list-style: none;
-    display: flex; justify-content: space-between; align-items: center; gap: 14px;
-    padding: 22px 4px; font-size: var(--fs-body); font-weight: 700; cursor: pointer;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--red-text); font-size: 22px; font-weight: 400; flex-shrink: 0; }
-  details[open] summary::after { content: "\2212"; }
-  .a { padding: 0 4px 24px; font-size: var(--fs-body); color: var(--sub); line-height: 1.88; }
-
-  /* ── 스티키 ── */
-  .sticky {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
-    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(22,24,29,.96);
-    backdrop-filter: blur(8px);
-    transform: translateY(115%);
-    transition: transform .3s ease;
-  }
-  .sticky.show { transform: translateY(0); }
-  .sticky a {
-    display: block; max-width: 560px; margin: 0 auto;
-    background: var(--red-fill); color: #fff;
-    font-size: 18.5px; font-weight: 800;
-    padding: 17px; border-radius: 12px;
-    text-decoration: none; text-align: center;
-  }
-  .sticky a:hover { background: var(--red-deep); }
-
-  /* ── 감정 연출 (대형 이모지 + 전환 장치) ── */
-  .mood { text-align: center; margin: 8px auto 34px; position: relative; }
-  .mood .emj { font-size: clamp(96px, 24vw, 150px); line-height: 1.15; display: block; }
-  .mood .chart {
-    display: block; margin: -18px auto 0; width: min(300px, 62vw); height: 74px;
-  }
-  .mood .cap { font-size: 16.5px; font-weight: 700; color: var(--sub); margin-top: 10px; }
-  .dark-sec .mood .cap { color: #9BA3B2; }
-  .tdots { display: flex; flex-direction: column; align-items: center; gap: 9px; margin: 34px auto; }
-  .tdots i { width: 9px; height: 9px; border-radius: 2px; background: var(--red-fill); }
-  .dark-sec .tdots i { background: #FF8F97; }
-  .tarrow { text-align: center; margin: 26px auto; }
-  .tarrow svg { width: 30px; height: 52px; }
-
-  /* ── 리빌 ── */
-  .rv { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-  .rv.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } }
-
-  footer {
-    padding: 44px 22px 120px;
-    font-size: 12.5px; color: var(--sub); line-height: 1.9;
-    text-align: center;
-    border-top: 1px solid var(--line);
-    background: var(--card);
-  }
-</style>
+:root{--ink:#202020;--muted:#555;--line:#d9d9d9;--red:#ce332e;--paper:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:#fff;color:var(--ink);font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:20px;line-height:1.85;word-break:keep-all}h1,h2,h3,h4,p{margin:0}a{color:inherit}button,input{font:inherit}button,a,input{touch-action:manipulation}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #2478b8;outline-offset:5px}.wrap{max-width:1120px;padding:0 32px;margin:auto}.reading{max-width:920px}header{background:#fff;padding:20px 0}.brand{font-size:29px;line-height:1.3;font-weight:850;letter-spacing:-.06em;display:flex;align-items:center;gap:18px}.brand:before{content:'';display:block;width:5px;height:27px;background:var(--red);transform:skew(-14deg)}.brand span{font-size:15px;font-weight:500;color:#666;letter-spacing:0;margin-left:auto}
+.course-nav{position:sticky;top:0;z-index:10;background:#252525;color:#d6d6d6;border-top:2px solid var(--red)}.nav-inner{max-width:1056px;margin:auto;display:flex;align-items:stretch}.course-nav a{display:flex;align-items:center;justify-content:center;flex:1;padding:17px 12px;font-size:17px;font-weight:650;line-height:1.5;text-decoration:none;border-bottom:2px solid transparent}.course-nav a:hover,.course-nav a:focus-visible{color:#fff;border-bottom-color:var(--red)}.course-nav .nav-apply{flex:0 0 190px;background:var(--red);color:#fff}
+section{padding:88px 0}h1{font-size:clamp(40px,5vw,64px);line-height:1.3;letter-spacing:-.055em;font-weight:850}h2{font-size:clamp(30px,3.4vw,42px);line-height:1.45;letter-spacing:-.04em;font-weight:800;margin-bottom:34px}h3{font-size:26px;line-height:1.5;letter-spacing:-.025em;margin-bottom:16px}h4{font-size:23px;line-height:1.5}p+p{margin-top:24px}strong,b{font-weight:750}.eyebrow{font-size:17px;font-weight:650;letter-spacing:.02em;color:#626262;margin-bottom:22px}.small{font-size:16px;line-height:1.7;color:#5b5b5b;margin-top:14px}
+.hero{background:#191919;color:#fff;text-align:center;padding:78px 0 64px;border-bottom:7px solid #ce332e}.hero .reading{max-width:1000px}.hero .eyebrow{color:#ccc}.hero h1 em{font-style:normal;color:#fff;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:5px;text-underline-offset:12px}.hero .lead{font-size:22px;line-height:1.8;color:#e2e2e2;margin-top:35px}.hero-benefits{list-style:none;margin:35px auto 0;padding:24px 0 0;max-width:580px;border-top:1px solid #505050;font-size:19px;color:#e2e2e2}.hero-benefits li{margin:4px 0}.cta{margin-top:30px}.button,.submit{display:inline-flex;align-items:center;justify-content:center;gap:28px;background:var(--red);border:0;color:#fff;text-decoration:none;border-radius:3px;min-height:58px;padding:16px 32px;font-size:19px;font-weight:750;line-height:1.5;cursor:pointer}.button:hover,.submit:hover{background:#af2723}.hero .button{min-width:340px}.hero .small{color:#bbb}.example-link{display:inline-block;margin-top:22px;font-size:17px;color:#ddd;text-underline-offset:5px}
+.story h2,.method h2,.bridge h2{padding:22px 0;border-top:1px solid #999;border-bottom:1px solid #999}.customer-quote{margin:36px 0;padding:28px 32px;border-left:4px solid var(--red);background:#f3f3f3}.customer-quote p{font-size:23px;font-weight:650;line-height:1.8}.customer-quote cite{display:block;font-size:16px;color:#5b5b5b;font-style:normal;margin-top:18px}.method{background:#f5f5f5;padding:70px 0}.simple-example{margin:30px 0;background:#fff;border:1px solid #d5d5d5;padding:28px 32px}.simple-example p+p{padding-top:24px;border-top:1px solid var(--line)}.bridge{padding:70px 0}.course{padding:80px 0 88px;border-top:8px solid #252525}.course>.reading>.eyebrow{text-align:center;color:#555}.course>.reading>h2{text-align:center;margin-bottom:48px}.outcomes{margin:0 0 60px}.outcomes article{padding:28px 0;border-bottom:1px solid var(--line)}.outcomes article:first-child{border-top:1px solid var(--line)}.outcomes h3{color:var(--ink)}.outcomes p{color:#454545;font-size:20px}
+.lesson-example{margin-top:48px;border:1px solid #b9b9b9;background:#fafafa;padding:38px;scroll-margin-top:90px}.lesson-example>h3{font-size:30px}.example-label{font-size:16px;line-height:1.7;color:#555;margin-top:20px;padding-bottom:24px;border-bottom:1px solid #ccc}.sample-stage{margin-top:30px}.sample-stage h4{background:#292929;color:#fff;padding:13px 18px;font-size:20px;margin-bottom:22px}.sample-question{border-left:3px solid var(--red);background:#fff;padding:20px 24px}.plan-example{margin:0;background:#fff;border-top:2px solid #333}.plan-example>div{display:grid;grid-template-columns:140px 1fr;border-bottom:1px solid #d0d0d0}.plan-example dt{padding:16px;background:#ededed;font-size:18px;font-weight:700}.plan-example dd{margin:0;padding:16px 20px;font-size:19px}.example-takeaway{margin-top:28px;padding-top:24px;border-top:1px solid #bbb}.mid-cta{margin:40px 0 70px;text-align:center}.mid-cta .button{margin-top:20px}
+.syllabus-head{margin-top:56px;padding:26px 0 20px;border-top:3px solid #252525}.syllabus-head h3{font-size:30px}.syllabus-head p{font-size:19px;color:#555}.lessons{border-top:1px solid #aaa}.lesson{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid #ccc}.lesson-no{font-size:26px;font-weight:800;color:var(--red);line-height:1.5}.lesson h3{font-size:23px;margin-bottom:10px}.lesson p{font-size:19px;line-height:1.85;color:#444}.practical{padding:36px;margin-top:55px;background:#f4f4f4;border-top:2px solid #333}.practical h3{font-size:27px}.practical p{font-size:19px}.practical p+p{padding-top:22px;border-top:1px solid #d3d3d3}
+#apply{margin-top:80px;padding-top:50px;border-top:3px solid var(--red)}#apply>h2,#apply>.eyebrow,#apply>p{text-align:center}.form-card{max-width:650px;margin:36px auto 0;padding:32px;border:1px solid #bdbdbd;background:#fafafa}.f-label{display:block;font-size:18px;font-weight:750;margin-bottom:10px}input[type=tel]{width:100%;min-width:0;background:white;color:#222;border:1px solid #888;border-radius:2px;padding:16px;font-size:20px}.agree-row{display:flex;align-items:flex-start;gap:12px;margin-top:20px;font-size:17px}.agree-row input{width:22px;height:22px;margin-top:4px;flex-shrink:0;accent-color:var(--red)}.agree-more{background:none;border:0;color:#555;text-decoration:underline;text-underline-offset:3px;font-size:16px;padding:10px 0;cursor:pointer}.agree-detail{display:none;padding:18px;background:#eee;font-size:16px;line-height:1.8}.agree-detail.open{display:block}.err{display:none;color:#ae201d;font-size:17px;margin-top:6px}.submit{width:100%;margin-top:20px}.submit:disabled{opacity:.65;cursor:wait}.form-note{font-size:16px;line-height:1.7;color:#555;margin-top:16px}.done{display:none}.em{font-size:32px;color:var(--red)}footer{background:#252525;color:#c2c2c2;padding:30px 0;font-size:15px;line-height:1.8}.skip{position:absolute;top:-100px}.skip:focus{top:8px;left:10px;padding:10px;background:white;z-index:20}
+@media(max-width:600px){html{scroll-padding-top:70px}body{font-size:19px;line-height:1.8}.wrap{padding:0 24px}header{padding:17px 0}.brand{font-size:26px}.brand span{font-size:14px}.course-nav a{padding:13px 5px;font-size:14px}.course-nav .nav-apply{flex:1.25}.hero{padding:48px 0 44px}.hero h1{font-size:39px}.hero h1 em{text-decoration-thickness:3px;text-underline-offset:8px}.hero .lead{font-size:19px;margin-top:28px}.hero-benefits{font-size:18px;margin-top:26px}.hero .button{width:100%;min-width:0}.button{font-size:18px}.hero .small{font-size:16px}section{padding:55px 0}h2{font-size:29px}.story h2,.method h2,.bridge h2{padding:18px 0}.customer-quote{margin:28px 0;padding:22px 20px}.customer-quote p{font-size:20px}.method,.bridge{padding:52px 0}.simple-example{padding:22px}.course{padding-top:52px}.course>.reading>.eyebrow{text-align:left;font-size:16px}.course>.reading>h2{text-align:left}.outcomes h3{font-size:23px}.outcomes p{font-size:19px}.outcomes{margin-bottom:38px}.lesson-example{padding:22px 18px;margin-left:-8px;margin-right:-8px}.lesson-example>h3{font-size:26px}.sample-stage h4{font-size:19px;padding:12px}.sample-question{padding:18px}.plan-example>div{grid-template-columns:1fr}.plan-example dt{padding:10px 14px}.plan-example dd{padding:14px;font-size:19px}.mid-cta{margin:30px 0 50px}.mid-cta .button{width:100%}.syllabus-head h3{font-size:27px}.lesson{grid-template-columns:32px 1fr;gap:14px;padding:25px 0}.lesson-no{font-size:23px}.lesson h3{font-size:22px}.practical{padding:24px 20px}.practical h3{font-size:25px}#apply{margin-top:55px;padding-top:40px}.form-card{padding:24px 18px;margin-left:-8px;margin-right:-8px}.agree-row{font-size:16px}footer{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.ai-role{padding:24px 0;border-top:1px solid var(--line);font-size:19px}.outcomes{margin-bottom:24px}</style>
 </head>
 <body>
-
-<!-- ═══ 블록 1 · 히어로 ═══ -->
-<header class="hero">
-  <div class="in">
-    <div class="eyebrow">부코드 · AI 주식투자 강의</div>
-    <h1>지금 하고 계신 건 <br>투자인가요, 도박인가요?</h1>
-    <p class="lead">급등주 사고, 좋다는 거 따라 사고, 감으로 팔고. <br>저도 그렇게 2, 3천을 잃었습니다.</p>
-    <p class="turn">이게 의지로는 잘 안 고쳐집니다. <br><b>고치는 방법부터, 아래에 무료로 정리해뒀습니다.</b></p>
-    <a class="btn" href="#form">무료 프롬프트 받고 시작하기<span class="small">사전대기 등록 시 카톡으로 보내드립니다</span></a>
-  </div>
+<a class="skip" href="#main">본문으로 바로가기</a>
+<header>
+<div class="wrap brand">부코드<span>AI 주식투자</span>
+</div>
 </header>
+<nav class="course-nav" aria-label="페이지 메뉴"><div class="nav-inner"><a href="#intro">수업 소개</a><a href="#lesson-example">실습 예시</a><a href="#curriculum">커리큘럼</a></div></nav>
+<main id="main">
+<!-- 1. 문제와 수업의 약속 -->
+<section class="hero"><div class="wrap reading">
+<p class="eyebrow">부코드의 AI 주식투자 수업</p>
+<h1>무슨 종목을 볼지,<br><em>언제 사고팔지.</em><br>AI로 준비하세요.</h1>
+<p class="lead">종목을 찾는 데서 매매 계획까지.<br>부코드의 종목 검색 도구와 AI를<br>내 투자에 활용하는 방법을 배웁니다.</p>
+<ul class="hero-benefits"><li>관심 종목을 5개 안으로 추리고</li><li>얼마에 사고, 어떤 때 팔지 정하고</li><li>산 뒤에 무엇을 확인할지 배웁니다.</li></ul>
+<div class="cta"><a class="button" href="#form">사전 대기 신청하기 <span aria-hidden="true">↗</span></a><p class="small">모집 일정과 수강료를 받아본 뒤 결정하세요.</p><a class="example-link" href="#lesson-example">수업에서 만드는 결과물 보기 ↓</a></div>
+</div></section>
+<!-- 2. 실제 고객이 말한 해결되지 않은 문제 -->
+<section class="story" id="intro"><div class="wrap reading">
+<h2>추천은 받았는데,<br>떨어지면 어떻게 해야 할까요?</h2>
+<p>좋다는 설명을 듣고 관심 종목에 넣었습니다. 그런데 막상 사려니 가격이 부담스럽고, 사고 나서 떨어지면 팔아야 할지 더 사야 할지 막막합니다.</p>
+<blockquote class="customer-quote"><p>“종목선정, 매수시점, ai알려준 종목 매수후 급락시 이유와 향후 방향(손절, 추가매수 등)”</p><cite>수강생 설문 · AI로 해결하고 싶은 것에 대한 답변</cite></blockquote>
+<p><strong>종목 이름을 알아도, 내 상황에 맞는 대응까지 정해지는 건 아닙니다.</strong> 수강생 45명 중 21명도 AI 분석을 실제 투자 실행으로 연결하는 일을 어려움으로 꼽았습니다.</p>
+<p class="small">2026년 9월 설문 · 테스트 응답 제외 · 단일 선택 문항</p>
+</div></section>
+<!-- 3. 구매 없이도 이해할 수 있는 구체적 방법 -->
+<section class="method"><div class="wrap reading">
+<h2>AI 답변에서<br>이 두 가지부터 나눠보세요.</h2>
+<p>AI가 “실적이 좋아질 회사”라고 설명한다면, <strong>이미 발표된 사실인지, 앞으로의 예상인지</strong> 구분해보세요.</p>
+<div class="simple-example"><p><strong>“매출이 늘었다”</strong><br>어느 기간의 매출인지, 회사가 발표한 숫자와 맞는지 확인합니다.</p><p><strong>“앞으로 매출이 늘 것이다”</strong><br>무엇을 근거로 예상했는지 묻습니다. 확인할 자료가 없다면 ‘아직 확인하지 못한 내용’으로 남깁니다.</p></div>
+<p>이렇게 나누면 AI가 좋다고 했다는 이유 대신, <strong>무엇을 더 확인한 뒤 판단할지</strong>가 생깁니다.</p>
+</div></section>
+<!-- 4. 방법을 실제로 적용할 때 남는 한계 -->
+<section class="bridge"><div class="wrap reading">
+<h2>그 확인을,<br>내 종목에 적용하는 수업입니다.</h2>
+<p>하지만 확인할 종목부터 못 골랐다면 검색 조건이 필요합니다. 자료가 맞더라도 얼마에, 얼마나 살지는 내 투자 기간과 감당할 손실을 함께 봐야 합니다.</p>
+<p><strong>그래서 종목 검색, AI 질문, 매매 계획을 하나의 실습으로 연결했습니다.</strong> 도구마다 따로 배우고 끝내지 않고, 앞에서 찾은 종목을 다음 단계에서 계속 살펴봅니다.</p>
+</div></section>
+<!-- 5. 한계와 연결되는 수업 내용 -->
+<section class="course"><div class="wrap reading">
 
-<!-- ═══ ② 잘못된 해결의 말로 ═══ -->
-<section class="sec-white">
-  <div class="inner">
-    <div class="sec-head">
-      <h2>그래서 다들 이렇게 <br>해결하려다, 더 물립니다</h2>
-    </div>
-    <div class="voice" style="margin-top:0">
-      <div class="v" style="color:var(--text)">"내일 상한가 종목 공개"</div>
-      <div class="v" style="color:var(--text)">"비공개 내부 정보인데.."</div>
-      <div class="v" style="color:var(--text)">"지인 추천인데 대박"</div>
-    </div>
-    <div class="article" style="margin-top:36px">
-      <p>유튜버, 리딩방, 지인 추천. <br>남의 확신에 내 돈을 걸고, <br><b>결과는 내 계좌만 책임집니다.</b></p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 밴드 · 내러티브 교체 ═══ -->
-<div class="band">
-  <div class="in">
-    <p class="t">듣고 그냥 사면 도박, <br>검증하고 사면 투자입니다.</p>
-    <p class="s">검증이 끝나는 순간, 그건 남의 판단이 아니라 <b>내 판단</b>입니다.</p>
-  </div>
+<p class="eyebrow">부코드 종목 검색 도구 + AI 활용 + 매매 실습</p>
+<h2>종목을 고를 때도,<br>사고팔 때도, 산 뒤에도.</h2>
+<div class="outcomes">
+<article><h3>어떤 종목부터 봐야 할지 알도록.</h3><p>부코드의 종목 검색 도구로 조건에 맞는 후보를 최대 5개로 추립니다. 검색 조건의 뜻과 종목을 고른 이유를 함께 익힙니다.</p></article>
+<article><h3>얼마에 사고, 어떤 때 팔지 정하도록.</h3><p>AI와 함께 실적·주가 흐름·매매 동향을 살핀 뒤, 내 투자 기간과 금액에 맞춰 살 가격과 수량, 팔 조건을 정리합니다. 조건이 맞지 않을 때는 기다리는 이유도 남깁니다.</p></article>
+<article><h3>산 뒤에 떨어져도, 무엇부터 볼지 알도록.</h3><p>새로운 뉴스와 가격 변화를 처음 산 이유와 비교합니다. 매도하거나 더 살지 고민될 때 다시 확인할 내용을 정하고, 모의투자로 그 과정을 연습합니다.</p></article>
+</div>
+<p class="ai-role"><strong>이 과정에서 AI는 자료를 정리하고 확인할 질문을 만드는 데 활용합니다.</strong> 첫 수업에서 질문하는 방법부터 배우고, 답변의 출처와 숫자를 확인해 내 판단에 활용합니다.</p>
+<div id="lesson-example" class="lesson-example">
+<h3>설명을 듣고 나면, 무엇이 남을까요?</h3>
+<p>아래는 한 종목을 확인한 뒤 <strong>‘추가 확인 전에는 매수하지 않는다’</strong>고 결정한 기록의 예입니다. 매수뿐 아니라 기다리는 이유도 분명하게 남기는 연습입니다.</p>
+<p class="example-label">이해를 돕기 위해 작성한 가상 학습 예시입니다. 실제 도구 실행 결과나 수강생 성과가 아닙니다.</p>
+<div class="sample-stage"><h4>1. 검색 결과에서 관심 종목 선택</h4><p><strong>A기업을 살펴볼 이유</strong><br>가상 상황에서 실적 개선을 확인해보고 싶은 후보로 골랐습니다. 검색 목록에 나왔다는 것만으로 매수하지는 않습니다.</p></div>
+<div class="sample-stage"><h4>2. 자료를 넣고 AI에 확인할 내용 질문</h4><p class="sample-question">“이 자료에서 확인되는 실적 변화와 앞으로의 예상을 나눠줘. 각 내용의 출처와 기준 날짜를 적고, 자료로 확인할 수 없는 부분은 따로 표시해줘.”</p><p><strong>답변을 받고 확인한 내용</strong><br>설명에 인용된 실적이 이전 분기 자료였습니다. 최신 발표에서도 개선이 이어졌는지는 아직 확인하지 못했습니다.</p></div>
+<div class="sample-stage"><h4>3. 내 판단을 한 장에 정리</h4>
+<dl class="plan-example"><div><dt>현재 결정</dt><dd>매수 보류. 지금 주문할 수량은 0주.</dd></div><div><dt>다시 볼 때</dt><dd>최신 실적 발표 자료를 확인한 뒤.</dd></div><div><dt>그때 확인할 것</dt><dd>실적 개선이 이어졌는지, 현재 가격에서도 살 이유가 있는지.</dd></div><div><dt>매수 전 정할 것</dt><dd>살 가격과 조건, 감당할 손실, 투자할 수량. 정하지 못하면 계속 보류.</dd></div><div><dt>계획을 바꿀 때</dt><dd>기대한 실적 개선이 확인되지 않으면 매수 검토 이유부터 다시 살펴보기.</dd></div></dl>
+</div>
+<p class="example-takeaway">“좋다니까 살까?”에서<br><strong>“이 내용을 확인하기 전에는 기다리겠다”</strong>로.<br>수업에서는 이렇게 판단의 이유를 남기는 방법을 익힙니다.</p>
 </div>
 
-<!-- ═══ ③ 무료 해결책 ═══ -->
-<section>
-  <div class="inner">
-    <div class="sec-head">
-      <h2>사기 전에, <br>이 다섯 가지만 확인해보세요</h2>
-      <p class="desc">강의를 안 들어도 됩니다. <br>오늘부터 그냥 쓰시면 되는 기준입니다.</p>
-    </div>
-
-    <div class="klist">
-      <div class="kitem"><span class="kt">수익성</span><span>이 회사는 실제로 돈을 벌고 있는가</span></div>
-      <div class="kitem"><span class="kt">안정성</span><span>빚이 감당 가능한 수준인가</span></div>
-      <div class="kitem"><span class="kt">성장성</span><span>이익이 늘고 있는가, 줄고 있는가</span></div>
-      <div class="kitem"><span class="kt">기업가치</span><span>지금 가격이 이 회사의 과거와 비교해 싼가, 비싼가</span></div>
-      <div class="kitem"><span class="kt">리스크</span><span>최근 공시에 유상증자·전환사채 같은 신호는 없는가</span></div>
-    </div>
-
-    <div class="article" style="margin-top:36px">
-      <p>이 다섯 항목을 AI가 10점 만점으로 채점해주는 <b>무료 프롬프트</b>를 만들어뒀습니다. <br>아래에 연락처를 남기시면 카톡으로 바로 보내드립니다.</p>
-    </div>
-    <a class="btn" href="#form">무료 프롬프트 받기<span class="small">무료이고, 결제 의무가 없습니다</span></a>
-  </div>
-</section>
-
-<!-- ═══ ④ 무료 해결책의 한계 ═══ -->
-<section class="dark-sec">
-  <div class="inner">
-    <div class="sec-head">
-      <h2>그런데 이 방법에는 <br>한계가 있습니다</h2>
-    </div>
-    <div class="article">
-      <p class="lede">방법이 틀린 게 아닙니다. 매번 하는 게 힘든 겁니다.</p>
-    </div>
-    <div class="klist">
-      <div class="kitem"><span class="kt">시간</span><span>다섯 항목을 직접 확인하면 종목 하나에 두 시간. 관심종목 열 개면 스무 시간입니다</span></div>
-      <div class="kitem"><span class="kt">데이터</span><span>프롬프트를 써도 재무 데이터를 매번 복사해 넣어야 하고, AI는 없는 숫자를 지어내기도 합니다. 특히 중소형주가 심합니다</span></div>
-      <div class="kitem"><span class="kt">지속</span><span>그리고 혼자서는 한 달을 못 갑니다. 본업 하면서 이걸 매일 할 수 있는 사람은 없습니다</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 상품 설명 (이미지 5장, 순서대로) ═══ -->
-<section class="sec-white" id="product" style="padding-bottom:0">
-  <div class="inner">
-    <div class="sec-head">
-      <h2>그래서 이 과정 전부를 <br>30초 자동 시스템으로 만들었습니다</h2>
-      <p class="desc">종목명 하나면 재무·차트·뉴스까지 검증이 끝나고, <br>수강생 200여 명과 같은 기준으로 함께 갑니다.</p>
-    </div>
-    <p class="sr-only">강의 구성 요약: 1. AI 기업 분석 시스템, 종목명 하나로 재무·차트·뉴스·실시간 데이터를 통합 분석. 2. AI 종목 선별 시스템, 전문가 매매법을 학습해 조건검색식으로 자동 선별. 3. 카톡 AI 뉴스 분석 봇, 뉴스와 유튜브를 핵심 요약. 4. AI ETF 분석 시스템, 성향에 맞는 노후 포트폴리오 구성. 5. AI 도구별 핵심 사용법과 수강생 전용 시크릿방.</p>
-    <figure class="slot tight"><img src="img/sales/mo_p1.jpg" alt="" width="860" height="2800" loading="lazy"></figure>
-    <figure class="slot tight"><img src="img/sales/mo_p2.jpg" alt="" width="860" height="2889" loading="lazy"></figure>
-    <figure class="slot tight"><img src="img/sales/mo_p3.jpg" alt="" width="860" height="2867" loading="lazy"></figure>
-    <figure class="slot tight"><img src="img/sales/mo_p4.jpg" alt="" width="860" height="3847" loading="lazy"></figure>
-    <figure class="slot tight"><img src="img/sales/mo_p5.jpg" alt="" width="855" height="2764" loading="lazy"></figure>
-
-    <a class="btn" href="#form" style="margin-bottom:64px">사전대기 남기기<span class="small">무료이고, 결제 의무가 없습니다</span></a>
-  </div>
-</section>
-
-<!-- ═══ 블록 9 · 후기 ═══ -->
-<section class="sec-white">
-  <div class="inner">
-    <div class="sec-head">
-      <h2>"저만 이런 게 <br>아니었네요"</h2>
-      <p class="desc">수강생의 절반 이상이 40대와 50대 직장인입니다. <br><b style="color:var(--text)">우리 같은 사람들은, 이제 검증하고 삽니다.</b></p>
-    </div>
-    <div class="score-wrap">
-      <div class="stars">★★★★★</div>
-      <div class="score">4.7<span> / 5.0</span></div>
-      <div class="score-meta">후기 <b>58개</b> · 1~3점 <b>0개</b></div>
-    </div>
-
-    <div class="rv-list">
-          <div class="rv-card">
-            <div class="q">“</div>
-            <div class="tt">휘둘리지 않고 데이터로<br>투자하고 싶었습니다</div>
-            <div class="bd">지금까지 AI를 써왔지만 이렇게 디테일한 과정이 있는 것도 처음 알았고, 여태 내가 사용한 활용력은 5%도 안 될 것 같은 느낌이 들었습니다. 엄청난 투자 무기가 될 것이라는 확신이 생겼습니다.</div>
-            <div class="who"><span class="nm">여섯시십분 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
-          </div>
-          <div class="rv-card">
-            <div class="q">“</div>
-            <div class="tt">자료를 찾고 정리하는 과정이<br>늘 어려웠습니다</div>
-            <div class="bd">뉴스도 많고, 재무제표도 봐야 하고, 산업 흐름까지 확인해야 하다 보니 혼자서는 어디서부터 시작해야 할지 막막할 때가 많았습니다. 이번 강의를 들으면서 AI를 단순히 질문하는 용도가 아니라 판단을 정리해주는 도구로 쓸 수 있다는 걸 알았습니다.</div>
-            <div class="who"><span class="nm">지웅군 · 40대 남성</span><span class="st">★★★★★ 5.0</span></div>
-          </div>
-          <div class="rv-card">
-            <div class="q">“</div>
-            <div class="tt">독학하다 포기했던 50대,<br>AI의 신세계를 맛봤습니다</div>
-            <div class="bd">책도 사보고 유튜브도 봤지만 그때뿐이지 활용할 수가 없었어요. 어떤 질문을 하느냐에 따라 답이 달라지는 AI에게 질문하고 답하며 공부하려 하니 막막했는데, 이 강의로 정말 AI의 신세계를 맛봤습니다.</div>
-            <div class="who"><span class="nm">나시문 · 50대 여성</span><span class="st">★★★★★ 5.0</span></div>
-          </div>
-          <div class="rv-card">
-            <div class="q">“</div>
-            <div class="tt">주린이 중의 주린이였습니다</div>
-            <div class="bd">국내 주식장에 언제 들어가야 되는지도 잘 모르겠었던 주린이 중에 주린이였습니다. AI로 그 복잡한 재무제표나 인터넷 뉴스들을 혼자서 분석하지 않아도 된다는 걸 알고나서 크게 놀랐습니다.</div>
-            <div class="who"><span class="nm">방울토마토마토</span><span class="st">★★★★☆ 4.0</span></div>
-          </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 블록 10 · 신청 ═══ -->
-<section class="sec-white" id="apply">
-  <div class="inner">
-    <div class="sec-head">
-      <h2 style="font-size:var(--fs-sub)">이번 기수는 <span class="y">소수 인원만</span> 받습니다</h2>
-      <p class="desc">제가 직접 봐드리는 기수라서요. <br>자리가 차면 모집은 그대로 닫히고, <br>사전대기를 남겨두신 분들께 <b style="color:var(--text)">등록 순서대로</b> 먼저 안내드립니다.</p>
-    </div>
-
-    <div class="article" style="margin-bottom:36px">
-      <p>다만, <b>종목을 찍어드리지 않고 수익을 보장하지 않습니다.</b> <br>이미 자기 검증 체계로 잘 버는 분, 한 달 안에 수익부터 바라는 분, 매일 단타로 승부 보는 분께는 맞지 않습니다. <br>반대로 이번엔 <b>내 판단으로 사고 싶은 분</b>을 위해 만들었습니다.</p>
-    </div>
-
-    <div class="klist" style="margin-bottom:16px">
-      <div class="kitem"><span class="kt">구성</span><span>4주 커리큘럼, 주 1회 VOD, 막히는 부분은 제가 직접 피드백</span></div>
-      <div class="kitem"><span class="kt">도구</span><span>AI 재무분석 도구 영구 사용권. 따로 갖추면 연 96만원어치입니다</span></div>
-      <div class="kitem"><span class="kt">시크릿방</span><span>수강생만 입장하는 비공개 방. 외부에 공개되지 않는 AI 시장분석을 매일 받습니다</span></div>
-      <div class="kitem"><span class="kt">수강료</span><span>이번 기수 29만원. 다음 기수부터는 39만원입니다</span></div>
-    </div>
-
-    <div class="klist" style="margin-bottom:40px">
-      <div class="kitem"><span class="kt">무료</span><span>사전대기는 무료입니다. 오늘 남기시는 건 연락처 하나뿐입니다</span></div>
-      <div class="kitem"><span class="kt">의무 없음</span><span>모집이 열려도, 등록할지는 그때 정하시면 됩니다</span></div>
-      <div class="kitem"><span class="kt">환불 보장</span><span>수강을 시작해도 7일 안에는 100% 환불됩니다</span></div>
-    </div>
-
+<div class="syllabus-head" id="curriculum"><h3>수업은 이 순서로 진행합니다.</h3><p>처음 AI에 질문하는 것부터, 내 계획을 연습하는 것까지 이어집니다.</p></div>
+<div class="lessons"><article class="lesson"><span class="lesson-no">01</span><div><h3>AI에게 무엇부터 물어볼까요?</h3><p>관심 종목 하나로 시작합니다. 필요한 자료를 넣어 질문하고, 답변의 출처와 날짜가 맞는지 확인합니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">02</span><div><h3>지금 내 계좌부터 살펴봅니다.</h3><p>왜 샀는지, 한 종목에 너무 많이 넣지는 않았는지 정리합니다. 짧게 투자할지, 오래 보유할지에 따라 살펴볼 내용도 구분합니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">03</span><div><h3>이 뉴스와 관련 있는 종목을 찾습니다.</h3><p>뉴스가 어떤 업종과 회사에 영향을 주는지 AI와 함께 살펴보고, 더 알아볼 종목을 고릅니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">04</span><div><h3>조건에 맞는 종목을 5개 안으로 추립니다.</h3><p>부코드의 종목 검색 도구인 스크리너를 사용합니다. 검색 조건의 뜻을 배우고, 결과에 나온 종목을 왜 살펴봐야 하는지 확인합니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">05</span><div><h3>좋다는 말이 사실인지 확인합니다.</h3><p>회사의 실적, 주가 흐름, 거래량과 매매 동향을 살펴봅니다. AI 설명 중 사실과 추정을 구분하고, 사면 안 되는 이유도 찾습니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">06</span><div><h3>얼마에, 몇 주를 살지 적어봅니다.</h3><p>내 투자 기간과 감당할 손실을 고려해 살 가격과 조건, 팔 조건, 투자할 수량을 정리합니다. 조건이 맞지 않으면 기다리는 계획도 세웁니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">07</span><div><h3>산 뒤에 떨어지면 무엇부터 볼까요?</h3><p>새로운 뉴스와 가격 변화를 처음 산 이유와 비교합니다. 계속 보유할지 다시 판단하기 위해 무엇을 확인할지 정합니다.</p></div></article>
+<article class="lesson"><span class="lesson-no">08</span><div><h3>실제 돈을 넣기 전에 30일간 연습합니다.</h3><p>모의투자로 계획을 적용해보고, 왜 샀는지 또는 왜 기다렸는지 기록합니다. 계획과 실제 행동을 비교해 다음에 고칠 점을 찾습니다.</p></div></article></div>
+<div class="practical"><h3>내가 따라갈 수 있을지 궁금하다면</h3><p><strong>AI가 익숙하지 않다면</strong><br>첫 단계에서 필요한 자료를 넣어 질문하고 답변을 확인하는 것부터 시작합니다.</p><p><strong>이미 보유한 주식이 있다면</strong><br>내 종목을 산 이유와 투자 비중을 점검하고 수업에 적용할 수 있습니다. 보유 종목이 없다면 예시 종목으로 시작합니다.</p><p><strong>실제 돈을 넣기가 부담된다면</strong><br>30일 모의투자로 매수·매도와 기다리는 결정을 연습합니다. 계획과 실제 행동을 비교한 뒤 고칠 점을 찾습니다.</p></div>
+<div id="apply"><p class="eyebrow">부코드 AI 주식투자</p><h2>종목을 찾는 것부터<br>내 매매 계획까지 배우고 싶다면.</h2><p>수업 일정과 수강료를 받아보세요.<br>안내를 확인한 뒤 수강 여부를 결정하시면 됩니다.</p>
     <div class="form-card" id="form">
       <div id="formBody">
         <label class="f-label" for="phone">연락처</label>
@@ -884,7 +103,8 @@
         <div class="err" id="phoneErr" role="alert">연락처를 정확히 입력해주세요 (예: 010-1234-5678)</div>
         <label class="agree-row">
           <input type="checkbox" id="agree">
-          <span><b>개인정보 수집·이용 동의</b> (필수)</span>
+          <span>
+<b>개인정보 수집·이용 동의</b> (필수)</span>
         </label>
         <button type="button" class="agree-more" id="agreeMore">자세히 보기</button>
         <div class="agree-detail" id="agreeDetail">
@@ -894,25 +114,22 @@
           4. 동의를 거부할 권리가 있으며, 비동의 시 신청이 접수되지 않습니다.
         </div>
         <div class="err" id="agreeErr" role="alert">개인정보 수집 동의에 체크해주세요</div>
-        <button class="submit" id="submitBtn">사전대기 신청하기</button>
+        <button class="submit" id="submitBtn">사전 대기 신청하기</button>
         <div class="err" id="sendErr" role="alert" style="margin-top:12px">전송이 되지 않았습니다. 인터넷 연결을 확인하고 다시 눌러주세요</div>
-        <p class="form-note">*사전대기는 무료이며, 결제 의무가 없습니다</p>
+        <p class="form-note">사전 대기 신청입니다. 수강료와 일정을 확인한 뒤 수강 여부를 결정하세요.</p>
       </div>
       <div class="done" id="formMsg" role="status">
         <div class="em">✓</div>
-        <h3>사전대기 신청이 접수됐습니다</h3>
-        <p>곧 카톡으로 <b>무료 프롬프트</b>와 대기 순번을 보내드립니다. <br>모집이 열리면 <b>등록 순서대로</b> 가장 먼저 안내드립니다.</p>
+        <h3>신청 정보를 전송했습니다</h3>
+        <p>강의 모집 일정과 수강 안내를 입력하신 연락처로 보내드립니다.</p>
+
       </div>
     </div>
-  </div>
-</section>
 
+</div></div></section></main>
 <footer>
-  부코드 AI 주식투자 강의 · 사전대기 안내 페이지 <br>
-  본 페이지는 투자 권유가 아니며, 투자의 책임은 투자자 본인에게 있습니다.
-</footer>
-
-<script>
+<div class="wrap">부코드 · AI 주식투자 실전 과정<br>교육 목적의 정보이며, 투자 판단과 책임은 본인에게 있습니다.</div>
+</footer><script>
 (function () {
   /* ── GA4 (측정 ID를 넣으면 활성화. 비어 있으면 아무것도 로드하지 않음) ── */
   var GA_ID = "";
@@ -991,70 +208,11 @@
     // reject는 전송 자체가 실패했다는 뜻이므로 완료 처리하면 안 된다)
     function fail() {
       btn.disabled = false;
-      btn.textContent = "사전대기 신청하기";
+      btn.textContent = "사전 대기 신청하기";
       sendErr.style.display = "block";
       track("form_send_fail");
     }
   });
-
-  /* ── 커밋먼트 셀프체크 ── */
-  var scMsg = document.getElementById("scMsg");
-  document.querySelectorAll(".scbox").forEach(function (box) {
-    box.addEventListener("change", function () {
-      box.closest(".sc-item").classList.toggle("on", box.checked);
-      var n = document.querySelectorAll(".scbox:checked").length;
-      if (n >= 3) {
-        scMsg.textContent = "그렇다면 더 미룰 이유가 없습니다.";
-        scMsg.classList.add("hot");
-      } else if (n === 2) {
-        scMsg.textContent = "많이 겪어보셨네요. 아래에 연락처만 남겨주세요.";
-        scMsg.classList.add("hot");
-      } else if (n === 1) {
-        scMsg.textContent = "그러시군요. 아래에 연락처만 남겨주세요.";
-        scMsg.classList.add("hot");
-      } else {
-        scMsg.textContent = "해당된다면, 아래에 연락처만 남겨주세요.";
-        scMsg.classList.remove("hot");
-      }
-    });
-  });
-
-  /* ── 스크롤 리빌 ── */
-  try {
-    var rvEls = document.querySelectorAll(".pitem,.alt,.sol,.lim,.s4,.chat,.offer,.selfcheck,.form-card,.shot,.slot,.voice,.ptable,.pricebox,.score-wrap");
-    if ("IntersectionObserver" in window) {
-      rvEls.forEach(function (el) { el.classList.add("rv"); });
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12 });
-      rvEls.forEach(function (el) { io.observe(el); });
-      setTimeout(function () {
-        if (document.querySelectorAll(".rv.in").length === 0) {
-          rvEls.forEach(function (el) { el.classList.add("in"); });
-        }
-      }, 2500);
-    }
-  } catch (e) {}
-
-  /* ── 상단 내비 현재 위치 표시 ──
-     IO 방식은 두 항목이 동시에 켜지는 경계 사례가 있어, 스크롤 위치 기준으로
-     "지나온 섹션 중 가장 마지막" 하나만 켠다. */
-  try {
-    var navLinks = [].slice.call(document.querySelectorAll(".topnav a"));
-    var navTargets = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
-    function navSync() {
-      var line = window.scrollY + window.innerHeight * 0.42;
-      var active = -1;
-      navTargets.forEach(function (t, i) {
-        if (t && t.offsetTop <= line) active = i;
-      });
-      navLinks.forEach(function (a, i) { a.classList.toggle("on", i === active); });
-    }
-    window.addEventListener("scroll", navSync, { passive: true });
-    navSync();
-  } catch (e) {}
 
   /* ── 스크롤 깊이 계측 ── */
   var depthHit = {};
@@ -1069,7 +227,7 @@
   }, { passive: true });
 
   /* ── CTA 클릭 계측 ── */
-  document.querySelectorAll('a[href="#apply"]').forEach(function (a) {
+  document.querySelectorAll('a[href="#form"]').forEach(function (a) {
     a.addEventListener("click", function () {
       track("cta_click", { location: a.closest(".sticky") ? "sticky" : (a.closest(".topnav") ? "nav" : "section") });
     });
@@ -1077,5 +235,4 @@
 
 })();
 </script>
-</body>
-</html>
+</body></html>
